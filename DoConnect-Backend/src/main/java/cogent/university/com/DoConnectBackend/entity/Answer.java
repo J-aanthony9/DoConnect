@@ -29,8 +29,9 @@ public class Answer {
 	
 	//@ManyToOne
 	//private Question question;
-	
+
 	//@OneToOne
+
 	private String approved_by;
 	
 	//@OneToOne
