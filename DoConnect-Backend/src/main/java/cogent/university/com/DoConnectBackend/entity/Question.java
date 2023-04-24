@@ -2,6 +2,18 @@ package cogent.university.com.DoConnectBackend.entity;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Table(name = "question_tbl")
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class Question {
 
 	private int id;
