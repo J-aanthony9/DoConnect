@@ -26,7 +26,7 @@ public class Answer {
 	private String datetime;
 	
 	//@ManyToOne
-	private Question question;
+	//private Question question;
 	// @OneToOne
 	private String approved_by;
 	// @OneToOne

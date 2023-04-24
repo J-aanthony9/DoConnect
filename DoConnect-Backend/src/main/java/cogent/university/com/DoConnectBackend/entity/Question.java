@@ -31,7 +31,7 @@ public class Question {
 	
 	//@OneToMany(mappedBy = "question", fetch=FetchType.EAGER)
 	//@JsonIgnore
-	private List<Answer> answers;
+	//private List<Answer> answers;
 	
 	// @OneToOne
 	private String qcreated_by;
