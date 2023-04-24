@@ -13,14 +13,14 @@ git pull origin main
 git pull
 
 ## AFTER ADDITIONS TO PROJECT, CREATE A NEW BRANCH
-git checkout -b <branchname>
-git add .
-git status
-git commit -m <message>
-git push
+- git checkout -b <branchname>
+- git add .
+- git status
+- git commit -m <message>
+- git push
 
 
-# AFTER PUSHING, GO TO GITHUB REPO AND CREATE PULL REQUEST & MERGE
-# ONCE MERGED, YOU MAY DELETE BRANCH IF YOU CHOOSE
+## AFTER PUSHING, GO TO GITHUB REPO AND CREATE PULL REQUEST & MERGE
+## ONCE MERGED, YOU MAY DELETE BRANCH IF YOU CHOOSE
 
 
