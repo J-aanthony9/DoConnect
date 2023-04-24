@@ -14,13 +14,19 @@ git pull
 
 #### AFTER ADDITIONS TO PROJECT, CREATE A NEW BRANCH
 - git checkout -b <branchname>
+- git status
 - git add .
 - git status
 - git commit -m <message>
+
+#### IF NO BRANCH SET UP YET
+- git push --set-upstream origin <branchname>
+
+####IF BRANCH IS ALREADY SET UP
 - git push
 
 
 #### AFTER PUSHING, GO TO GITHUB REPO AND CREATE PULL REQUEST & MERGE
-#### ONCE MERGED, YOU MAY DELETE BRANCH IF YOU CHOOSE
+#### ONCE MERGED, YOU MAY DELETE BRANCH (BETTER TO DO AT END OF DAY)
 
 
