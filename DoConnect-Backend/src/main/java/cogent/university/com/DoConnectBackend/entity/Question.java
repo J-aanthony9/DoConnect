@@ -3,10 +3,15 @@ package cogent.university.com.DoConnectBackend.entity;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -31,12 +36,12 @@ public class Question {
 	
 	//@OneToMany(mappedBy = "question", fetch=FetchType.EAGER)
 	//@JsonIgnore
-	private List<Answer> answers;
+	//private List<Answer> answers;
 	
-	// @OneToOne
+	//@OneToOne
 	private String qcreated_by;
-	//
-	// @OneToOne
+	
+	//@OneToOne
 	private String qapproved_by;
 	
 	
