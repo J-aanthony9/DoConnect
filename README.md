@@ -22,7 +22,7 @@ git pull
 #### IF NO BRANCH SET UP YET
 - git push --set-upstream origin <branchname>
 
-####IF BRANCH IS ALREADY SET UP
+#### IF BRANCH IS ALREADY SET UP
 - git push
 
 
