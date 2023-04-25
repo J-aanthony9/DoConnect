@@ -11,5 +11,5 @@ import cogent.university.com.DoConnectBackend.entity.Question;
 public interface AnswerRepository extends JpaRepository<Answer, Long> {
 
 	List<Answer> findBystatus(String status);
-	List<Answer> findByQuestion(Question q);
+	//List<Answer> findByQuestion(Question q);
 }
