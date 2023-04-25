@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { environment } from 'src/environments/environment.development';
-import { Answer } from './models/answer.model';
+import { Answer } from '../models/answer.model';
 
 @Injectable({
   providedIn: 'root'
@@ -39,7 +39,7 @@ export class AnswerService {
   }
 
   getAnswerbyQuestionID(id: any): Observable<Answer> {
-    return this.http.get(`${this.base_url}/getAnswersbyQuestionID/{id}`);
+    return this.http.get(`${this.base_url}/question/{id}`);
   }
 
 }
