@@ -7,12 +7,14 @@ import { UserComponent } from './components/user/user.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ChatComponent } from './components/chat/chat.component';
+import { AnswerComponent } from './components/answer/answer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
-    ChatComponent
+    ChatComponent,
+    AnswerComponent
   ],
   imports: [
     BrowserModule,
