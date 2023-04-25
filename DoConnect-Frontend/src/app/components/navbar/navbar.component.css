@@ -11,5 +11,18 @@
 .mat-primary .mat-success{
     background-color: #FDB927;
     color:black;
+    margin-right:11px;
 }
+
+.mat-primary #login{
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.mat-primary #signup{
+    padding-left: 27px;
+    padding-right: 27px;
+}
+
+
 

@@ -17,25 +17,30 @@
                                 <form #frm="ngForm">
                                     <div class="mb-3">
                                         <label class="form-label">Name</label>
-                                        <input class="form-control form-control-lg" type="name" name="name"
-                                            placeholder="Enter your email" required />
+                                        <input class="form-control form-control-lg" [(ngModel)] = "user.name" type="text" name="name"
+                                            placeholder="Enter your name" required />
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label">Username</label>
+                                        <input class="form-control form-control-lg" type="text" [(ngModel)] = "user.username" name="username"
+                                            placeholder="Enter your username" required />
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Password</label>
-                                        <input class="form-control form-control-lg" type="password" name="password"
+                                        <input class="form-control form-control-lg" type="password" [(ngModel)] = "user.password" name="password"
                                             placeholder="Enter your password"  required />
                                     </div>
 
 
                                     <div class="mb-3">
                                         <label class="form-label">Email</label>
-                                        <input class="form-control form-control-lg" type="email" name="email"
+                                        <input class="form-control form-control-lg" type="email" [(ngModel)] = "user.email" name="email"
                                             placeholder="Enter your email" required />
                                     </div>
 
                                     <div class="text-center mt-3">
-
-                                        <button type="submit" id="signupbutton" class="btn btn-lg btn-primary">Sign Up</button>
+                                        <button type="submit" id="signupbutton" (click) = "signUpUser()" class="btn btn-lg btn-primary">Sign Up</button>
                                     </div>
                                 </form>
                             </div>
