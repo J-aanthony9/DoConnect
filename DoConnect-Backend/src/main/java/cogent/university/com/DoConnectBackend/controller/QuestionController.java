@@ -26,44 +26,45 @@ public class QuestionController {
 	private QuestionServiceImpl qs;
 	
 	@PostMapping("/addquestion")
-	public void AddQuestion(@RequestBody Question question) {
+	public void addQuestion(@RequestBody Question question) {
 		
-		qs.AddQuestion(question);
+		qs.addQuestion(question);
 	}
 	
-	@PutMapping("/updatequestion")
-	public Question UpdateQuestion(@RequestBody Question question) {
+	@PutMapping("/updatequestion/{id}")
+	public Question updateQuestion(@RequestBody Question question,
+								   @PathVariable Long id) {
 		
-		return qs.UpdateQuestion(question);
+		return qs.updateQuestion(question, id);
 	}
 	
 	@DeleteMapping("/deletequestionbyid/{id}")
-	 public void DeleteQuestionbyId(@PathVariable long id) {
+	 public void deleteQuestionbyId(@PathVariable long id) {
 		 
-		qs.DeleteQuestionbyId(id);
+		qs.deleteQuestionbyId(id);
 	 }
 	
 	@GetMapping("/getallquestion")
-	public List<Question> GetAllQuestion(){
+	public List<Question> getAllQuestion(){
 		
-		return qs.GetAllQuestion();
+		return qs.getAllQuestion();
 	}
 	
 	@GetMapping("/getallquestionFalse")
-	public List<Question> GetAllQuestionFalse(){
+	public List<Question> getAllQuestionFalse(){
 		
-		return qs.GetAllQuestionFalse();
+		return qs.getAllQuestionFalse();
 	}
 	
 	@GetMapping("/getQuestionbytopic")
-	public List<Question> GetQuestionbyTopic(@RequestParam String topic) {
+	public List<Question> getQuestionByTopic(@RequestParam String topic) {
 		
-		return qs.GetQuestionByTopic(topic);
+		return qs.getQuestionByTopic(topic);
 	}
 	
-	@GetMapping("/getQuestionbyid/{id}")
-	public Question GetQuestionbyId(@PathVariable long id) {
+	@GetMapping("/getQuestionById/{id}")
+	public Question getQuestionById(@PathVariable long id) {
 		
-		return qs.GetQuestionbyId(id);
+		return qs.getQuestionById(id);
 	}
 }
