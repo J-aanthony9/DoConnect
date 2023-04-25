@@ -17,7 +17,7 @@ public class ChatController {
         return chatService.addMsg(chat);
     }
 
-    @DeleteMapping("/deleteChatById")
+    @DeleteMapping("/deleteChatById/{id}")
     public void deleteChatById(@PathVariable("id") int id){
         chatService.deleteChatById(id);
     }
