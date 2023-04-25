@@ -25,11 +25,6 @@ public class UserController {
     @Autowired
     private JwtUtil jwtUtil;
 
-    @GetMapping("/")
-    public String welcome(){
-        return "Welcome User";
-    }
-
     @PostMapping("/authenticate")
     public String generateToken(@RequestBody AuthRequest request) throws Exception{
         try{
