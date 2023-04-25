@@ -13,7 +13,6 @@ import { ChatComponent } from './components/chat/chat.component';
 import { AnswerComponent } from './components/answer/answer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +20,7 @@ import { LoginComponent } from './login/login.component';
     UserComponent,
     ChatComponent,
     AnswerComponent,
-    NavbarComponent,
-    LoginComponent
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
