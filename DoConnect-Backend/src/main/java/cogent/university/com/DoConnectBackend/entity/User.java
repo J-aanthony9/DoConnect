@@ -1,17 +1,10 @@
 package cogent.university.com.DoConnectBackend.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "user_tbl")
-@NoArgsConstructor
-@AllArgsConstructor
-@Data
 public class User {
 	
     @Id
@@ -22,4 +15,63 @@ public class User {
     private String password;
     private String email;
     private String usertype;
+
+    public User() {
+    }
+
+    public User(String name, String username, String password, String email, String usertype) {
+        this.name = name;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.usertype = usertype;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getUsertype() {
+        return usertype;
+    }
+
+    public void setUsertype(String usertype) {
+        this.usertype = usertype;
+    }
 }
