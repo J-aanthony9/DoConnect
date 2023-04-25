@@ -5,7 +5,12 @@
 
   <mat-icon>home</mat-icon>
   <a mat-button>Home</a>
-  <a mat-raised-button id="signup" color="success">Sign-Up</a>
+
+  <a mat-raised-button routerLink="/register"id="signup" color="success">Sign-Up</a>
+  <a mat-raised-button routerLink="/login" id="login" color="success">Login</a>
 
 
 </mat-toolbar>
+
+<router-outlet></router-outlet>
+
