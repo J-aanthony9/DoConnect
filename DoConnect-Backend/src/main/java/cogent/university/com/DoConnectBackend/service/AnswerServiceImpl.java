@@ -2,17 +2,22 @@ package cogent.university.com.DoConnectBackend.service;
 
 import cogent.university.com.DoConnectBackend.entity.Answer;
 import cogent.university.com.DoConnectBackend.repository.AnswerRepository;
+import cogent.university.com.DoConnectBackend.repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class AnswerServiceImpl implements AnswerService {
 
     @Autowired
     private AnswerRepository answerRepository;
+
+    @Autowired
+    private QuestionRepository questionRepository;
 
     // get all answer from repository
     @Override
@@ -67,11 +72,16 @@ public class AnswerServiceImpl implements AnswerService {
     }
 
     // returns list of answers that coincide with question id
-
     @Override
-    public List<Answer> getAnswersbyQuestionId(long id) {
-        // To be implemented
-        return null;
+    public List<Answer> getAnswersByQuestionId(long questionId) {
+        List<Answer> answers = answerRepository.findAll();
+        List<Answer> answerByQuestionId;
+
+        answerByQuestionId = answers.stream()
+                .filter(answer -> answer.getQuestion().getId() == questionId)
+                .collect(Collectors.toList());
+
+        return answerByQuestionId;
     }
 
 }
