@@ -1,19 +1,25 @@
 package cogent.university.com.DoConnectBackend.service;
 
-import java.util.List;
-
-
 import cogent.university.com.DoConnectBackend.entity.Question;
+
+import java.util.List;
 
 public interface QuestionService {
 
-	public Question AddQuestion(Question question);
-	public Question UpdateQuestion(Question question);
-	public void DeleteQuestionbyId(Long id);
-	public List<Question> GetAllQuestion();
-	public List<Question> GetAllQuestionFalse();
-	public List<Question> GetQuestionByTopic(String topic);
-	public Question GetQuestionbyId(Long id);
-	
-	
+    public Question addQuestion(Question question);
+
+    public Question updateQuestion(Question question, Long id);
+
+    public void deleteQuestionbyId(Long id);
+
+    public List<Question> getAllQuestion();
+
+    public List<Question> getAllQuestionFalse();
+
+    public List<Question> getQuestionByTopic(String topic);
+
+    public Question getQuestionById(Long id);
+
+
+    //retrieve list of all items
 }
