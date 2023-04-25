@@ -1,5 +1,6 @@
 package cogent.university.com.DoConnectBackend.controller;
 
+import java.nio.file.Path;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,10 +50,11 @@ public class AnswerController {
 		return asi.getbyId(id);
 	}
 	
-	@PutMapping("/updateanswer")
-	public void updateAnswer(@RequestBody Answer answer) {
+	@PutMapping("/updateanswer/{id}")
+	public void updateAnswer(@RequestBody Answer answer,
+							@PathVariable("id") Long id) {
 		
-		asi.updateAnswer(answer);
+		asi.updateAnswer(answer, id);
 	}
 	
 	@DeleteMapping("/deleteanswerbyid/{id}")

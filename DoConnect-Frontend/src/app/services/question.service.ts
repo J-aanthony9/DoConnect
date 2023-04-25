@@ -14,19 +14,31 @@ export class QuestionService {
   constructor(private http:HttpClient) { }
 
   createQuestion(data:any):Observable<any>{
-    return this.http.post(`${this.base_url}/quesiton/addquesiton`,data);
+    return this.http.post(`${this.base_url}/quesiton/addQuesiton`,data);
   }
 
   updateQuestion(data:any, id:any):Observable<any>{
-    return this.http.put(`${this.base_url}/question/updatequestion/{id}`,data);
+    return this.http.put(`${this.base_url}/question/updateQuestion/{id}`,data);
   }
 
   deleteQuestion(id:any):Observable<any>{
-    return this.http.delete(`${this.base_url}/question/deletequestiobyid/{id}`);
+    return this.http.delete(`${this.base_url}/question/deleteQuestioById/{id}`);
   }
 
   getAllQuestion():Observable<Question[]>{
-    return this.http.get<Question[]>(`${this.base_url}/question/getallquestion`);
+    return this.http.get<Question[]>(`${this.base_url}/question/getAllQuestion`);
+  }
+
+  getAllQuestionFalse():Observable<Question[]>{
+    return this.http.get<Question[]>(`${this.base_url}/question/getAllQuestionFalse`);
+  }
+
+  getQuestionTopic(topic:string):Observable<Question[]>{
+    return this.http.get<Question[]>(`${this.base_url}/question?topic=${topic}`)
+  }
+
+  getQuestionById(id:number):Observable<Question>{
+    return this.http.get<Question>(`${this.base_url}/question/getQuestionById`);
   }
 
 
