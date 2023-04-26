@@ -1,0 +1,43 @@
+#createdQuestion {
+  float: left;
+  width:45%;
+  margin-top:50px;
+  
+}
+
+#createAnswer {
+  float: right;
+  width:45%;
+  margin-top:50px;
+}
+.card-header{
+  text-align: center;
+  font-weight: bold;
+}
+
+.card{
+  border-radius: 20px;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+}
+
+#downloadButton{
+  margin-bottom:10px;
+}
+
+textarea{
+  resize:none;
+}
+
+tr:nth-child(odd) {
+  background-color: rgb(220, 218, 218);
+}
+
+th, table, td {
+  border: 1px solid black;
+}

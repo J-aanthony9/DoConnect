@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="card" id="createdQuestion">
+
+    <div class="card-header">Created Question</div>
+    <div class="card-body">
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <th scope="col">id</th>
+            <td class="tdPadding">1</td>
+          </tr>
+          <tr>
+            <th scope="col">Title</th>
+            <td class="tdPadding">what is window server?</td>
+          </tr>
+          <tr>
+            <th scope="col">Topic</th>
+            <td class="tdPadding">Server</td>
+          </tr>
+
+          <tr>
+            <th scope="col">Description</th>
+            <td class="tdPadding">Server</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <img src="http://dummyimage.com/100x115.png/5fa2dd/ffffff"
+      alt="image" height="300px" width="300px">
+    <div class="text-center mt-3">
+      <button id="downloadButton" type="submit" class="btn btn-lg btn-primary buttonBGcolor">Click to download</button>
+    </div>
+  </div>
+
+  <div class="card" id="createAnswer">
+    <div class="card-header">Create Answer</div>
+    <div class="card-body">
+      <form #frm="ngForm">
+        <div class="mb-3">
+          <label class="form-label">Description Answer</label>
+          <textarea class="form-control form-control-lg" rows="11"name="title" placeholder="Title" name="ShopUserName" required ></textarea>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="customFile">Select an image</label>
+          <input type="file" class="form-control" id="customFile" />
+        </div>
+        <div class="text-center mt-3">
+          <button id="submitbutton" type="submit" class="btn btn-lg btn-primary buttonBGcolor">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>
