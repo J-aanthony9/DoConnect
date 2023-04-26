@@ -18,6 +18,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { CreateQuestionComponent } from './components/create-question/create-question.component';
 import { SearchComponent } from './search/search.component';
 import { PendingQuestionComponent } from './components/pending-question/pending-question.component';
+import { PendingAnswerComponent } from './components/pending-answer/pending-answer.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { PendingQuestionComponent } from './components/pending-question/pending-
     RegisterComponent,
     CreateQuestionComponent,
     SearchComponent,
-    PendingQuestionComponent
+    PendingQuestionComponent,
+    PendingAnswerComponent
   ],
   imports: [
     BrowserModule,
