@@ -3,7 +3,9 @@
   width:95%;
 }
 
-
+tr { 
+  background-color: white;
+}
 
 th{
   background-color: black;

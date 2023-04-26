@@ -20,6 +20,7 @@ import { SearchComponent } from './search/search.component';
 import { PendingQuestionComponent } from './components/pending-question/pending-question.component';
 import { PendingAnswerComponent } from './components/pending-answer/pending-answer.component';
 import { CreateAnswerComponent } from './components/create-answer/create-answer.component';
+import { ApproveAnswerComponent } from './components/approve-answer/approve-answer.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { CreateAnswerComponent } from './components/create-answer/create-answer.
     SearchComponent,
     PendingQuestionComponent,
     PendingAnswerComponent,
-    CreateAnswerComponent
+    CreateAnswerComponent,
+    ApproveAnswerComponent
   ],
   imports: [
     BrowserModule,
