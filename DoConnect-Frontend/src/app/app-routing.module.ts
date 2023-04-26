@@ -6,6 +6,7 @@ import { CreateQuestionComponent } from './components/create-question/create-que
 import { SearchComponent } from './search/search.component';
 import { PendingQuestionComponent } from './components/pending-question/pending-question.component';
 import { PendingAnswerComponent } from './components/pending-answer/pending-answer.component';
+import { CreateAnswerComponent } from './components/create-answer/create-answer.component';
 
 const routes: Routes = [
   {path: '', redirectTo:'login',pathMatch:'full'},
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path: 'create_question', component:CreateQuestionComponent},
   {path: 'search', component:SearchComponent},
   {path: 'pending_question', component:PendingQuestionComponent},
-  {path: 'pending_answer', component:PendingAnswerComponent}
+  {path: 'pending_answer', component:PendingAnswerComponent},
+  {path: 'create_answer', component:CreateAnswerComponent}
 
 ];
 
