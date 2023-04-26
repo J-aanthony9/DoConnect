@@ -17,6 +17,8 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { CreateQuestionComponent } from './components/create-question/create-question.component';
 import { SearchComponent } from './search/search.component';
+import { PendingQuestionComponent } from './components/pending-question/pending-question.component';
+import { PendingAnswerComponent } from './components/pending-answer/pending-answer.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { SearchComponent } from './search/search.component';
     LoginComponent,
     RegisterComponent,
     CreateQuestionComponent,
-    SearchComponent
+    SearchComponent,
+    PendingQuestionComponent,
+    PendingAnswerComponent
   ],
   imports: [
     BrowserModule,
