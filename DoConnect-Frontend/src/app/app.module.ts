@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { CreateQuestionComponent } from './components/create-question/create-question.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { CreateQuestionComponent } from './components/create-question/create-que
     NavbarComponent,
     LoginComponent,
     RegisterComponent,
-    CreateQuestionComponent
+    CreateQuestionComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
