@@ -1,0 +1,54 @@
+<div class="container">
+  <h2>Create a new question</h2>
+</div>
+
+
+<main class="d-flex w-100">
+  <div class="container d-flex flex-column">
+    <div class="row vh-150">
+      <div class="col-sm-10 col-md-8 col-lg-10 mx-auto d-table h-100">
+        <div class="d-table-cell align-middle">
+          <div class="card">
+            <div class="card-body">
+              <div class="m-sm-4">
+                <form #frm="ngForm">
+                  <div class="mb-3">
+                    <label class="form-label">Title</label>
+                    <input class="form-control form-control-lg" name="title" placeholder="Title" name="ShopUserName"
+                      required />
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Topic</label>
+                    <select class="form-control form-control-lg" name="topic" placeholder="Choose topic" required>
+                      <option disabled selected>Select a topic</option>
+                      <option value="volvo">Volvo</option>
+                    </select>
+                  </div>
+
+
+                  <div class="mb-3">
+                    <textarea id="textarea" class="form-control form-control-lg" type="text-area" name="topic"
+                      placeholder="Description" required></textarea>
+                  </div>
+
+                  <div class="mb-3">
+
+                    <label class="form-label" for="customFile">Select an image</label>
+                    <input type="file" class="form-control" id="customFile" />
+
+                  </div>
+
+                  <div class="text-center mt-3">
+
+                    <button type="submit" id="signinbutton" class="btn btn-lg btn-primary">Create</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
