@@ -1,0 +1,40 @@
+<div class="container">
+    <form class="d-flex">
+        <label id="selectTopicLabel" class="form-label">Search the question:</label>
+        <select id="selectTopic" class="form-control form-control-md" name="topic" placeholder="Choose topic" required>
+            <option disabled selected>Select a topic</option>
+            <option value="volvo">Volvo</option>
+        </select>
+        <input id="searchbar" class="form-control form-control-md" type="search" placeholder="Search Question...">
+        <button id="searchbutton" class="btn btn-outline-info buttonBGcolor" type="send">Search</button>
+    </form>
+</div>
+
+<div class="container tablecontainer">
+    <div class="row">
+      <div class="col-12">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">id</th>
+              <th scope="col">Topic</th>
+              <th scope="col">Title</th>
+              <th scope="col">Description</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="tdPadding">1</td>
+              <td class="tdPadding">Server</td>
+              <td class="tdPadding">what is window server?</td>
+              <td class="tdPadding">Server</td>
+              <td>
+                <button type="button" class="btn btn-primary buttonBGcolor">Show Detail</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

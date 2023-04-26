@@ -1,0 +1,36 @@
+#searchbar, #searchbutton,#selectTopic, #selectTopicLabel {
+    margin-top:20px;
+}
+
+#searchbutton {
+    padding: 0px 30px;
+
+}
+
+#selectTopic{
+    width: 20%; 
+}
+
+#selectTopicLabel{
+    width: 20%;
+    padding-top:5.5px;
+    padding-left:20px;
+}
+
+.tablecontainer{
+    margin-top:50px;
+}
+
+th{
+    background-color: black;
+    color:white;
+}
+
+.tdPadding{
+    padding-top:15px;
+}
+
+table, th, td{
+    border: 1px solid black;
+}
+
