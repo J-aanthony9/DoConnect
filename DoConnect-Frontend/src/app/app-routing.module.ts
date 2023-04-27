@@ -9,9 +9,10 @@ import { PendingAnswerComponent } from './components/pending-answer/pending-answ
 import { CreateAnswerComponent } from './components/create-answer/create-answer.component';
 import { ApproveAnswerComponent } from './components/approve-answer/approve-answer.component';
 import { HomeComponent } from './components/home/home.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'create_question', component: CreateQuestionComponent },
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: 'pending_answer', component: PendingAnswerComponent },
   { path: 'create_answer', component: CreateAnswerComponent },
   { path: 'approve_answer', component: ApproveAnswerComponent },
-  { path: 'home', component: HomeComponent }
+  { path: 'home', component: HomeComponent },
+  { path: 'dashboard', component: DashboardComponent }
 
 ];
 
