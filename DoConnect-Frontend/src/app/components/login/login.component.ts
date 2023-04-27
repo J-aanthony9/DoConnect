@@ -5,7 +5,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { Validators } from '@angular/forms';
 import { AbstractControl } from '@angular/forms';
-import { StorageServiceService } from 'src/app/storage-service.service';
+import { StorageService } from 'src/app/storage.service';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   isLoggedIn = false;
   isLoginFailed = false;
 
-  constructor(private userService: UserService, private fb: FormBuilder, private authService: AuthService, private router: Router, private storageService: StorageServiceService) {
+  constructor(private userService: UserService, private fb: FormBuilder, private authService: AuthService, private router: Router, private storageService: StorageService) {
   }
 
   ngOnInit(): void {

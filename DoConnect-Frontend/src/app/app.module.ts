@@ -22,6 +22,7 @@ import { PendingAnswerComponent } from './components/pending-answer/pending-answ
 import { CreateAnswerComponent } from './components/create-answer/create-answer.component';
 import { ApproveAnswerComponent } from './components/approve-answer/approve-answer.component';
 import { HomeComponent } from './components/home/home.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { HomeComponent } from './components/home/home.component';
     PendingAnswerComponent,
     CreateAnswerComponent,
     ApproveAnswerComponent,
-    HomeComponent
+    HomeComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
