@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { AppComponent } from './app.component';
 import { UserComponent } from './components/user/user.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule , ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChatComponent } from './components/chat/chat.component';
 import { AnswerComponent } from './components/answer/answer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -21,6 +21,7 @@ import { PendingQuestionComponent } from './components/pending-question/pending-
 import { PendingAnswerComponent } from './components/pending-answer/pending-answer.component';
 import { CreateAnswerComponent } from './components/create-answer/create-answer.component';
 import { ApproveAnswerComponent } from './components/approve-answer/approve-answer.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ApproveAnswerComponent } from './components/approve-answer/approve-answ
     PendingQuestionComponent,
     PendingAnswerComponent,
     CreateAnswerComponent,
-    ApproveAnswerComponent
+    ApproveAnswerComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

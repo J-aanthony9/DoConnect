@@ -12,7 +12,7 @@ import { StorageServiceService } from 'src/app/storage-service.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent implements OnInit {
 
   loginForm: FormGroup = new FormGroup({
 
@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit{
   isLoggedIn = false;
   isLoginFailed = false;
 
-  constructor(private userService: UserService, private fb: FormBuilder, private authService: AuthService, private router: Router,private storageService:StorageServiceService) {
+  constructor(private userService: UserService, private fb: FormBuilder, private authService: AuthService, private router: Router, private storageService: StorageServiceService) {
   }
 
   ngOnInit(): void {
@@ -52,30 +52,30 @@ export class LoginComponent implements OnInit{
   }
 
   login() {
-      const val = this.loginForm.value;
-      console.log(val);
+    const val = this.loginForm.value;
+    console.log(val);
 
 
-      this.authService.login(val)
-        .subscribe({
-          next: data => {
-            console.log('login res data ===', data);
-            this.storageService.saveUser(data)
-            this.isLoginFailed = false;
-            this.isLoggedIn = true;
-            // this.reloadPage();
-          },
-          error: err=>{
-            console.log('login err ===', err);
-            this.isLoginFailed = true;
-          }
+    this.authService.login(val)
+      .subscribe({
+        next: data => {
+          console.log('login res data ===', data);
+          this.storageService.saveUser(data)
+          this.isLoginFailed = false;
+          this.isLoggedIn = true;
+          // this.reloadPage();
+        },
+        error: err => {
+          console.log('login err ===', err);
+          this.isLoginFailed = true;
         }
-          
-        );
+      }
 
-    }
+      );
 
-    reloadPage(): void {
-      window.location.reload();
-    }
+  }
+
+  reloadPage(): void {
+    window.location.reload();
+  }
 }
