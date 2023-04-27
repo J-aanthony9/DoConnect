@@ -4,7 +4,7 @@ import { User } from '../models/user.model';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { tap } from 'rxjs';
-import * as moment from "moment";
+
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -21,11 +21,8 @@ export class AuthService {
   }
   
 
-  login(Data: any): Observable<User> {
-
-    return this.http.post(`${this.base_url}/user/authenticate`, Data,httpOptions);
-
-
+  login(Data: any): Observable<any> {
+    return this.http.post(`${this.base_url}/user/authenticate`, Data, httpOptions);
     // this is just the HTTP call, 
     // we still need to handle the reception of the token
     //.shareReplay();

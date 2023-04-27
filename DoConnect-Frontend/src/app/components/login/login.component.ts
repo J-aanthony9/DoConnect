@@ -59,13 +59,14 @@ export class LoginComponent implements OnInit{
       this.authService.login(val)
         .subscribe({
           next: data => {
+            console.log('login res data ===', data);
             this.storageService.saveUser(data)
             this.isLoginFailed = false;
             this.isLoggedIn = true;
-            this.reloadPage();
+            // this.reloadPage();
           },
           error: err=>{
-            console.error(err);
+            console.log('login err ===', err);
             this.isLoginFailed = true;
           }
         }
