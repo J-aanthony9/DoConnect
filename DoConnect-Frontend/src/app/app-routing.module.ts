@@ -8,17 +8,19 @@ import { PendingQuestionComponent } from './components/pending-question/pending-
 import { PendingAnswerComponent } from './components/pending-answer/pending-answer.component';
 import { CreateAnswerComponent } from './components/create-answer/create-answer.component';
 import { ApproveAnswerComponent } from './components/approve-answer/approve-answer.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
-  {path: '', redirectTo:'login',pathMatch:'full'},
-  {path: 'register', component:RegisterComponent},
-  {path: 'login', component:LoginComponent},
-  {path: 'create_question', component:CreateQuestionComponent},
-  {path: 'search', component:SearchComponent},
-  {path: 'pending_question', component:PendingQuestionComponent},
-  {path: 'pending_answer', component:PendingAnswerComponent},
-  {path: 'create_answer', component:CreateAnswerComponent},
-  {path: 'approve_answer', component:ApproveAnswerComponent}
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'create_question', component: CreateQuestionComponent },
+  { path: 'search', component: SearchComponent },
+  { path: 'pending_question', component: PendingQuestionComponent },
+  { path: 'pending_answer', component: PendingAnswerComponent },
+  { path: 'create_answer', component: CreateAnswerComponent },
+  { path: 'approve_answer', component: ApproveAnswerComponent },
+  { path: 'home', component: HomeComponent }
 
 ];
 
