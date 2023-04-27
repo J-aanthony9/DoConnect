@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
 
 
+
   registerForm: FormGroup = new FormGroup({
     name: new FormControl(''),
     username: new FormControl(''),
@@ -68,10 +69,16 @@ export class RegisterComponent implements OnInit {
 
 
   signUpUser() {
+    const data = {
+      name:this.registerForm.value.name,
+      username:this.registerForm.value.username,
+      password: this.registerForm.value.password,
+      email: this.registerForm.value.email,
+      usertype:"user"
+    }
 
-    const val = this.registerForm.value;
 
-    console.log(val);
+
 
     // if (val.email && val.password) {
     //   this.authService.login(val.email, val.password)
@@ -82,7 +89,7 @@ export class RegisterComponent implements OnInit {
     //       }
     //     );
 
-    this.userService.createUser(val).subscribe({
+    this.userService.createUser(data).subscribe({
       next: (res) => {
         console.log(res);
         //navigate later
