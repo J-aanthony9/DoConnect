@@ -9,7 +9,9 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/user")
@@ -26,7 +28,7 @@ public class UserController {
     private JwtUtil jwtUtil;
 
     @PostMapping("/authenticate")
-    public String generateToken(@RequestBody AuthRequest request) throws Exception{
+    public Map<String, Object> generateToken(@RequestBody AuthRequest request) throws Exception{
         try{
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword())
@@ -34,7 +36,10 @@ public class UserController {
         } catch (Exception e){
             throw new Exception("Invalid username/password");
         }
-        return jwtUtil.generateToken(request.getUsername());
+
+        Map<String, Object> object = new HashMap<>();
+        object.put("token", jwtUtil.generateToken(request.getUsername()));
+        return object;
     }
 
     //Add user
