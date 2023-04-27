@@ -18,5 +18,7 @@ public interface UserService {
     User getByName(String name);
 
     List<User> getAllByUserType(String userType);
+
+    User findByUserName(String name);
     //userLoginVerify
 }

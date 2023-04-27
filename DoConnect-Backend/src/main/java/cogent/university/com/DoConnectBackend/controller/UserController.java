@@ -1,15 +1,19 @@
 package cogent.university.com.DoConnectBackend.controller;
 
 import cogent.university.com.DoConnectBackend.entity.AuthRequest;
+import cogent.university.com.DoConnectBackend.entity.JwtResponse;
 import cogent.university.com.DoConnectBackend.entity.User;
 import cogent.university.com.DoConnectBackend.service.UserService;
 import cogent.university.com.DoConnectBackend.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/user")
@@ -25,8 +29,8 @@ public class UserController {
     @Autowired
     private JwtUtil jwtUtil;
 
-    @PostMapping("/authenticate")
-    public String generateToken(@RequestBody AuthRequest request) throws Exception{
+        @PostMapping("/authenticate")
+    public ResponseEntity<?> generateToken(@RequestBody AuthRequest request) throws Exception{
         try{
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword())
@@ -34,8 +38,16 @@ public class UserController {
         } catch (Exception e){
             throw new Exception("Invalid username/password");
         }
-        return jwtUtil.generateToken(request.getUsername());
+
+        String jwt = jwtUtil.generateToken(request.getUsername());
+        User user = userService.findByUserName(request.getUsername());
+
+        return ResponseEntity.ok(new JwtResponse(jwt,
+                user.getId(),
+                user.getUsername(),
+                user.getUsertype()));
     }
+
 
     //Add user
     @PostMapping("/addUser")
