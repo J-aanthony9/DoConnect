@@ -8,7 +8,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { AppComponent } from './app.component';
 import { UserComponent } from './components/user/user.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { ChatComponent } from './components/chat/chat.component';
 import { AnswerComponent } from './components/answer/answer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -43,6 +43,7 @@ import { ApproveAnswerComponent } from './components/approve-answer/approve-answ
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
