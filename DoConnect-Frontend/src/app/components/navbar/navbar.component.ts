@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { StorageService } from 'src/app/storage.service';
+import { Router } from '@angular/router';
+import { User } from 'src/app/models/user.model';
+import { AuthService } from 'src/app/services/auth.service';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,27 +10,36 @@ import { StorageService } from 'src/app/storage.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  data?: any;
-  flag: boolean = false;
+  // data:User = {
+  //   id:0,
+  //   username:'',
+  //   usertype:''
+  // }
+  
 
-  constructor(private storageService: StorageService) { }
+  constructor(
+    public storageService: StorageService,
+    private authService: AuthService,
+    private router:Router) { }
 
   ngOnInit(): void {
-    this.getUserType();
-    this.showUserNav();
+
   }
 
-  getUserType() {
-    console.log(this.storageService.getUser());
-    this.data = this.storageService.getUser();
-    console.log(this.data.usertype);
+  isAdmin():boolean {
+    return this.storageService.getUser().usertype == 'admin' ? true : false;
   }
 
-  showUserNav() {
-    if (this.data.usertype === "user") {
-      this.flag = true;
-      console.log("im here");
-    }
+  isUser():boolean {
+    return this.storageService.getUser().usertype == 'user' ? true : false;
   }
+
+  logOut(){
+    this.router.navigateByUrl('/home');
+    return this.storageService.logout();
+  }
+
+
+
 
 }

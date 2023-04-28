@@ -5,7 +5,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { Validators } from '@angular/forms';
 import { AbstractControl } from '@angular/forms';
-import { StorageService } from 'src/app/storage.service';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-login',
@@ -32,7 +32,6 @@ export class LoginComponent implements OnInit {
       this.isLoggedIn = true;
     }
     this.loginForm = this.fb.group({
-
       username: ['',
         [
           Validators.required,
@@ -60,11 +59,10 @@ export class LoginComponent implements OnInit {
     this.authService.login(val)
       .subscribe({
         next: data => {
-          console.log('login res data ===', data);
           this.storageService.saveUser(data)
           this.isLoginFailed = false;
           this.isLoggedIn = true;
-          // this.reloadPage();
+          this.router.navigateByUrl('/home');
         },
         error: err => {
           console.log('login err ===', err);
