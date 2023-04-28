@@ -18,7 +18,7 @@
                   <!--Username-->
                   <div class="mb-3 form-group">
                     <label class="form-label">Username</label>
-                    <input class="form-control form-control-lg" type="text" formControlName="username" placeholder="Enter your username" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" />
+                    <input class="form-control form-control-lg" type="text" formControlName="username" placeholder="Enter your username" [ngClass]="{ 'is-invalid': submitted && f['username'].errors }" />
                     <div *ngIf="f['username'].errors && submitted" class="invalid-feedback">
                       <div *ngIf="f['username'].errors['required']">Username is required</div>
                     </div>
