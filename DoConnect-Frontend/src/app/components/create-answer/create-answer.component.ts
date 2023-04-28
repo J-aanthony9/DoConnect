@@ -53,16 +53,22 @@ export class CreateAnswerComponent {
 
     }
 
-    // this.answerService.createAnswer(data).subscribe({
-    //   next: (res) => {
-    //     console.log(res);
-    //     //navigate later
-    //   }
+    this.answerService.createAnswer(data).subscribe({
+      next: (res) => {
+        console.log(res);
+        //     //navigate later
+        this.router.navigate(['/home']);
+      }
 
-    // });
+    });
 
 
 
   }
 
+
+
+
 }
+
+

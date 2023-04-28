@@ -25,10 +25,13 @@
                   <!--Topic-->
                   <div class="mb-3">
                     <label class="form-label">Topic</label>
-                    <select class="form-control form-control-lg" placeholder="Choose topic" required>
-                      <option disabled selected>Select a topic</option>
+                    <select class="form-control form-control-lg" placeholder="Choose topic" formControlName="topic" [ngClass]="{ 'is-invalid': created && f['topic'].errors }">
+                      <option selected value="null">Select a topic</option>
                       <option value="volvo">Volvo</option>
                     </select>
+                    <div *ngIf="created && f['topic'].errors" class="invalid-feedback">
+                      <div *ngIf="f['topic'].errors['required']">Topic is required</div>
+                    </div>
                   </div>
 
 
