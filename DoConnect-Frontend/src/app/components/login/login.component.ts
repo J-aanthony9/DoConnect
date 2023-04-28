@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
   });
   isLoggedIn = false;
   isLoginFailed = false;
+  submitted = false;
 
   constructor(private userService: UserService, private fb: FormBuilder, private authService: AuthService, private router: Router, private storageService: StorageService) {
   }
@@ -75,5 +76,18 @@ export class LoginComponent implements OnInit {
 
   reloadPage(): void {
     window.location.reload();
+  }
+
+  onSubmit(): void {
+    this.submitted = true;
+
+    if (this.loginForm.invalid) {
+      return;
+    } else {
+      this.login()
+    }
+
+    console.log(JSON.stringify(this.loginForm.value, null, 2));
+
   }
 }

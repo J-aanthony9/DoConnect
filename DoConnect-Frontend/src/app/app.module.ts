@@ -23,6 +23,7 @@ import { CreateAnswerComponent } from './components/create-answer/create-answer.
 import { ApproveAnswerComponent } from './components/approve-answer/approve-answer.component';
 import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     CreateAnswerComponent,
     ApproveAnswerComponent,
     HomeComponent,
-    DashboardComponent
+    DashboardComponent,
+    NoPageFoundComponent
   ],
   imports: [
     BrowserModule,
