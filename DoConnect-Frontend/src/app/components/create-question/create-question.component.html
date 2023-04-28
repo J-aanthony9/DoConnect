@@ -11,29 +11,41 @@
           <div class="card">
             <div class="card-body">
               <div class="m-sm-4">
-                <form #frm="ngForm">
+                <form [formGroup]="questionForm" (ngSubmit)="onSubmit()">
+                  <!-- Title -->
                   <div class="mb-3">
                     <label class="form-label">Title</label>
-                    <input class="form-control form-control-lg" name="title" placeholder="Title" name="ShopUserName"
-                      required />
+                    <input class="form-control form-control-lg" formControlName='title' placeholder=" Enter Title" [ngClass]="{ 'is-invalid': created && f['title'].errors }" />
+                    <div *ngIf="created && f['title'].errors" class="invalid-feedback">
+                      <div *ngIf="f['title'].errors['required']">Title is required
+                      </div>
+                    </div>
                   </div>
+
+                  <!--Topic-->
                   <div class="mb-3">
                     <label class="form-label">Topic</label>
-                    <select class="form-control form-control-lg" name="topic" placeholder="Choose topic" required>
+                    <select class="form-control form-control-lg" placeholder="Choose topic" required>
                       <option disabled selected>Select a topic</option>
                       <option value="volvo">Volvo</option>
                     </select>
                   </div>
+
+
+                  <!-- Description -->
                   <div class="mb-3">
-                    <textarea id="textarea" class="form-control form-control-lg" type="text-area" name="topic"
-                      placeholder="Description" required></textarea>
+                    <textarea id="textarea" class="form-control form-control-lg" type="text-area" formControlName="description" placeholder="Enter Description" [ngClass]="{ 'is-invalid': created && f['description'].errors }"></textarea>
+                    <div *ngIf="created && f['description'].errors" class="invalid-feedback">
+                      <div *ngIf="f['description'].errors['required']">Description is required</div>
+                    </div>
                   </div>
-
+                  <!-- Image -->
                   <div class="mb-3">
-
                     <label class="form-label" for="customFile">Select an image</label>
-                    <input type="file" class="form-control" id="customFile" />
-
+                    <input type="file" class="form-control" id="customFile" formControlName="image" [ngClass]="{ 'is-invalid': created && f['image'].errors }" />
+                    <div *ngIf="created && f['image'].errors" class="invalid-feedback">
+                      <div *ngIf="f['image'].errors['required']">Image is required</div>
+                    </div>
                   </div>
 
                   <div class="text-center mt-3">
