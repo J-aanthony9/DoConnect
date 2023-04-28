@@ -39,6 +39,7 @@ export class StorageService {
 
   public logout() {
     window.sessionStorage.removeItem("auth-user");
+    window.sessionStorage.removeItem("token");
   }
 
 

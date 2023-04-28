@@ -66,13 +66,28 @@ export class CreateQuestionComponent {
     }
   }
 
-  onFileChange(event: any) {
-    if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.questionForm.patchValue({
-        fileSource: file
-      });
+  // onFileChange(event: any) {
+  //   if (event.target.files.length > 0) {
+  //     const file = event.target.files[0];
+  //     this.questionForm.patchValue({
+  //       fileSource: file
+  //     });
+  //   }
+  // }
+
+  onFileSelected(event: any) {
+    const file = event.target.files[0];
+    if(file.match(/image\/*/) == null){ 
+      //validation
+      //only image should be supported
+      return;
     }
+
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      this.questionForm.value.fileSource = reader.result as string;
+    }; 
   }
 
   createQuestion() {
@@ -86,6 +101,8 @@ export class CreateQuestionComponent {
       datetime: new Date(),
       qcreated_by: this.storageService.getUser().username
     }
+
+    console.log(data);
 
 
 

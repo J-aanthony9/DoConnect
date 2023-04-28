@@ -31,32 +31,32 @@ public class QuestionController {
 		return qs.addQuestion(question);
 	}
 	
-	@PutMapping("/updatequestion/{id}")
+	@PutMapping("/updateQuestion/{id}")
 	public Question updateQuestion(@RequestBody Question question,
 								   @PathVariable Long id) {
 		
 		return qs.updateQuestion(question, id);
 	}
 	
-	@DeleteMapping("/deletequestionbyid/{id}")
-	 public void deleteQuestionbyId(@PathVariable long id) {
+	@DeleteMapping("/deleteQuestionbyid/{id}")
+	 public void deleteQuestionById(@PathVariable long id) {
 		 
 		qs.deleteQuestionbyId(id);
 	 }
 	
-	@GetMapping("/getallquestion")
+	@GetMapping("/getAllQuestion")
 	public List<Question> getAllQuestion(){
 		
 		return qs.getAllQuestion();
 	}
 	
-	@GetMapping("/getallquestionFalse")
+	@GetMapping("/getAllQuestionFalse")
 	public List<Question> getAllQuestionFalse(){
 		
 		return qs.getAllQuestionFalse();
 	}
 	
-	@GetMapping("/getQuestionbytopic")
+	@GetMapping("/getQuestionByTopic")
 	public List<Question> getQuestionByTopic(@RequestParam String topic) {
 		
 		return qs.getQuestionByTopic(topic);
