@@ -10,6 +10,7 @@ import { CreateAnswerComponent } from './components/create-answer/create-answer.
 import { ApproveAnswerComponent } from './components/approve-answer/approve-answer.component';
 import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -22,7 +23,8 @@ const routes: Routes = [
   { path: 'create_answer', component: CreateAnswerComponent },
   { path: 'approve_answer', component: ApproveAnswerComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'dashboard', component: DashboardComponent }
+  { path: 'dashboard', component: DashboardComponent },
+  { path: '**', component: NoPageFoundComponent }
 
 ];
 
