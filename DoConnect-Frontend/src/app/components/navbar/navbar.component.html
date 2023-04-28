@@ -2,16 +2,28 @@
   <span>DoConnect</span>
 
   <div class="spacer"></div>
+  <a *ngIf="isAdmin()" mat-raised-button routerLink="/register" id="signup" color="success">Dashboard</a>
+  <a *ngIf="isAdmin()" mat-raised-button routerLink="/register" id="signup" color="success">Pending Question</a>
+  <a *ngIf="isAdmin()" mat-raised-button routerLink="/register" id="signup" color="success">Pending Answer</a>
+  <a *ngIf="isAdmin()" mat-raised-button routerLink="/register" id="signup" color="success">Sign Out</a>
+  <a *ngIf="isAdmin()" mat-raised-button routerLink="/login" id="login" color="success">{{data.username}}</a>
 
-  <a mat-button routerLink="/home">
-    <mat-icon>home</mat-icon>
+  <a *ngIf="isUser()" mat-raised-button routerLink="/register" id="signup" color="success">Create Question</a>
+  <a *ngIf="isUser()" mat-raised-button routerLink="/register" id="signup" color="success">Search Question</a>
+  <a *ngIf="isUser()" mat-raised-button routerLink="/register" id="signup" color="success">Chat with Us!</a>
+  <button *ngIf="isUser()" mat-raised-button id="signup" (click)="logOut()" color="success">Sign Out</button>
+  <a *ngIf="isUser()" mat-raised-button routerLink="/login" id="login"
+    color="success">{{storageService.getUser().username}}</a>
+  <a mat-button *ngIf="!storageService.isLoggedIn()">
+    <mat-icon>home
+    </mat-icon>
     Home
   </a>
-  <a mat-raised-button routerLink="/register" id="signup" color="success">Sign-Up</a>
-  <a mat-raised-button routerLink="/login" id="login" color="success">Login</a>
+  <a *ngIf="!storageService.isLoggedIn()" mat-raised-button routerLink="/register" id="signup"
+    color="success">Sign-Up</a>
+  <a *ngIf="!storageService.isLoggedIn()" mat-raised-button routerLink="/login" id="login" color="success">Login</a>
 
 
-  <a  *ngIf="flag" mat-raised-button routerLink="/login"  color="success">Hello </a>
 
 
 
