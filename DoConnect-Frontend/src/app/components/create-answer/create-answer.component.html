@@ -25,8 +25,7 @@
         </tbody>
       </table>
     </div>
-    <img src="http://dummyimage.com/100x115.png/5fa2dd/ffffff"
-      alt="image" height="300px" width="300px">
+    <img src="http://dummyimage.com/100x115.png/5fa2dd/ffffff" alt="image" height="300px" width="300px">
     <div class="text-center mt-3">
       <button id="downloadButton" type="submit" class="btn btn-lg btn-primary buttonBGcolor">Click to download</button>
     </div>
@@ -35,15 +34,24 @@
   <div class="card" id="createAnswer">
     <div class="card-header">Create Answer</div>
     <div class="card-body">
-      <form #frm="ngForm">
+      <form [formGroup]="answerForm" (ngSubmit)="onSubmit()">
+        <!--Description_Answer -->
         <div class="mb-3">
-          <label class="form-label">Description Answer</label>
-          <textarea class="form-control form-control-lg" rows="11"name="title" placeholder="Title" name="ShopUserName" required ></textarea>
+          <textarea id="textarea" class="form-control form-control-lg" type="text-area" formControlName="description_answer" placeholder="Enter Description" [ngClass]="{ 'is-invalid': submitted && f['description_answer'].errors }" rows="11"></textarea>
+          <div *ngIf="submitted && f['description_answer'].errors" class="invalid-feedback">
+            <div *ngIf="f['description_answer'].errors['required']">Description is required</div>
+          </div>
         </div>
+        <!--Image-->
         <div class="mb-3">
           <label class="form-label" for="customFile">Select an image</label>
-          <input type="file" class="form-control" id="customFile" />
+          <input type="file" class="form-control" id="customFile" formControlName="image" [ngClass]="{ 'is-invalid': submitted && f['image'].errors }" />
+          <div *ngIf="submitted && f['image'].errors" class="invalid-feedback">
+            <div *ngIf="f['image'].errors['required']">Image is required</div>
+          </div>
         </div>
+
+        <!--Submit-->
         <div class="text-center mt-3">
           <button id="submitbutton" type="submit" class="btn btn-lg btn-primary buttonBGcolor">Submit</button>
         </div>
