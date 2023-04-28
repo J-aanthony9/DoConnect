@@ -36,9 +36,9 @@ public class AnswerServiceImpl implements AnswerService {
 
     // add an answer entity to repository
     @Override
-    public void addAnswer(Answer answer) {
+    public Answer addAnswer(Answer answer) {
 
-        answerRepository.save(answer);
+        return answerRepository.save(answer);
 
     }
 

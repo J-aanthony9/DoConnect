@@ -25,10 +25,10 @@ public class QuestionController {
 	@Autowired
 	private QuestionServiceImpl qs;
 	
-	@PostMapping("/addquestion")
-	public void addQuestion(@RequestBody Question question) {
+	@PostMapping("/addQuestion")
+	public Question addQuestion(@RequestBody Question question) {
 		
-		qs.addQuestion(question);
+		return qs.addQuestion(question);
 	}
 	
 	@PutMapping("/updatequestion/{id}")

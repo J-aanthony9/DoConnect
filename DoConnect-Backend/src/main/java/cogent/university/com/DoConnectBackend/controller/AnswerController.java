@@ -29,9 +29,9 @@ public class AnswerController {
     }
 
     @PostMapping("/addanswer")
-    public void addAnswer(@RequestBody Answer answer) {
+    public Answer addAnswer(@RequestBody Answer answer) {
 
-        asi.addAnswer(answer);
+        return asi.addAnswer(answer);
     }
 
     @GetMapping("/getanswerbyid/{id}")

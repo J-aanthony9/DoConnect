@@ -10,7 +10,7 @@ public interface AnswerService {
 
     public List<Answer> getAllAnswerFalse();
 
-    public void addAnswer(Answer answer);
+    public Answer addAnswer(Answer answer);
 
     public Answer getbyId(long id);
 

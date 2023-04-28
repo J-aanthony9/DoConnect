@@ -8,7 +8,7 @@
   <a *ngIf="isAdmin()" mat-raised-button routerLink="/register" id="signup" color="success">Sign Out</a>
   <a *ngIf="isAdmin()" mat-raised-button routerLink="/login" id="login" color="success">{{data.username}}</a>
 
-  <a *ngIf="isUser()" mat-raised-button routerLink="/register" id="signup" color="success">Create Question</a>
+  <a *ngIf="isUser()" mat-raised-button routerLink="/create_question" id="signup" color="success">Create Question</a>
   <a *ngIf="isUser()" mat-raised-button routerLink="/register" id="signup" color="success">Search Question</a>
   <a *ngIf="isUser()" mat-raised-button routerLink="/register" id="signup" color="success">Chat with Us!</a>
   <button *ngIf="isUser()" mat-raised-button id="signup" (click)="logOut()" color="success">Sign Out</button>
