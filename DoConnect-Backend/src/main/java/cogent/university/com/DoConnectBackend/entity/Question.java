@@ -1,13 +1,9 @@
 package cogent.university.com.DoConnectBackend.entity;
 
+import java.sql.Blob;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -20,7 +16,10 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String description_question;
+
+	@Lob
 	private String image_src;
+
 	private String datetime;
 	private String status;
 	private String topic;
@@ -39,16 +38,8 @@ public class Question {
 	public Question() {
 	}
 
-	public Question(String description_question, String image_src, String datetime, String status, String topic, String title) {
-		this.description_question = description_question;
-		this.image_src = image_src;
-		this.datetime = datetime;
-		this.status = status;
-		this.topic = topic;
-		this.title = title;
-	}
-
-	public Question(String description_question, String image_src, String datetime, String status, String topic, String title, List<Answer> answers, String qcreated_by, String qapproved_by) {
+	public Question(int id, String description_question, String image_src, String datetime, String status, String topic, String title, List<Answer> answers, String qcreated_by, String qapproved_by) {
+		this.id = id;
 		this.description_question = description_question;
 		this.image_src = image_src;
 		this.datetime = datetime;
@@ -59,6 +50,17 @@ public class Question {
 		this.qcreated_by = qcreated_by;
 		this.qapproved_by = qapproved_by;
 	}
+
+	public Question(String description_question, String image_src, String datetime, String status, String topic, String title, String qcreated_by) {
+		this.description_question = description_question;
+		this.image_src = image_src;
+		this.datetime = datetime;
+		this.status = status;
+		this.topic = topic;
+		this.title = title;
+		this.qcreated_by = qcreated_by;
+	}
+
 
 	public int getId() {
 		return id;
@@ -139,8 +141,6 @@ public class Question {
 	public void setQapproved_by(String qapproved_by) {
 		this.qapproved_by = qapproved_by;
 	}
-
-
 }
 
 
