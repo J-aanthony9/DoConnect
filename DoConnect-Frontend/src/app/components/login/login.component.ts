@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
           this.storageService.saveUser(data)
           this.isLoginFailed = false;
           this.isLoggedIn = true;
-          this.router.navigateByUrl('/home');
+          this.router.navigateByUrl('/create_question');
         },
         error: err => {
           console.log('login err ===', err);
@@ -74,9 +74,7 @@ export class LoginComponent implements OnInit {
 
   }
 
-  reloadPage(): void {
-    window.location.reload();
-  }
+
 
   onSubmit(): void {
     this.submitted = true;

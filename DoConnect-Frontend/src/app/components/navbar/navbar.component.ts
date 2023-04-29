@@ -10,6 +10,7 @@ import { StorageService } from 'src/app/services/storage.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  token: string | null = '';
   // data:User = {
   //   id:0,
   //   username:'',
@@ -20,9 +21,11 @@ export class NavbarComponent implements OnInit {
   constructor(
     public storageService: StorageService,
     private authService: AuthService,
-    private router:Router) { }
+    private router:Router) { 
+    }
 
   ngOnInit(): void {
+
 
   }
 

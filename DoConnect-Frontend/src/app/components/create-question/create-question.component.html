@@ -20,7 +20,7 @@
                       <div *ngIf="f['title'].errors['required']">Title is required
                       </div>
                     </div>
-                  </div>
+                  </div> 
 
                   <!--Topic-->
                   <div class="mb-3">
@@ -28,6 +28,9 @@
                     <select class="form-control form-control-lg" placeholder="Choose topic" formControlName="topic" [ngClass]="{ 'is-invalid': created && f['topic'].errors }">
                       <option selected value="null">Select a topic</option>
                       <option value="volvo">Volvo</option>
+                      <option value="bmw">bmw</option>
+                      <option value="toyota">toyota</option>
+                      <option value="honda">honda</option>
                     </select>
                     <div *ngIf="created && f['topic'].errors" class="invalid-feedback">
                       <div *ngIf="f['topic'].errors['required']">Topic is required</div>
@@ -42,10 +45,14 @@
                       <div *ngIf="f['description'].errors['required']">Description is required</div>
                     </div>
                   </div>
+
+
                   <!-- Image -->
                   <div class="mb-3">
                     <label class="form-label" for="customFile">Select an image</label>
-                    <input type="file" class="form-control" id="customFile" formControlName="image" [ngClass]="{ 'is-invalid': created && f['image'].errors }" />
+                    <input type="file" accept="image/*" (change)="onFileSelected($event)" class="form-control" 
+                    id="customFile" formControlName="image" 
+                    [ngClass]="{ 'is-invalid': created && f['image'].errors }" />
                     <div *ngIf="created && f['image'].errors" class="invalid-feedback">
                       <div *ngIf="f['image'].errors['required']">Image is required</div>
                     </div>
