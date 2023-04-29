@@ -24,6 +24,7 @@ export class CreateQuestionComponent {
   // }
 
 
+
   questionForm: FormGroup = new FormGroup({
     title: new FormControl(''),
     topic: new FormControl({ value: "Select a topic", disabled: true }),
@@ -44,7 +45,7 @@ export class CreateQuestionComponent {
   ngOnInit(): void {
     this.questionForm = this.fb.group({
       title: ['', Validators.required],
-      topic: ['', Validators.required, Validators.min(1)],
+      topic: ['', Validators.required],
       description: ['', Validators.required],
       image: ['', Validators.required],
       fileSource: ['', Validators.required]
@@ -59,11 +60,12 @@ export class CreateQuestionComponent {
 
   onSubmit(): void {
     this.created = true;
-    if (this.questionForm.invalid) {
-      return;
-    } else {
+    // if (this.questionForm.invalid) {
+    //   console.log("invalid");
+    //   return;
+    // } else {
       this.createQuestion()
-    }
+    // }
   }
 
   // onFileChange(event: any) {
@@ -77,11 +79,9 @@ export class CreateQuestionComponent {
 
   onFileSelected(event: any) {
     const file = event.target.files[0];
-    if(file.match(/image\/*/) == null){ 
-      //validation
-      //only image should be supported
-      return;
-    }
+    // if(file.match(/image\/*/) == null){ 
+    //   return;
+    // }
 
     const reader = new FileReader();
     reader.readAsDataURL(file);
@@ -91,14 +91,13 @@ export class CreateQuestionComponent {
   }
 
   createQuestion() {
-
     const data = {
-      title: this.questionForm.value.title,
-      topic: this.questionForm.value.topic,
-      image_src: this.questionForm.value.fileSource,
       description_question: this.questionForm.value.description,
+      image_src: this.questionForm.value.fileSource,
+      datetime: new Date().toLocaleString().split(',')[0],
       status: false,
-      datetime: new Date(),
+      topic: this.questionForm.value.topic,
+      title: this.questionForm.value.title,
       qcreated_by: this.storageService.getUser().username
     }
 

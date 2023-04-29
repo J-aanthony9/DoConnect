@@ -30,9 +30,9 @@
                     [ngClass]="{'is-invalid':created && f['topic'].errors}"
                     required>
                       <option value="volvo">Volvo</option>
-                      <option value="volvo">bmw</option>
-                      <option value="volvo">toyota</option>
-                      <option value="volvo">honda</option>
+                      <option value="bmw">bmw</option>
+                      <option value="toyota">toyota</option>
+                      <option value="honda">honda</option>
                     </select>
                     <div *ngIf="created && f['topic'].errors" class="invalid-feedback">
                       <div *ngIf="f['topic'].errors['required']">Please select a topic</div>

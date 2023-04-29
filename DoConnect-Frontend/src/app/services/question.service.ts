@@ -13,12 +13,13 @@ const httpOptions = {
 })
 export class QuestionService {
 
-  private base_url = "localhost:8080/question/addQuestion";
+  private base_url = environment.BASE_URL;
 
   constructor(private http: HttpClient) { }
 
   createQuestion(data: any): Observable<any> {
-    return this.http.post(`${this.base_url}`, data, httpOptions);
+    return this.http.post(`${this.base_url}/question/addQuestion`, data, httpOptions);
+    // return this.http.post(`${this.base_url}/user/authenticate`, data, httpOptions);
   }
 
   updateQuestion(data: any, id: any): Observable<any> {
