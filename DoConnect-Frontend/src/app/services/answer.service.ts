@@ -23,7 +23,7 @@ export class AnswerService {
   }
 
   createAnswer(data: any): Observable<any> {
-    return this.http.post(`${this.base_url}/answer/addAnswer`, data);
+    return this.http.post(`${this.base_url}/answer/addanswer`, data);
   }
 
   deleteAnswer(id: any): Observable<any> {

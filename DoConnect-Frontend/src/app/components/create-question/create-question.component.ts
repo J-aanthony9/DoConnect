@@ -13,17 +13,6 @@ import { StorageService } from 'src/app/services/storage.service';
 })
 export class CreateQuestionComponent {
 
-  // data:Question ={
-  //   description_question: '',
-  //   image_src: '',
-  //   datetime: '',
-  //   status: '',
-  //   topic: '',
-  //   title: '',
-  //   qcreated_by: ''
-  // }
-
-
 
   questionForm: FormGroup = new FormGroup({
     title: new FormControl(''),
@@ -64,7 +53,7 @@ export class CreateQuestionComponent {
     //   console.log("invalid");
     //   return;
     // } else {
-      this.createQuestion()
+    this.createQuestion()
     // }
   }
 
@@ -87,7 +76,7 @@ export class CreateQuestionComponent {
     reader.readAsDataURL(file);
     reader.onload = () => {
       this.questionForm.value.fileSource = reader.result as string;
-    }; 
+    };
   }
 
 
