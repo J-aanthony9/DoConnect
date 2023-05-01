@@ -53,6 +53,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/user/authenticate").permitAll()
                 .antMatchers("/user/addUser").permitAll()
                 .antMatchers("/question/addQuestion").permitAll()
+                .antMatchers("/question/getAllQuestion").permitAll()
+                .antMatchers("/question/getQuestionById/**").permitAll()
+                .antMatchers("/question/getQuestionByTitle/**").permitAll()
+                .antMatchers("/answer/addAnswer").permitAll()
+                .antMatchers("/answer/**/**/**").permitAll()
+                .antMatchers("/answer/question/**").permitAll()
                 .anyRequest().authenticated().and()
                 .exceptionHandling().and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);

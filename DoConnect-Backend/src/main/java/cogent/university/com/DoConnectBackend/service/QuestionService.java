@@ -18,7 +18,9 @@ public interface QuestionService {
 
     public List<Question> getQuestionByTopic(String topic);
 
-    public List<Question> getQuestionById(int id);
+    public Question getQuestionById(int id);
+
+    public List<Question> getQuestionByTitle(String title);
 
 
     //retrieve list of all items

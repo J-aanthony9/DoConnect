@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { AnswerService } from 'src/app/services/answer.service';
 import { StorageService } from 'src/app/services/storage.service';
@@ -23,9 +23,27 @@ export class CreateAnswerComponent {
 
 
   submitted = false;
-  questionList: Question[] = [];
 
-  constructor(private answerService: AnswerService, private fb: FormBuilder, private authService: AuthService, private router: Router, private storageService: StorageService, private questionService: QuestionService) {
+  question:Question = {
+    id:0,
+    title:"",
+    topic:"",
+    image_src:"",
+    description_question:""
+  }
+
+  answerId:number=0;
+
+
+ 
+
+  constructor(private answerService: AnswerService, 
+    private fb: FormBuilder, 
+    private authService: AuthService, 
+    private router: Router, 
+    private storageService: StorageService, 
+    private questionService: QuestionService,
+    private route:ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -34,7 +52,11 @@ export class CreateAnswerComponent {
       image: ['', Validators.required]
     })
 
-    this.getQuestion();
+      this.questionService.getQuestionById(this.route.snapshot.paramMap.get('id')).subscribe({
+      next: (data) => {
+        this.question = data;  
+      }
+    })
   }
 
   get f(): { [key: string]: AbstractControl } {
@@ -68,25 +90,23 @@ export class CreateAnswerComponent {
 
     }
 
-    this.answerService.createAnswer(data).subscribe({
-      next: (res) => {
-        console.log(res);
-        //     //navigate later
-        this.router.navigate(['/home']);
-      }
 
-    });
-
-  }
-
-  getQuestion() {
-
-    this.questionService.getAllQuestion().subscribe({
-      next: (res) => {
-        this.questionList = res;
+    this.answerService.assignAnswerToQuestion(this.question.id, data).subscribe({
+      next: (res) => {  
+        this.router.navigateByUrl('/home');
+        
       }
     });
   }
+
+  getQuestionById(id:any) {
+    this.questionService.getQuestionById(id).subscribe({
+      next: (res) => {
+        this.question = res;
+      }
+    });
+  }
+
 
 
 

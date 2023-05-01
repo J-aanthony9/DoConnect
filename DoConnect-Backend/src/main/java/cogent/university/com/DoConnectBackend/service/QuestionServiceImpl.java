@@ -27,9 +27,9 @@ public class QuestionServiceImpl implements QuestionService {
     @Override
     public Question updateQuestion(Question q, int id) {
     	
-    	if(!questionRepository.findById(id).isEmpty()) {
+//    	if(!questionRepository.findById(id).isEmpty()) {
     		
-        Question questionDb = questionRepository.findById(id).get(0);
+        Question questionDb = questionRepository.findById(id);
         questionDb.setDescription_question(q.getDescription_question());
         questionDb.setImage_src(q.getImage_src());
         questionDb.setDatetime(q.getDatetime());
@@ -38,9 +38,9 @@ public class QuestionServiceImpl implements QuestionService {
         questionDb.setTitle(q.getTitle());
         
         return questionRepository.save(questionDb);
-    	} else {
-    		return null;
-    	}
+//    	} else {
+//    		return null;
+//    	}
     }
 
     // delete question by id
@@ -49,12 +49,12 @@ public class QuestionServiceImpl implements QuestionService {
 
 
     	
-    	if(!questionRepository.findById(id).isEmpty()) {
-    		
-    		Question q = questionRepository.findById(id).get(0);
-            
-            	questionRepository.delete(q);
-        	} 
+//    	if(!questionRepository.findById(id).isEmpty()) {
+//
+//    		Question q = questionRepository.findById(id).get(0);
+//
+//            	questionRepository.delete(q);
+//        	}
     	
     }
 
@@ -82,9 +82,14 @@ public class QuestionServiceImpl implements QuestionService {
 
     //retrieve list of all items
     @Override
-    public List<Question> getQuestionById(int id) {
+    public Question getQuestionById(int id) {
 
         return questionRepository.findById(id);
+    }
+
+    @Override
+    public List<Question> getQuestionByTitle(String title) {
+        return (List<Question>) questionRepository.findAllByTitle(title);
     }
 
 
