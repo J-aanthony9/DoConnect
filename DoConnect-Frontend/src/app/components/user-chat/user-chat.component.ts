@@ -33,4 +33,11 @@ export class UserChatComponent implements OnInit {
       }
     })
   }
+
+  passUsername(username: any) {
+
+    this.router.navigate(["/chat/" + username]);
+
+  }
+
 }

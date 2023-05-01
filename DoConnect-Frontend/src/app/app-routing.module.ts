@@ -23,11 +23,12 @@ const routes: Routes = [
   { path: 'pending_question', component: PendingQuestionComponent },
   { path: 'pending_answer', component: PendingAnswerComponent },
   { path: 'create_answer', component: CreateAnswerComponent },
-  {path: 'create_answer/:id',component: CreateAnswerComponent},
+  { path: 'create_answer/:id', component: CreateAnswerComponent },
   { path: 'approve_answer', component: ApproveAnswerComponent },
   { path: 'home', component: HomeComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'chat', component: ChatComponent },
+  { path: 'chat/:username', component: ChatComponent },
   { path: 'userchat', component: UserChatComponent },
   { path: '**', component: NoPageFoundComponent }
 
