@@ -24,12 +24,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUserById(int id) {
+    public User getUserById(long id) {
         return userRepository.findById(id).orElse(null);
     }
 
     @Override
-    public User updateUser(User user, int id) {
+    public User updateUser(User user, long id) {
         User userDb = userRepository.findById(id).orElse(null);
         userDb.setName(user.getName());
         userDb.setUsername(user.getUsername());

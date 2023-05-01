@@ -20,7 +20,7 @@ public class AnswerController {
     @Autowired
     private QuestionServiceImpl qsi;
 
-    @GetMapping("/getallanswers")
+    @GetMapping("/getallAnswers")
     public List<Answer> getAllAnswer() {
 
         return asi.getAllAnswer();
@@ -39,7 +39,7 @@ public class AnswerController {
     }
 
     @PutMapping("/question/{id}")
-    public Answer assignAnswerToQuestion(@PathVariable("id") int id,
+    public Answer assignAnswerToQuestion(@PathVariable("id") long id,
                                          @RequestBody Answer answer) {
 
         Question question = qsi.getQuestionById(id);
@@ -55,22 +55,22 @@ public class AnswerController {
         return asi.getbyId(id);
     }
 
-    @PutMapping("/updateanswer/{id}")
+    @PutMapping("/updateAnswer/{id}")
     public Answer updateAnswer(@RequestBody Answer answer,
                              @PathVariable("id") Long id) {
 
         return asi.updateAnswer(answer, id);
     }
 
-    @DeleteMapping("/deleteanswerbyid/{id}")
+    @DeleteMapping("/deleteAnswerById/{id}")
     public void deleteAnswerById(@PathVariable long id) {
 
-         asi.deleteAnswerbyId(id);
+         asi.deleteAnswerById(id);
     }
 
 
     @GetMapping("/question/{id}")
-    public List<Answer> getAnswerbyQuestionId(@PathVariable("id") int questionId) {
+    public List<Answer> getAnswerbyQuestionId(@PathVariable("id") long questionId) {
         return asi.getAnswersByQuestionId(questionId);
     }
 

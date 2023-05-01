@@ -31,7 +31,7 @@ export class AnswerService {
   }
 
   deleteAnswer(id: any): Observable<any> {
-    return this.http.delete(`${this.base_url}/answer/deleteanswerbyid/${id}`);
+    return this.http.delete(`${this.base_url}/answer/deleteAnswerById/${id}`);
   }
 
   getAnswerById(id: any): Observable<Answer> {
@@ -39,7 +39,7 @@ export class AnswerService {
   }
 
   updateAnswer(id: any, data: any): Observable<any> {
-    return this.http.put(`${this.base_url}/answer/getanswerbyid/${id}`, data);
+    return this.http.put(`${this.base_url}/answer/updateAnswer/${id}`, data);
   }
 
   getAnswerbyQuestionID(id: any): Observable<Answer> {

@@ -10,23 +10,27 @@
             <th scope="col">Title</th>
             <th scope="col">Description</th>
             <th scope="col">Created By</th>
-            <th scope="col">Date Time</th>
+            <th scope="col">Date</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td class="tdPadding">1</td>
-            <td class="tdPadding">Server</td>
-            <td class="tdPadding">what is window server?</td>
-            <td class="tdPadding">Server</td>
-            <td class="tdPadding">Server</td>
-            <td class="tdPadding">Server</td>
-            <td class="tdPadding">Server</td>
-            <td>
-              <button type="button" class="btn btn-success pendingButton">Approve</button>
-              <button type="button" class="btn btn-danger pendingButton">Remove</button>
+          <tr *ngFor="let question of questions">
+          <!-- <ng-container *ngIf="question.status === 'false'"> -->
+            <td class="tdPadding">{{question.id}}</td>
+            <td class="tdPadding">
+              <img [src]="question.image_src" alt="image" height="100px" width="200px">
             </td>
+            <td class="tdPadding">{{question.topic}}</td>
+            <td class="tdPadding">{{question.title}}</td>
+            <td class="tdPadding">{{question.description_question}}</td>
+            <td class="tdPadding">{{question.qcreated_by}}</td>
+            <td class="tdPadding">{{question.datetime}}</td>
+            <td>
+              <button type="button" (click)="approveQuestion(question, question.id)"class="btn btn-success pendingButton">Approve</button>
+              <button type="button" (click)="removeQuestion(question.id)" class="btn btn-danger pendingButton">Remove</button>
+            </td>
+            <!-- </ng-container> -->
           </tr>
         </tbody>
       </table>

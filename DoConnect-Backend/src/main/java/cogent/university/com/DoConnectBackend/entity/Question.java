@@ -23,7 +23,7 @@ public class Question {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private long id;
 	private String description_question;
 
 	@Lob
@@ -34,7 +34,7 @@ public class Question {
 	private String topic;
 	private String title;
 	
-	@OneToMany(mappedBy = "question")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "question")
 	@JsonIgnore
 	private List<Answer> answers;
 	
@@ -47,8 +47,16 @@ public class Question {
 	public Question() {
 	}
 
-	public Question(int id, String description_question, String image_src, String datetime, String status, String topic, String title, List<Answer> answers, String qcreated_by, String qapproved_by) {
-		this.id = id;
+	public Question(String description_question, String image_src, String datetime, String status, String topic, String title) {
+		this.description_question = description_question;
+		this.image_src = image_src;
+		this.datetime = datetime;
+		this.status = status;
+		this.topic = topic;
+		this.title = title;
+	}
+
+	public Question(String description_question, String image_src, String datetime, String status, String topic, String title, List<Answer> answers, String qcreated_by, String qapproved_by) {
 		this.description_question = description_question;
 		this.image_src = image_src;
 		this.datetime = datetime;
@@ -60,22 +68,11 @@ public class Question {
 		this.qapproved_by = qapproved_by;
 	}
 
-	public Question(String description_question, String image_src, String datetime, String status, String topic, String title, String qcreated_by) {
-		this.description_question = description_question;
-		this.image_src = image_src;
-		this.datetime = datetime;
-		this.status = status;
-		this.topic = topic;
-		this.title = title;
-		this.qcreated_by = qcreated_by;
-	}
-
-
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
