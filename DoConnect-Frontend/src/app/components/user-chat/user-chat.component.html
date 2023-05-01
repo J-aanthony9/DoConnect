@@ -3,10 +3,12 @@
   <table class="table table-bordered">
 
     <tbody *ngFor="let user of userList">
-      <tr>
-        <td id="morePadding" class="tdPadding">{{user.username}}</td>
-        <button type="submit" routerLink="/chat" id="chatbutton" class="btn btn-lg btn-primary">Chat</button>
-      </tr>
+      <ng-container>
+        <tr>
+          <td id="morePadding" class="tdPadding">{{user.username}}</td>
+          <button type="submit" (click)=passUsername(user.username) id="chatbutton" class="btn btn-lg btn-primary">Chat</button>
+        </tr>
+      </ng-container>
     </tbody>
   </table>
 </div>

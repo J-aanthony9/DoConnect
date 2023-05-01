@@ -31,15 +31,35 @@ h2 {
   float: left;
   width: 45%;
   margin-top: 50px;
+  padding-right: 40px;
 }
 
 .messageDiv2 {
   float: right;
   width: 45%;
   margin-top: 50px;
+  padding-left: 40px;
 }
+
 
 #bottom {
 
   float: bottom;
+}
+
+#right {
+
+  margin-left: 75px;
+}
+
+.messageDiv1 h3 {
+
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.messageDiv2 h3 {
+
+  text-align: center;
+  margin-bottom: 30px;
 }
