@@ -1,17 +1,13 @@
 .container {
-    margin-top:50px;
+  margin-top: 50px;
 }
 
 h2 {
-    background-color: black;
-    color: white;
-    text-align: center;
-    margin: auto;
-    height: 100px;
-    padding: 30px;
-    border-radius:25px; 
-}
-
-#textarea{
-    resize:none;
+  background-color: black;
+  color: white;
+  text-align: center;
+  margin: auto;
+  height: 100px;
+  padding: 30px;
+  border-radius: 25px;
 }
