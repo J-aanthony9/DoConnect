@@ -11,7 +11,8 @@ public class Answer {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String description_answer;
-	private String img_src;
+	@Lob
+	private String image_src;
 	private String status;
 	private String datetime;
 	
@@ -25,21 +26,16 @@ public class Answer {
 	//@OneToOne
 	private String created_by;
 
-	public Answer(String description_answer, String img_src, String status, String datetime, Question question, String approved_by, String created_by) {
+	public Answer() {
+	}
+
+	public Answer(String description_answer, String image_src, String status, String datetime) {
 		this.description_answer = description_answer;
-		this.img_src = img_src;
+		this.image_src = image_src;
 		this.status = status;
 		this.datetime = datetime;
-		this.question = question;
-		this.approved_by = approved_by;
-		this.created_by = created_by;
 	}
-	
-	public Answer() {
-		
-	}
-	
-	
+
 	public long getId() {
 		return id;
 	}
@@ -56,12 +52,12 @@ public class Answer {
 		this.description_answer = description_answer;
 	}
 
-	public String getImg_src() {
-		return img_src;
+	public String getImage_src() {
+		return image_src;
 	}
 
-	public void setImg_src(String img_src) {
-		this.img_src = img_src;
+	public void setImage_src(String image_src) {
+		this.image_src = image_src;
 	}
 
 	public String getStatus() {

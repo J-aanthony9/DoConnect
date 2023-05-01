@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import cogent.university.com.DoConnectBackend.entity.Question;
+import org.springframework.data.jpa.repository.Query;
 
 public interface QuestionRepository extends JpaRepository<Question, Long> {
 
@@ -14,5 +15,7 @@ public interface QuestionRepository extends JpaRepository<Question, Long> {
 	void deleteById(long id);
 
 
-	List<Question> findAllByTitle(String title);
+	@Query("SELECT q FROM Question q WHERE " +
+			"q.title LIKE CONCAT('%',:title, '%')")
+	List<Question> searchQuestion(String title);
 }

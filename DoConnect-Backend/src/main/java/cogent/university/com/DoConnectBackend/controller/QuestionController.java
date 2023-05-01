@@ -68,8 +68,8 @@ public class QuestionController {
 		
 		return qs.getQuestionById(id);
 	}
-	@GetMapping("/getQuestionByTitle/{title}")
-	public List<Question> getQuestionByTitle(@PathVariable String title){
-		return  qs.getQuestionByTitle(title);
+	@GetMapping("/getQuestionByTitle")
+	public List<Question> getQuestionByTitle(@RequestParam("title") String title){
+		return  qs.searchQuestions(title);
 	}
 }

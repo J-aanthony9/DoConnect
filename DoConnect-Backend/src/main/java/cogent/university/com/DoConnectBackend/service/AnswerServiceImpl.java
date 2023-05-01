@@ -57,7 +57,7 @@ public class AnswerServiceImpl implements AnswerService {
     public Answer updateAnswer(Answer answer, Long id) {
         Answer answerDb = answerRepository.findById(id).get();
         answerDb.setDescription_answer(answer.getDescription_answer());
-        answerDb.setImg_src(answer.getImg_src());
+        answerDb.setImage_src(answer.getImage_src());
         answerDb.setStatus(answer.getStatus());
         answer.setDatetime(answer.getDatetime());
         answerDb.setApproved_by(answer.getApproved_by());

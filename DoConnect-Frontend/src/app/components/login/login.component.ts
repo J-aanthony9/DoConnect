@@ -83,7 +83,7 @@ export class LoginComponent implements OnInit {
       this.login()
     }
 
-    console.log(JSON.stringify(this.loginForm.value, null, 2));
+    // console.log(JSON.stringify(this.loginForm.value, null, 2));
 
   }
 }
