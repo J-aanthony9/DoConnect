@@ -25,6 +25,7 @@
           </thead>
           <tbody>
             <tr *ngFor="let question of questionList" >
+              <ng-container *ngIf="question.status === true">
               <td class="tdPadding">{{question.id}}</td>
               <td class="tdPadding">{{question.topic}}</td>
               <td class="tdPadding">{{question.title}}</td>
@@ -32,6 +33,9 @@
               <td>
                 <button type="button" (click)="showDetails(question.id)" class="btn btn-primary buttonBGcolor">Show Detail</button>
               </td>
+
+              </ng-container>
+           
             </tr>
           </tbody>
         </table>
