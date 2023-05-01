@@ -23,11 +23,11 @@ export class QuestionService {
   }
 
   updateQuestion(data: any, id: any): Observable<any> {
-    return this.http.put(`${this.base_url}/question/updateQuestion/{id}`, data);
+    return this.http.put(`${this.base_url}/question/updateQuestion/${id}`, data);
   }
 
   deleteQuestion(id: any): Observable<any> {
-    return this.http.delete(`${this.base_url}/question/deleteQuestionById/{id}`);
+    return this.http.delete(`${this.base_url}/question/deleteQuestionById/${id}`);
   }
 
   getAllQuestion(): Observable<Question[]> {
@@ -42,8 +42,12 @@ export class QuestionService {
     return this.http.get<Question[]>(`${this.base_url}/question?topic=${topic}`)
   }
 
-  getQuestionById(id: number): Observable<Question> {
-    return this.http.get<Question>(`${this.base_url}/question/getQuestionById`);
+  getQuestionById(id: any): Observable<Question> {
+    return this.http.get<Question>(`${this.base_url}/question/getQuestionById/${id}`);
+  }
+
+  getQuestionByTitle(title:any): Observable<Question[]>{
+    return this.http.get<Question[]>(`${this.base_url}/question/getQuestionByTitle/${title}`);
   }
 
 

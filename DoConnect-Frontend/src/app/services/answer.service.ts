@@ -23,11 +23,15 @@ export class AnswerService {
   }
 
   createAnswer(data: any): Observable<any> {
-    return this.http.post(`${this.base_url}/answer/addanswer`, data);
+    return this.http.post(`${this.base_url}/answer/addAnswer`, data);
+  }
+
+  assignAnswerToQuestion(questionId:any, data:any):Observable<any>{
+    return this.http.put(`${this.base_url}/answer/question/${questionId}`, data);
   }
 
   deleteAnswer(id: any): Observable<any> {
-    return this.http.delete(`${this.base_url}/answer/deleteanswerbyid/${id}`);
+    return this.http.delete(`${this.base_url}/answer/deleteAnswerById/${id}`);
   }
 
   getAnswerById(id: any): Observable<Answer> {
@@ -35,11 +39,13 @@ export class AnswerService {
   }
 
   updateAnswer(id: any, data: any): Observable<any> {
-    return this.http.put(`${this.base_url}/answer/getanswerbyid/${id}`, data);
+    return this.http.put(`${this.base_url}/answer/updateAnswer/${id}`, data);
   }
 
   getAnswerbyQuestionID(id: any): Observable<Answer> {
     return this.http.get(`${this.base_url}/question/{id}`);
   }
+
+
 
 }

@@ -68,6 +68,8 @@ export class CreateQuestionComponent {
 
   onFileSelected(event: any) {
     const file = event.target.files[0];
+
+    //Validation method for images only
     // if(file.match(/image\/*/) == null){ 
     //   return;
     // }
@@ -90,23 +92,11 @@ export class CreateQuestionComponent {
       title: this.questionForm.value.title,
       qcreated_by: this.storageService.getUser().username
     }
-
-    console.log(data);
-
-
-
     this.questionService.createQuestion(data).subscribe({
       next: (res) => {
-        console.log(res);
         this.router.navigateByUrl('/home');
       }
 
     });
-
-
-
   }
-
-
-
 }

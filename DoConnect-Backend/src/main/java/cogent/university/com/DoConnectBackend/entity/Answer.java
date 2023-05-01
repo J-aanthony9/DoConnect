@@ -8,14 +8,14 @@ import javax.persistence.*;
 public class Answer {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String description_answer;
 	private String img_src;
 	private String status;
 	private String datetime;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne()
 	@JoinColumn(name = "question_id", referencedColumnName = "id")
 	private Question question;
 
