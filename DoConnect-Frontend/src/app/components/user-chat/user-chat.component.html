@@ -1,0 +1,12 @@
+<div class="container">
+  <h2>User to User Chat</h2>
+  <table class="table table-bordered">
+
+    <tbody *ngFor="let user of userList">
+      <tr>
+        <td id="morePadding" class="tdPadding">{{user.username}}</td>
+        <button type="submit" routerLink="/chat" id="chatbutton" class="btn btn-lg btn-primary">Chat</button>
+      </tr>
+    </tbody>
+  </table>
+</div>

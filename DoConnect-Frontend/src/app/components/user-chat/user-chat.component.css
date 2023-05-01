@@ -1,0 +1,38 @@
+.container {
+  margin-top: 50px;
+}
+
+h2 {
+  background-color: black;
+  color: white;
+  text-align: center;
+  margin: auto;
+  height: 100px;
+  padding: 30px;
+
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+table {
+  background-color: black;
+  color: white;
+  text-align: center;
+  margin: auto;
+  height: 100px;
+  padding: 30px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border-color: black;
+}
+
+#chatbutton {
+  background-color: #FDB927;
+  color: black;
+  border-color: black;
+}
+
+#morePadding {
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+}

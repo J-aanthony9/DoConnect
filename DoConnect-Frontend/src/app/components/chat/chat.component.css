@@ -9,9 +9,37 @@ h2 {
   margin: auto;
   height: 100px;
   padding: 30px;
-  border-radius: 25px;
+
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
 }
+
+
 
 #textarea {
   resize: none;
+}
+
+.msgBubble {
+  background-color: rgb(24, 82, 105);
+  color: white;
+  border-radius: 20px;
+  padding-left: 20px;
+}
+
+.messageDiv1 {
+  float: left;
+  width: 45%;
+  margin-top: 50px;
+}
+
+.messageDiv2 {
+  float: right;
+  width: 45%;
+  margin-top: 50px;
+}
+
+#bottom {
+
+  float: bottom;
 }
