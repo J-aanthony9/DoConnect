@@ -52,7 +52,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/user/authenticate").permitAll()
                 .antMatchers("/user/addUser").permitAll()
+                .antMatchers("/user/getAllUsers").permitAll()
                 .antMatchers("/question/addQuestion").permitAll()
+                .antMatchers("/question/getAllQuestion").permitAll()
+                .antMatchers("/answer/addanswer").permitAll()
+                .antMatchers("/chat/addMsg").permitAll()
+                .antMatchers("/chat/getallmsg").permitAll()
+                .antMatchers("/chat/getallmsgbetweenusers").permitAll()
                 .anyRequest().authenticated().and()
                 .exceptionHandling().and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);

@@ -11,5 +11,7 @@ public interface ChatService {
 
     List<Chat> getAllMsgLeft();
 
+	List<Chat> getAllMsgBetweenUser(String from_user, String to_user);
+
 
 }

@@ -41,7 +41,7 @@ public class QuestionController {
 	
 
 	@DeleteMapping("/deleteQuestionbyid/{id}")
-	 public void deleteQuestionById(@PathVariable long id) {
+	 public void deleteQuestionById(@PathVariable int id) {
 
 		 
 		qs.deleteQuestionbyId(id);
