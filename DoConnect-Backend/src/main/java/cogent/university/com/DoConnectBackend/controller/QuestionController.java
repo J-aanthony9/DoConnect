@@ -39,9 +39,8 @@ public class QuestionController {
 		return qs.updateQuestion(question, id);
 	}
 	
-
-	@DeleteMapping("/deleteQuestionbyid/{id}")
-	 public void deleteQuestionById(@PathVariable long id) {
+	@DeleteMapping("/deleteQuestionById/{id}")
+	 public void deleteQuestionById(@PathVariable int id) {
 
 		 
 		qs.deleteQuestionbyId(id);

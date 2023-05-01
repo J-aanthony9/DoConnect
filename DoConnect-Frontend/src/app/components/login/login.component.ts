@@ -53,7 +53,6 @@ export class LoginComponent implements OnInit {
 
   login() {
     const val = this.loginForm.value;
-    console.log(val);
 
 
     this.authService.login(val)
