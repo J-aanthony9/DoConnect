@@ -18,7 +18,7 @@ export class CreateAnswerComponent {
 
   answerForm: FormGroup = new FormGroup({
     description_answer: new FormControl(''),
-    image: new FormControl('')
+    fileSource: new FormControl('')
   });
 
 
@@ -49,7 +49,8 @@ export class CreateAnswerComponent {
   ngOnInit(): void {
     this.answerForm = this.fb.group({
       description_answer: ['', Validators.required],
-      image: ['', Validators.required]
+
+     
     })
 
       this.questionService.getQuestionById(this.route.snapshot.paramMap.get('id')).subscribe({
@@ -74,13 +75,29 @@ export class CreateAnswerComponent {
     }
   }
 
+  onFileSelected(event: any) {
+    const file = event.target.files[0];
+
+    //Validation method for images only
+    // if(file.match(/image\/*/) == null){ 
+    //   return;
+    // }
+
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      this.answerForm.value.fileSource = reader.result as string;
+    };
+  }
+
+
   answerQuestion() {
     const data = {
 
       description_answer: this.answerForm.value.description_answer,
       //null for testing 
-      // image_src: this.answerForm.value.fileSource,
-      image_src: null,
+      image_src: this.answerForm.value.fileSource,
+      // image_src: null,
       status: false,
       datetime: new Date().toLocaleString().split(',')[0],
       //hardcoded for testing 
@@ -106,7 +123,6 @@ export class CreateAnswerComponent {
       }
     });
   }
-
 
 
 

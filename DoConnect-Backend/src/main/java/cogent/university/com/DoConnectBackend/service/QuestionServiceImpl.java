@@ -5,9 +5,7 @@ import cogent.university.com.DoConnectBackend.repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Iterator;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class QuestionServiceImpl implements QuestionService {
@@ -84,9 +82,11 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
-    public List<Question> getQuestionByTitle(String title) {
-        return (List<Question>) questionRepository.findAllByTitle(title);
+    public List<Question> searchQuestions(String title) {
+      return (List<Question>) questionRepository.searchQuestion(title);
     }
+
+
 
 
 }

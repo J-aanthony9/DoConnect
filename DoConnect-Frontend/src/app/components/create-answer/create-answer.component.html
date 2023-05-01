@@ -28,11 +28,13 @@
           </tr>
         </tbody>
       </table>
-    </div>
-    <img [src]="question.image_src" alt="image" height="300px" width="300px">
+    </div> 
+    <ng-container *ngIf="question.image_src">
+    <img [src]="question.image_src" alt="" height="300px" width="300px">
     <div class="text-center mt-3">
       <button id="downloadButton" type="submit" class="btn btn-lg btn-primary buttonBGcolor">Click to download</button>
     </div>
+    </ng-container>
   </div>
 
   <div class="card" id="createAnswer">
@@ -49,7 +51,16 @@
         <!--Image-->
         <div class="mb-3">
           <label class="form-label" for="customFile">Select an image</label>
-          <input type="file" class="form-control" id="customFile" formControlName="image"  />
+          <input type="file" class="form-control" 
+          accept="image/*" (change)="onFileSelected($event)"
+          id="customFile" formControlName="image"  />
+          <!-- <div class="mb-3">
+            <label class="form-label" for="customFile">Select an image</label>
+            <input type="file" accept="image/*" (change)="onFileSelected($event)" class="form-control" 
+            id="customFile" formControlName="image" 
+            
+            /> -->
+
           <!-- 
             [ngClass]="{ 'is-invalid': submitted && f['image'].errors }"
             <div *ngIf="submitted && f['image'].errors" class="invalid-feedback">

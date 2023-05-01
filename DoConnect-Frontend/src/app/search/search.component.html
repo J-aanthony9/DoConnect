@@ -25,7 +25,7 @@
           </thead>
           <tbody>
             <tr *ngFor="let question of questionList" >
-              <ng-container *ngIf="question.status === true">
+              <ng-container *ngIf="question.status === 'true' ">
               <td class="tdPadding">{{question.id}}</td>
               <td class="tdPadding">{{question.topic}}</td>
               <td class="tdPadding">{{question.title}}</td>

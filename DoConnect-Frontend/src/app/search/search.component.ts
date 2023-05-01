@@ -37,8 +37,9 @@ export class SearchComponent implements OnInit {
 
 
   getQuestion() {
-    this.questionService.getAllQuestionFalse().subscribe({
+    this.questionService.getAllQuestion().subscribe({
       next: (res) => {
+        console.log(res);
         this.questionList = res;
       }
     });
