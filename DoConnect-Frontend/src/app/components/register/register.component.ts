@@ -70,11 +70,11 @@ export class RegisterComponent implements OnInit {
 
   signUpUser() {
     const data = {
-      name:this.registerForm.value.name,
-      username:this.registerForm.value.username,
+      name: this.registerForm.value.name,
+      username: this.registerForm.value.username,
       password: this.registerForm.value.password,
       email: this.registerForm.value.email,
-      usertype:"user"
+      usertype: "user"
     }
 
 
@@ -91,8 +91,9 @@ export class RegisterComponent implements OnInit {
 
     this.userService.createUser(data).subscribe({
       next: (res) => {
-        console.log(res);
+        // console.log(res);
         //navigate later
+        this.router.navigate(['/login']);
       }
 
     });

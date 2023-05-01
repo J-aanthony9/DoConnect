@@ -8,9 +8,9 @@ public interface QuestionService {
 
     public Question addQuestion(Question question);
 
-    public Question updateQuestion(Question question, Long id);
+    public Question updateQuestion(Question question, int id);
 
-    public void deleteQuestionbyId(Long id);
+    public void deleteQuestionbyId(int id);
 
     public List<Question> getAllQuestion();
 
@@ -18,7 +18,7 @@ public interface QuestionService {
 
     public List<Question> getQuestionByTopic(String topic);
 
-    public Question getQuestionById(Long id);
+    public List<Question> getQuestionById(int id);
 
 
     //retrieve list of all items

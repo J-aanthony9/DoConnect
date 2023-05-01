@@ -26,20 +26,20 @@ public class QuestionController {
 	private QuestionServiceImpl qs;
 	
 	@PostMapping("/addquestion")
-	public void addQuestion(@RequestBody Question question) {
+	public Question addQuestion(@RequestBody Question question) {
 		
-		qs.addQuestion(question);
+		return qs.addQuestion(question);
 	}
 	
 	@PutMapping("/updatequestion/{id}")
 	public Question updateQuestion(@RequestBody Question question,
-								   @PathVariable Long id) {
+								   @PathVariable int id) {
 		
 		return qs.updateQuestion(question, id);
 	}
 	
 	@DeleteMapping("/deletequestionbyid/{id}")
-	 public void deleteQuestionbyId(@PathVariable long id) {
+	 public void deleteQuestionbyId(@PathVariable int id) {
 		 
 		qs.deleteQuestionbyId(id);
 	 }
@@ -63,7 +63,7 @@ public class QuestionController {
 	}
 	
 	@GetMapping("/getQuestionById/{id}")
-	public Question getQuestionById(@PathVariable long id) {
+	public List<Question> getQuestionById(@PathVariable int id) {
 		
 		return qs.getQuestionById(id);
 	}

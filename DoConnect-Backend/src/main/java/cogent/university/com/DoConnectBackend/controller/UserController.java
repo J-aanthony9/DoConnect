@@ -4,6 +4,7 @@ import cogent.university.com.DoConnectBackend.entity.AuthRequest;
 import cogent.university.com.DoConnectBackend.entity.JwtResponse;
 import cogent.university.com.DoConnectBackend.entity.User;
 import cogent.university.com.DoConnectBackend.service.UserService;
+import cogent.university.com.DoConnectBackend.service.UserServiceImpl;
 import cogent.university.com.DoConnectBackend.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +22,7 @@ import java.util.Map;
 public class UserController {
 
     @Autowired
-    UserService userService;
+    UserServiceImpl userService;
 
     @Autowired
     private AuthenticationManager authenticationManager;

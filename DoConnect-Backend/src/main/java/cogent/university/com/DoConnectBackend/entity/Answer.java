@@ -9,7 +9,7 @@ public class Answer {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private long id;
 	private String description_answer;
 	private String img_src;
 	private String status;
@@ -34,12 +34,17 @@ public class Answer {
 		this.approved_by = approved_by;
 		this.created_by = created_by;
 	}
-
-	public int getId() {
+	
+	public Answer() {
+		
+	}
+	
+	
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

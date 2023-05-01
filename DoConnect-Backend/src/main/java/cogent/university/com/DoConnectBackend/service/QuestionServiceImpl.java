@@ -5,6 +5,7 @@ import cogent.university.com.DoConnectBackend.repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,23 +25,37 @@ public class QuestionServiceImpl implements QuestionService {
 
     // update question to repository
     @Override
-    public Question updateQuestion(Question q, Long id) {
-        Question questionDb = questionRepository.findById(id).get();
+    public Question updateQuestion(Question q, int id) {
+    	
+    	if(!questionRepository.findById(id).isEmpty()) {
+    		
+        Question questionDb = questionRepository.findById(id).get(0);
         questionDb.setDescription_question(q.getDescription_question());
         questionDb.setImage_src(q.getImage_src());
         questionDb.setDatetime(q.getDatetime());
         questionDb.setStatus(q.getStatus());
         questionDb.setTopic(q.getTopic());
         questionDb.setTitle(q.getTitle());
+        
         return questionRepository.save(questionDb);
+    	} else {
+    		return null;
+    	}
     }
 
     // delete question by id
     @Override
-    public void deleteQuestionbyId(Long id) {
+    public void deleteQuestionbyId(int id) {
 
-        Optional<Question> q = questionRepository.findById(id);
-        questionRepository.delete(q.get());
+
+    	
+    	if(!questionRepository.findById(id).isEmpty()) {
+    		
+    		Question q = questionRepository.findById(id).get(0);
+            
+            	questionRepository.delete(q);
+        	} 
+    	
     }
 
     // retrieve list of all question in repository
@@ -67,9 +82,9 @@ public class QuestionServiceImpl implements QuestionService {
 
     //retrieve list of all items
     @Override
-    public Question getQuestionById(Long id) {
+    public List<Question> getQuestionById(int id) {
 
-        return questionRepository.findById(id).get();
+        return questionRepository.findById(id);
     }
 
 

@@ -1,5 +1,7 @@
 package cogent.university.com.DoConnectBackend.service;
 
+import java.util.List;
+
 import cogent.university.com.DoConnectBackend.entity.Chat;
 
 public interface ChatService {
@@ -7,7 +9,7 @@ public interface ChatService {
 
     void deleteChatById(int id);
 
-    String getAllMsgLeft();
+    List<Chat> getAllMsgLeft();
 
 
 }
