@@ -52,8 +52,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/user/authenticate").permitAll()
                 .antMatchers("/user/addUser").permitAll()
+                .antMatchers("/user/getAllUsers").permitAll()
                 .antMatchers("/question/addQuestion").permitAll()
                 .antMatchers("/question/getAllQuestion").permitAll()
+
+                .antMatchers("/answer/addanswer").permitAll()
+                .antMatchers("/chat/addMsg").permitAll()
+                .antMatchers("/chat/getallmsg").permitAll()
+                .antMatchers("/chat/getallmsgbetweenusers").permitAll()
                 .antMatchers("/question/getQuestionById/**").permitAll()
                 .antMatchers("/question/getQuestionByTitle/**").permitAll()
                 .antMatchers("/question/getAllQuestionFalse").permitAll()
@@ -65,6 +71,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/answer/getAnswerById/**").permitAll()
                 .antMatchers("/answer/updateAnswer/**").permitAll()
                 .antMatchers("/question/deleteAnswerById/**").permitAll()
+
                 .anyRequest().authenticated().and()
                 .exceptionHandling().and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);

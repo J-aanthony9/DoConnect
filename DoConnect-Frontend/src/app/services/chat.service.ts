@@ -26,4 +26,8 @@ export class ChatService {
     return this.http.delete(`${this.base_url}/chat/deleteChatById/${id}`);
   }
 
+  getMessageBetweenUsers(data: any): Observable<Chat[]> {
+    return this.http.post<Chat[]>(`${this.base_url}/chat/getallmsgbetweenusers`, data);
+  }
+
 }

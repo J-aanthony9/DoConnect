@@ -30,4 +30,11 @@ public class ChatServiceImpl implements ChatService {
     	
         return (List<Chat>)chatRepository.findAll();
     }
+
+    
+	@Override
+	public List<Chat> getAllMsgBetweenUser(String from_user, String to_user) {
+		
+		return (List<Chat>)chatRepository.findAllBetweenTwoUsers(from_user,to_user);
+	}
 }

@@ -12,6 +12,7 @@ import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
 import { ChatComponent } from './components/chat/chat.component';
+import { UserChatComponent } from './components/user-chat/user-chat.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'chat', component: ChatComponent },
+  { path: 'userchat', component: UserChatComponent },
   { path: '**', component: NoPageFoundComponent }
 
 ];

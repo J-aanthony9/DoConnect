@@ -29,4 +29,9 @@ public class ChatController {
     public List<Chat> getAllMsg(){
         return chatService.getAllMsgLeft();
     }
+    
+    @PostMapping("getallmsgbetweenusers")
+    public List<Chat> getAllMsgBetweenUsers(@RequestBody Chat partialChatObject){
+        return chatService.getAllMsgBetweenUser(partialChatObject.getFrom_user(), partialChatObject.getTo_user());
+    }
 }
