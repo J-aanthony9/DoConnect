@@ -80,8 +80,8 @@ export class DashboardComponent {
 
     this.userService.createUser(data).subscribe({
       next: (res) => {
-        console.log(res);
-        //navigate later
+        this.router.navigateByUrl('/home');
+  
       }
 
     });

@@ -1,6 +1,7 @@
 package cogent.university.com.DoConnectBackend.service;
 
 import cogent.university.com.DoConnectBackend.entity.Answer;
+import cogent.university.com.DoConnectBackend.entity.Question;
 import cogent.university.com.DoConnectBackend.repository.AnswerRepository;
 import cogent.university.com.DoConnectBackend.repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,23 +60,30 @@ public class AnswerServiceImpl implements AnswerService {
         answerDb.setImg_src(answer.getImg_src());
         answerDb.setStatus(answer.getStatus());
         answer.setDatetime(answer.getDatetime());
+        answerDb.setApproved_by(answer.getApproved_by());
 
         return answerRepository.save(answerDb);
 
     }
 
     // Gets answer by id and deletes it from repository
+
+//    @Override
+//    public void deleteQuestionById(long id) {
+//        Question q = questionRepository.findById(id);
+//        questionRepository.delete(q);
+//
+//
+//    }
     @Override
-    public void deleteAnswerbyId(long id) {
-
-        Optional<Answer> answer = answerRepository.findById(id);
-        answerRepository.delete(answer.get());
-
+    public void deleteAnswerById(long id) {
+        Answer answer = answerRepository.findById(id).orElse(null);
+        answerRepository.delete(answer);
     }
 
     // returns list of answers that coincide with question id
     @Override
-    public List<Answer> getAnswersByQuestionId(int questionId) {
+    public List<Answer> getAnswersByQuestionId(long questionId) {
 //        List<Answer> answers = answerRepository.findAll();
 //        List<Answer> answerByQuestionId;
 //

@@ -44,7 +44,7 @@ public class UserController {
         User user = userService.findByUserName(request.getUsername());
 
         return ResponseEntity.ok(new JwtResponse(jwt,
-                user.getId(),
+                (int) user.getId(),
                 user.getUsername(),
                 user.getUsertype()));
     }

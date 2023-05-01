@@ -23,9 +23,10 @@ public class QuestionServiceImpl implements QuestionService {
 
     }
 
+
     // update question to repository
     @Override
-    public Question updateQuestion(Question q, int id) {
+    public Question updateQuestion(Question q, long id) {
     	
 //    	if(!questionRepository.findById(id).isEmpty()) {
     		
@@ -35,6 +36,7 @@ public class QuestionServiceImpl implements QuestionService {
         questionDb.setDatetime(q.getDatetime());
         questionDb.setStatus(q.getStatus());
         questionDb.setTopic(q.getTopic());
+        questionDb.setQapproved_by(q.getQapproved_by());
         questionDb.setTitle(q.getTitle());
         
         return questionRepository.save(questionDb);
@@ -45,16 +47,10 @@ public class QuestionServiceImpl implements QuestionService {
 
     // delete question by id
     @Override
-    public void deleteQuestionbyId(int id) {
+    public void deleteQuestionById(long id) {
+        Question q = questionRepository.findById(id);
+        questionRepository.delete(q);
 
-
-    	
-//    	if(!questionRepository.findById(id).isEmpty()) {
-//
-//    		Question q = questionRepository.findById(id).get(0);
-//
-//            	questionRepository.delete(q);
-//        	}
     	
     }
 
@@ -82,7 +78,7 @@ public class QuestionServiceImpl implements QuestionService {
 
     //retrieve list of all items
     @Override
-    public Question getQuestionById(int id) {
+    public Question getQuestionById(long id) {
 
         return questionRepository.findById(id);
     }

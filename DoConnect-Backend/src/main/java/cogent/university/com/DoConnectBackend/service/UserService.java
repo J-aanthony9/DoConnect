@@ -11,9 +11,9 @@ public interface UserService {
     //getLogin()
     List<User> getAllUser();
 
-    User getUserById(int id);
+    User getUserById(long id);
 
-    User updateUser(User user, int id);
+    User updateUser(User user, long id);
 
     User getByName(String name);
 

@@ -15,7 +15,7 @@ public class Answer {
 	private String status;
 	private String datetime;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne()
 	@JoinColumn(name = "question_id", referencedColumnName = "id")
 	private Question question;
 

@@ -34,16 +34,13 @@ public class QuestionController {
 	
 	@PutMapping("/updateQuestion/{id}")
 	public Question updateQuestion(@RequestBody Question question,
-								   @PathVariable int id) {
-		
+								   @PathVariable long id) {
 		return qs.updateQuestion(question, id);
 	}
 	
 	@DeleteMapping("/deleteQuestionById/{id}")
-	 public void deleteQuestionById(@PathVariable int id) {
-
-		 
-		qs.deleteQuestionbyId(id);
+	 public void deleteQuestionById(@PathVariable long id) {
+		qs.deleteQuestionById(id);
 	 }
 	
 	@GetMapping("/getAllQuestion")
@@ -65,7 +62,7 @@ public class QuestionController {
 	}
 	
 	@GetMapping("/getQuestionById/{id}")
-	public Question getQuestionById(@PathVariable int id) {
+	public Question getQuestionById(@PathVariable long id) {
 		
 		return qs.getQuestionById(id);
 	}
