@@ -1,21 +1,22 @@
 #createdQuestion {
   float: left;
-  width:45%;
-  margin-top:50px;
-  
+  width: 45%;
+  margin-top: 50px;
+
 }
 
 #createAnswer {
   float: right;
-  width:45%;
-  margin-top:50px;
+  width: 45%;
+  margin-top: 50px;
 }
-.card-header{
+
+.card-header {
   text-align: center;
   font-weight: bold;
 }
 
-.card{
+.card {
   border-radius: 20px;
 }
 
@@ -26,18 +27,25 @@ img {
   width: 60%;
 }
 
-#downloadButton{
-  margin-bottom:10px;
+#downloadButton {
+  margin-bottom: 10px;
 }
 
-textarea{
-  resize:none;
+textarea {
+  resize: none;
 }
 
 tr:nth-child(odd) {
   background-color: rgb(220, 218, 218);
 }
 
-th, table, td {
+th,
+table,
+td {
   border: 1px solid black;
+}
+
+.spacing {
+  background-color: black !important;
+
 }

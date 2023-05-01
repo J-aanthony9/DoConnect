@@ -4,23 +4,27 @@
     <div class="card-header">Created Question</div>
     <div class="card-body">
       <table class="table table-bordered">
-        <tbody>
+        <tbody *ngFor="let question of questionList">
           <tr>
             <th scope="col">id</th>
-            <td class="tdPadding">1</td>
+            <td class="tdPadding">{{question.id}}</td>
           </tr>
           <tr>
             <th scope="col">Title</th>
-            <td class="tdPadding">what is window server?</td>
+            <td class="tdPadding">{{question.title}}</td>
           </tr>
           <tr>
             <th scope="col">Topic</th>
-            <td class="tdPadding">Server</td>
+            <td class="tdPadding">{{question.topic}}</td>
           </tr>
 
           <tr>
             <th scope="col">Description</th>
-            <td class="tdPadding">Server</td>
+            <td class="tdPadding">{{question.description_question}}</td>
+          </tr>
+          <tr>
+            <th class="spacing" scope="col"></th>
+            <td class="tdPadding spacing"></td>
           </tr>
         </tbody>
       </table>

@@ -3,6 +3,9 @@ import { FormControl, FormBuilder, FormGroup, Validators, AbstractControl } from
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { AnswerService } from 'src/app/services/answer.service';
+import { StorageService } from 'src/app/services/storage.service';
+import { QuestionService } from 'src/app/services/question.service';
+import { Question } from 'src/app/models/question.model';
 
 @Component({
   selector: 'app-create-answer',
@@ -11,14 +14,18 @@ import { AnswerService } from 'src/app/services/answer.service';
 })
 export class CreateAnswerComponent {
 
+
+
   answerForm: FormGroup = new FormGroup({
     description_answer: new FormControl(''),
     image: new FormControl('')
   });
 
-  submitted = false;
 
-  constructor(private answerService: AnswerService, private fb: FormBuilder, private authService: AuthService, private router: Router) {
+  submitted = false;
+  questionList: Question[] = [];
+
+  constructor(private answerService: AnswerService, private fb: FormBuilder, private authService: AuthService, private router: Router, private storageService: StorageService, private questionService: QuestionService) {
   }
 
   ngOnInit(): void {
@@ -26,6 +33,8 @@ export class CreateAnswerComponent {
       description_answer: ['', Validators.required],
       image: ['', Validators.required]
     })
+
+    this.getQuestion();
   }
 
   get f(): { [key: string]: AbstractControl } {
@@ -47,9 +56,15 @@ export class CreateAnswerComponent {
     const data = {
 
       description_answer: this.answerForm.value.description_answer,
-      image_src: this.answerForm.value.image,
+      //null for testing 
+      // image_src: this.answerForm.value.fileSource,
+      image_src: null,
       status: false,
-      datetime: new Date(),
+      datetime: new Date().toLocaleString().split(',')[0],
+      //hardcoded for testing 
+      question: null,
+      approved_by: null,
+      created_by: this.storageService.getUser().username
 
     }
 
@@ -62,10 +77,16 @@ export class CreateAnswerComponent {
 
     });
 
-
-
   }
 
+  getQuestion() {
+
+    this.questionService.getAllQuestion().subscribe({
+      next: (res) => {
+        this.questionList = res;
+      }
+    });
+  }
 
 
 
