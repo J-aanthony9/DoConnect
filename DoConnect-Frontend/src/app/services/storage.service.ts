@@ -21,7 +21,6 @@ export class StorageService {
 
   public getUser(): any {
     const user = window.sessionStorage.getItem(USER_KEY);
-    console.log("hi" + user);
     if (user) {
       return JSON.parse(user);
     }
@@ -40,6 +39,7 @@ export class StorageService {
 
   public logout() {
     window.sessionStorage.removeItem("auth-user");
+    window.sessionStorage.removeItem("token");
   }
 
 

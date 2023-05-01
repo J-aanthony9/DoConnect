@@ -1,8 +1,12 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 import { Question } from '../models/question.model';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +18,8 @@ export class QuestionService {
   constructor(private http: HttpClient) { }
 
   createQuestion(data: any): Observable<any> {
-    return this.http.post(`${this.base_url}/question/addQuestion`, data);
+    return this.http.post(`${this.base_url}/question/addQuestion`, data, httpOptions);
+    // return this.http.post(`${this.base_url}/user/authenticate`, data, httpOptions);
   }
 
   updateQuestion(data: any, id: any): Observable<any> {
