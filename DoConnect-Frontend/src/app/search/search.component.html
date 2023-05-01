@@ -5,8 +5,8 @@
             <option disabled selected>Select a topic</option>
             <option value="volvo">Volvo</option>
         </select>
-        <input id="searchbar" class="form-control form-control-md" type="search" placeholder="Search Question...">
-        <button id="searchbutton" class="btn btn-outline-info buttonBGcolor" type="send">Search</button>
+        <input id="searchbar" [(ngModel)]="searchInput" name="searchInput" class="form-control form-control-md" type="search" placeholder="Search Question...">
+        <button id="searchbutton" (click) = "searchBar(searchInput)" class="btn btn-outline-info buttonBGcolor" type="send">Search</button>
     </form>
 </div>
 
@@ -24,13 +24,13 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td class="tdPadding">1</td>
-              <td class="tdPadding">Server</td>
-              <td class="tdPadding">what is window server?</td>
-              <td class="tdPadding">Server</td>
+            <tr *ngFor="let question of questionList" >
+              <td class="tdPadding">{{question.id}}</td>
+              <td class="tdPadding">{{question.topic}}</td>
+              <td class="tdPadding">{{question.title}}</td>
+              <td class="tdPadding">{{question.description_question}}</td>
               <td>
-                <button type="button" class="btn btn-primary buttonBGcolor">Show Detail</button>
+                <button type="button" (click)="showDetails(question.id)" class="btn btn-primary buttonBGcolor">Show Detail</button>
               </td>
             </tr>
           </tbody>

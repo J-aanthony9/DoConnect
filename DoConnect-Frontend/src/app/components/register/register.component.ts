@@ -64,7 +64,7 @@ export class RegisterComponent implements OnInit {
       this.signUpUser()
     }
 
-    console.log(JSON.stringify(this.registerForm.value, null, 2));
+    // console.log(JSON.stringify(this.registerForm.value, null, 2));
   }
 
 
@@ -91,9 +91,7 @@ export class RegisterComponent implements OnInit {
 
     this.userService.createUser(data).subscribe({
       next: (res) => {
-        // console.log(res);
-        //navigate later
-        this.router.navigate(['/login']);
+        this.router.navigateByUrl('/home');
       }
 
     });

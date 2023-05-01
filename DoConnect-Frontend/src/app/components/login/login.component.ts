@@ -53,7 +53,6 @@ export class LoginComponent implements OnInit {
 
   login() {
     const val = this.loginForm.value;
-    console.log(val);
 
 
     this.authService.login(val)
@@ -62,10 +61,9 @@ export class LoginComponent implements OnInit {
           this.storageService.saveUser(data)
           this.isLoginFailed = false;
           this.isLoggedIn = true;
-          this.router.navigateByUrl('/create_question');
+          this.router.navigateByUrl('/home');
         },
         error: err => {
-          console.log('login err ===', err);
           this.isLoginFailed = true;
         }
       }

@@ -9,7 +9,7 @@ import { PendingAnswerComponent } from './components/pending-answer/pending-answ
 import { CreateAnswerComponent } from './components/create-answer/create-answer.component';
 import { ApproveAnswerComponent } from './components/approve-answer/approve-answer.component';
 import { HomeComponent } from './components/home/home.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { UserChatComponent } from './components/user-chat/user-chat.component';
@@ -23,6 +23,7 @@ const routes: Routes = [
   { path: 'pending_question', component: PendingQuestionComponent },
   { path: 'pending_answer', component: PendingAnswerComponent },
   { path: 'create_answer', component: CreateAnswerComponent },
+  {path: 'create_answer/:id',component: CreateAnswerComponent},
   { path: 'approve_answer', component: ApproveAnswerComponent },
   { path: 'home', component: HomeComponent },
   { path: 'dashboard', component: DashboardComponent },

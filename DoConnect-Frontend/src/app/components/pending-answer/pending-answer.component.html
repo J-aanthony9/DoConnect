@@ -12,14 +12,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td class="tdPadding">1</td>
-            <td class="tdPadding">DNS stands for Domain Name System, and so it refers to the telephone directory on the internet</td>
-            <td class="tdPadding">vaishu</td>
-            <td class="tdPadding">12/29/2022<br>10:11:15 AM</td>
+          <tr *ngFor="let answer of answers">
+            <td class="tdPadding">{{answer.id}}</td>
+            <td class="tdPadding">{{answer.description_answer}}</td>
+            <td class="tdPadding">{{answer.created_by}}</td>
+            <td class="tdPadding">{{answer.datetime}}</td>
             <td>
-              <button type="button" class="btn btn-success pendingButton">Approve</button>
-              <button type="button" class="btn btn-danger pendingButton">Remove</button>
+              <button type="button" (click)="approveAnswer(answer, answer.id)" class="btn btn-success pendingButton">Approve</button>
+              <button type="button" (click)="removeAnswer(answer.id)" class="btn btn-danger pendingButton">Remove</button>
             </td>
           </tr>
         </tbody>

@@ -16,7 +16,9 @@ public interface AnswerService {
 
     public Answer updateAnswer(Answer answer, Long id);
 
-    public void deleteAnswerbyId(long id);
+    public void deleteAnswerById(long id);
 
-    public List<Answer> getAnswersByQuestionId(int questionId);
+    public List<Answer> getAnswersByQuestionId(long questionId);
+
+
 }
