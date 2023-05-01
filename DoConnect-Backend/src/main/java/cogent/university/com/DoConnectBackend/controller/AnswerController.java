@@ -41,21 +41,21 @@ public class AnswerController {
     }
 
     @PutMapping("/updateanswer/{id}")
-    public void updateAnswer(@RequestBody Answer answer,
+    public Answer updateAnswer(@RequestBody Answer answer,
                              @PathVariable("id") Long id) {
 
-        asi.updateAnswer(answer, id);
+        return asi.updateAnswer(answer, id);
     }
 
     @DeleteMapping("/deleteanswerbyid/{id}")
     public void deleteAnswerById(@PathVariable long id) {
 
-        asi.deleteAnswerbyId(id);
+         asi.deleteAnswerbyId(id);
     }
 
 
     @GetMapping("/question/{id}")
-    public List<Answer> getAnswerbyQuestionId(@PathVariable("id") long questionId) {
+    public List<Answer> getAnswerbyQuestionId(@PathVariable("id") int questionId) {
         return asi.getAnswersByQuestionId(questionId);
     }
 

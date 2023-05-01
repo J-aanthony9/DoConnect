@@ -3,7 +3,16 @@ package cogent.university.com.DoConnectBackend.entity;
 import java.sql.Blob;
 import java.util.List;
 
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.*;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -25,7 +34,7 @@ public class Question {
 	private String topic;
 	private String title;
 	
-	@OneToMany(mappedBy = "question")
+	@OneToMany(cascade= {CascadeType.MERGE, CascadeType.REMOVE},mappedBy = "question")
 	@JsonIgnore
 	private List<Answer> answers;
 	

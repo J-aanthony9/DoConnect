@@ -25,6 +25,7 @@ public class QuestionController {
 	@Autowired
 	private QuestionServiceImpl qs;
 	
+
 	@PostMapping("/addQuestion")
 	public Question addQuestion(@RequestBody Question question) {
 		
@@ -33,13 +34,15 @@ public class QuestionController {
 	
 	@PutMapping("/updateQuestion/{id}")
 	public Question updateQuestion(@RequestBody Question question,
-								   @PathVariable Long id) {
+								   @PathVariable int id) {
 		
 		return qs.updateQuestion(question, id);
 	}
 	
+
 	@DeleteMapping("/deleteQuestionbyid/{id}")
 	 public void deleteQuestionById(@PathVariable long id) {
+
 		 
 		qs.deleteQuestionbyId(id);
 	 }
@@ -63,7 +66,7 @@ public class QuestionController {
 	}
 	
 	@GetMapping("/getQuestionById/{id}")
-	public Question getQuestionById(@PathVariable long id) {
+	public List<Question> getQuestionById(@PathVariable int id) {
 		
 		return qs.getQuestionById(id);
 	}

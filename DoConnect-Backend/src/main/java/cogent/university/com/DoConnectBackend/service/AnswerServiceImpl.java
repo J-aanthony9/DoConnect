@@ -51,14 +51,14 @@ public class AnswerServiceImpl implements AnswerService {
     }
 
     @Override
-    public void updateAnswer(Answer answer, Long id) {
+    public Answer updateAnswer(Answer answer, Long id) {
         Answer answerDb = answerRepository.findById(id).get();
         answerDb.setDescription_answer(answer.getDescription_answer());
         answerDb.setImg_src(answer.getImg_src());
         answerDb.setStatus(answer.getStatus());
         answer.setDatetime(answer.getDatetime());
 
-        answerRepository.save(answerDb);
+        return answerRepository.save(answerDb);
 
     }
 
@@ -73,15 +73,16 @@ public class AnswerServiceImpl implements AnswerService {
 
     // returns list of answers that coincide with question id
     @Override
-    public List<Answer> getAnswersByQuestionId(long questionId) {
-        List<Answer> answers = answerRepository.findAll();
-        List<Answer> answerByQuestionId;
-
-        answerByQuestionId = answers.stream()
-                .filter(answer -> answer.getQuestion().getId() == questionId)
-                .collect(Collectors.toList());
-
-        return answerByQuestionId;
+    public List<Answer> getAnswersByQuestionId(int questionId) {
+//        List<Answer> answers = answerRepository.findAll();
+//        List<Answer> answerByQuestionId;
+//
+//        answerByQuestionId = answers.stream()
+//                .filter(answer -> answer.getQuestion().getId() == questionId)
+//                .collect(Collectors.toList());
+//
+//        return answerByQuestionId;
+    	return answerRepository.getAllByQuestionId(questionId);
     }
 
 }
