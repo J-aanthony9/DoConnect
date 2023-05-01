@@ -11,6 +11,7 @@ import { ApproveAnswerComponent } from './components/approve-answer/approve-answ
 import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
+import { ChatComponent } from './components/chat/chat.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'approve_answer', component: ApproveAnswerComponent },
   { path: 'home', component: HomeComponent },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'chat', component: ChatComponent },
   { path: '**', component: NoPageFoundComponent }
 
 ];

@@ -1,0 +1,50 @@
+<div class="container">
+  <h2>User to User Chat</h2>
+</div>
+
+
+<main class="d-flex w-100">
+  <div class="container d-flex flex-column">
+    <div class="row vh-150">
+      <div class="col-sm-10 col-md-8 col-lg-10 mx-auto d-table h-100">
+        <div class="d-table-cell align-middle">
+          <div class="card">
+            <div class="card-body">
+              <div class="m-sm-4">
+                <form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
+
+                  <!-- User To Chat-->
+                  <div class="mb-3">
+                    <label class="form-label">Select a User</label>
+                    <select class="form-control form-control-lg" placeholder="Choose a user" formControlName="userSelect" [ngClass]="{ 'is-invalid': submitted && f['userSelect'].errors }">
+                      <option selected value="null">Select a User to Chat </option>
+                      <option *ngFor="let user of userList" [value]="user.name">{{user.username}}</option>
+                    </select>
+                    <div *ngIf="submitted && f['userSelect'].errors" class="invalid-feedback">
+                      <div *ngIf="f['userSelect'].errors['required']">You must select a user to chat with.</div>
+                    </div>
+                  </div>
+
+                  <!--Send Message -->
+                  <div class="mb-3">
+                    <label class="form-label">Send Message</label>
+                    <input class="form-control form-control-lg" formControlName='message' placeholder=" Enter Message" [ngClass]="{ 'is-invalid': submitted && f['message'].errors }" />
+                    <div *ngIf="submitted && f['message'].errors" class="invalid-feedback">
+                      <div *ngIf="f['message'].errors['required']">You can't send an empty message. Please enter a message to send.
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="text-center mt-3">
+                    <button type="submit" id="signinbutton" class="btn btn-lg btn-primary">Create</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
