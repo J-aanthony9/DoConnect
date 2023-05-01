@@ -34,7 +34,7 @@ public class Question {
 	private String topic;
 	private String title;
 	
-	@OneToMany(cascade= {CascadeType.MERGE, CascadeType.REMOVE},mappedBy = "question")
+	@OneToMany(mappedBy = "question")
 	@JsonIgnore
 	private List<Answer> answers;
 	

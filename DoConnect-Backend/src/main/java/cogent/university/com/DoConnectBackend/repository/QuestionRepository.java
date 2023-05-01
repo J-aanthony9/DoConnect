@@ -10,6 +10,9 @@ public interface QuestionRepository extends JpaRepository<Question, Long> {
 
 	List<Question> findBytopic(String topic);
 	List<Question> findBystatus(String status);
-	List<Question> findById(int id);
+	Question findById(int id);
 	void deleteById(int id);
+
+
+	List<Question> findAllByTitle(String title);
 }

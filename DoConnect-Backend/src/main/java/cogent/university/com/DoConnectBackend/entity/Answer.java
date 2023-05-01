@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class Answer {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String description_answer;
 	private String img_src;

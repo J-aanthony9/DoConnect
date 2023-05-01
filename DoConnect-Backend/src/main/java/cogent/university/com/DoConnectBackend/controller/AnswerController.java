@@ -1,7 +1,9 @@
 package cogent.university.com.DoConnectBackend.controller;
 
 import cogent.university.com.DoConnectBackend.entity.Answer;
+import cogent.university.com.DoConnectBackend.entity.Question;
 import cogent.university.com.DoConnectBackend.service.AnswerServiceImpl;
+import cogent.university.com.DoConnectBackend.service.QuestionServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +16,9 @@ public class AnswerController {
 
     @Autowired
     private AnswerServiceImpl asi;
+
+    @Autowired
+    private QuestionServiceImpl qsi;
 
     @GetMapping("/getallanswers")
     public List<Answer> getAllAnswer() {
@@ -28,11 +33,21 @@ public class AnswerController {
 
     }
 
-    @PostMapping("/addanswer")
+    @PostMapping("/addAnswer")
     public Answer addAnswer(@RequestBody Answer answer) {
-
         return asi.addAnswer(answer);
     }
+
+    @PutMapping("/question/{id}")
+    public Answer assignAnswerToQuestion(@PathVariable("id") int id,
+                                         @RequestBody Answer answer) {
+
+        Question question = qsi.getQuestionById(id);
+        answer.setQuestion(question);
+        return asi.addAnswer(answer);
+    }
+
+
 
     @GetMapping("/getanswerbyid/{id}")
     public Answer getById(@PathVariable long id) {
