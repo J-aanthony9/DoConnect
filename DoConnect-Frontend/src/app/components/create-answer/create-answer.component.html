@@ -49,10 +49,12 @@
         <!--Image-->
         <div class="mb-3">
           <label class="form-label" for="customFile">Select an image</label>
-          <input type="file" class="form-control" id="customFile" formControlName="image" [ngClass]="{ 'is-invalid': submitted && f['image'].errors }" />
-          <div *ngIf="submitted && f['image'].errors" class="invalid-feedback">
+          <input type="file" class="form-control" id="customFile" formControlName="image"  />
+          <!-- 
+            [ngClass]="{ 'is-invalid': submitted && f['image'].errors }"
+            <div *ngIf="submitted && f['image'].errors" class="invalid-feedback">
             <div *ngIf="f['image'].errors['required']">Image is required</div>
-          </div>
+          </div> -->
         </div>
 
         <!--Submit-->
