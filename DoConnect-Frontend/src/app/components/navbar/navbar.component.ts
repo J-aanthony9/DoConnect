@@ -30,11 +30,11 @@ export class NavbarComponent implements OnInit {
   }
 
   isAdmin(): boolean {
-    return this.storageService.getUser().usertype == 'ADMIN' ? true : false;
+    return this.storageService.getUser().usertype == 'admin' ? true : false;
   }
 
   isUser(): boolean {
-    return this.storageService.getUser().usertype == 'USER' ? true : false;
+    return this.storageService.getUser().usertype == 'user' ? true : false;
   }
 
   logOut() {
