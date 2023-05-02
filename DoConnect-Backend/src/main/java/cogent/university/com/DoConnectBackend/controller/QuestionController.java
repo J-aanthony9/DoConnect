@@ -28,6 +28,7 @@ public class QuestionController {
 	
 
 	@PostMapping("/addQuestion")
+	@PreAuthorize("hasRole('USER')")
 	public Question addQuestion(@RequestBody Question question) {
 		
 		return qs.addQuestion(question);
@@ -41,13 +42,14 @@ public class QuestionController {
 	
 
 	@DeleteMapping("/deleteQuestionById/{id}")
-//	@PreAuthorize("hasRole('ADMIN')")
+	@PreAuthorize("hasRole('ADMIN')")
 	 public void deleteQuestionById(@PathVariable long id) {
 		qs.deleteQuestionById(id);
 
 	 }
 	
 	@GetMapping("/getAllQuestion")
+	@PreAuthorize("hasRole('USER')")
 	public List<Question> getAllQuestion(){
 		
 		return qs.getAllQuestion();

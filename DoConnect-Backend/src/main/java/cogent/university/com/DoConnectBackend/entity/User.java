@@ -2,37 +2,54 @@ package cogent.university.com.DoConnectBackend.entity;
 
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-@Table(name = "user_tbl")
+@Table(name = "user_tbl",
+        uniqueConstraints = {
+                @UniqueConstraint(columnNames = "username"),
+                @UniqueConstraint(columnNames = "email")})
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String name;
     private String username;
     private String password;
     private String email;
 
-    private String usertype;
 
-    public User(String name, String username, String password, String email, String usertype) {
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(	name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
+
+
+
+
+    public User(String name, String username, String password, String email) {
         this.name = name;
         this.username = username;
         this.password = password;
         this.email = email;
-        this.usertype = usertype;
     }
+
+
 
     public User() {
     }
 
-    public long getId() {
+
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -68,11 +85,11 @@ public class User {
         this.email = email;
     }
 
-    public String getUsertype() {
-        return usertype;
+    public Set<Role> getRoles() {
+        return roles;
     }
 
-    public void setUsertype(String usertype) {
-        this.usertype = usertype;
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 }

@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
         userDb.setUsername(user.getUsername());
         userDb.setPassword(user.getPassword());
         userDb.setEmail(user.getEmail());
-        userDb.setUsertype(user.getUsertype());
+//        userDb.setUsertype(user.getUsertype());
 
         return userRepository.save(userDb);
     }
@@ -45,13 +45,13 @@ public class UserServiceImpl implements UserService {
         return userRepository.findByName(name);
     }
 
-    @Override
-    public List<User> getAllByUserType(String userType) {
-        return userRepository.findByUsertype(userType);
-    }
+//    @Override
+//    public List<User> getAllByUserType(String userType) {
+//        return userRepository.findByUsertype(userType);
+//    }
 
     @Override
     public User findByUserName(String name) {
-        return userRepository.findByUsername(name);
+        return userRepository.findByUsername(name).orElse(null);
     }
 }

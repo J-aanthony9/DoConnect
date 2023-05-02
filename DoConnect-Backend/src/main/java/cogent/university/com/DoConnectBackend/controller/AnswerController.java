@@ -51,7 +51,7 @@ public class AnswerController {
 
 
     @GetMapping("/getanswerbyid/{id}")
-    public Answer getById(@PathVariable long id) {
+    public Answer getById(@PathVariable Long id) {
 
         return asi.getbyId(id);
     }
