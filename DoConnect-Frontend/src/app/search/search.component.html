@@ -1,9 +1,10 @@
 <div class="container">
     <form class="d-flex">
         <label id="selectTopicLabel" class="form-label">Search the question:</label>
-        <select id="selectTopic" class="form-control form-control-md" name="topic" placeholder="Choose topic" required>
-            <option disabled selected>Select a topic</option>
-            <option value="volvo">Volvo</option>
+        <select id="selectTopic" class="form-control form-control-md" (change) = "onOptionsSelected($event)" name="topic">
+        
+          <option *ngFor="let topic of topics" >{{topic}}</option>
+         
         </select>
         <input id="searchbar" [(ngModel)]="searchInput" name="searchInput" class="form-control form-control-md" type="search" placeholder="Search Question...">
         <button id="searchbutton" (click) = "searchBar(searchInput)" class="btn btn-outline-info buttonBGcolor" type="send">Search</button>
