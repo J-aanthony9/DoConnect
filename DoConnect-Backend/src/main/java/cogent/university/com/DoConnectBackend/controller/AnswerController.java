@@ -5,6 +5,7 @@ import cogent.university.com.DoConnectBackend.entity.Question;
 import cogent.university.com.DoConnectBackend.service.AnswerServiceImpl;
 import cogent.university.com.DoConnectBackend.service.QuestionServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

@@ -1,10 +1,12 @@
 package cogent.university.com.DoConnectBackend.service;
 
 import cogent.university.com.DoConnectBackend.entity.Question;
+import cogent.university.com.DoConnectBackend.entity.User;
 import cogent.university.com.DoConnectBackend.repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -13,9 +15,23 @@ public class QuestionServiceImpl implements QuestionService {
     @Autowired
     private QuestionRepository questionRepository;
 
+    @Autowired
+    EmailService emailService;
+
+    @Autowired
+    UserServiceImpl userService;
+
     // add question to repository
     @Override
     public Question addQuestion(Question question) {
+
+        try{
+            emailService.sendEmail("dksfja@gmail.com", "New Question For Review", "Please approve or deny this new question");
+        } catch (Exception e ){
+            System.out.println(e);
+        }
+
+
 
         return questionRepository.save(question);
 
@@ -36,7 +52,16 @@ public class QuestionServiceImpl implements QuestionService {
         questionDb.setTopic(q.getTopic());
         questionDb.setQapproved_by(q.getQapproved_by());
         questionDb.setTitle(q.getTitle());
-        
+
+
+//        adminUserList.stream().forEach(user -> {
+//            user.getEmail();
+//        });
+
+
+
+
+
         return questionRepository.save(questionDb);
 //    	} else {
 //    		return null;
