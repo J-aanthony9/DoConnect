@@ -61,8 +61,9 @@ public class WebSecurityConfig  {
                 .authorizeRequests()
                 .antMatchers("/user/addUser/**").permitAll()
                 .antMatchers("/user/authenticate/**").permitAll()
-                .antMatchers("/question/addQuestion/**").permitAll()
-                .antMatchers("/question/getAllQuestion").permitAll()
+                .antMatchers("/question/addQuestion").hasAnyRole("USER")
+                .antMatchers("/question/getAllQuestion").hasAnyRole("USER")
+                .antMatchers("/question/deleteQuestionById/**").hasAnyRole("ADMIN")
                 .anyRequest().authenticated();
 
         http.authenticationProvider(authenticationProvider());
