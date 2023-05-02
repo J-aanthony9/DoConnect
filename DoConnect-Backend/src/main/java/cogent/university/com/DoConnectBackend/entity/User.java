@@ -14,6 +14,7 @@ public class User {
     private String username;
     private String password;
     private String email;
+
     private String usertype;
 
     public User(String name, String username, String password, String email, String usertype) {
