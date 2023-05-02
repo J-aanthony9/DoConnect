@@ -16,28 +16,28 @@ export class NavbarComponent implements OnInit {
   //   username:'',
   //   usertype:''
   // }
-  
+
 
   constructor(
     public storageService: StorageService,
     private authService: AuthService,
-    private router:Router) { 
-    }
+    private router: Router) {
+  }
 
   ngOnInit(): void {
 
 
   }
 
-  isAdmin():boolean {
-    return this.storageService.getUser().usertype == 'admin' ? true : false;
+  isAdmin(): boolean {
+    return this.storageService.getUser().usertype == 'ADMIN' ? true : false;
   }
 
-  isUser():boolean {
-    return this.storageService.getUser().usertype == 'user' ? true : false;
+  isUser(): boolean {
+    return this.storageService.getUser().usertype == 'USER' ? true : false;
   }
 
-  logOut(){
+  logOut() {
     this.router.navigateByUrl('/home');
     return this.storageService.logout();
   }
