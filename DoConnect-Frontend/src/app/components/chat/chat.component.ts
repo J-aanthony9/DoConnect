@@ -57,6 +57,7 @@ export class ChatComponent implements OnInit {
       this.sendMessage();
       this.getAllMessagesFromUser();
       this.getAllMessagesToUser();
+      window.location.reload();
     }
   }
 
