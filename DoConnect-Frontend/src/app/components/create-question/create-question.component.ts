@@ -6,6 +6,8 @@ import { QuestionService } from 'src/app/services/question.service';
 import { Question } from '../../models/question.model'
 import { StorageService } from 'src/app/services/storage.service';
 import { DatePipe } from '@angular/common';
+import { topicArr } from 'src/assets/topics';
+
 
 @Component({
   selector: 'app-create-question',
@@ -22,6 +24,8 @@ export class CreateQuestionComponent {
     image: new FormControl(''),
     fileSource: new FormControl('')
   });
+
+  topics: string[] = [];
 
   created = false;
 
@@ -40,6 +44,8 @@ export class CreateQuestionComponent {
       image: ['', Validators.required],
       fileSource: ['', Validators.required]
     });
+
+    this.topics = topicArr;
 
   }
 

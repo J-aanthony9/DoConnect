@@ -20,6 +20,9 @@ public class AnswerServiceImpl implements AnswerService {
     @Autowired
     private QuestionRepository questionRepository;
 
+    @Autowired
+    private EmailService emailService;
+
     // get all answer from repository
     @Override
     public List<Answer> getAllAnswer() {
@@ -39,6 +42,12 @@ public class AnswerServiceImpl implements AnswerService {
     @Override
     public Answer addAnswer(Answer answer) {
 
+        try{
+            emailService.sendEmail("dksfja@gmail.com", "Need Approval for answer", "Please approve or deny this new answer");
+        } catch (Exception e ){
+            System.out.println(e);
+        }
+
         return answerRepository.save(answer);
 
     }
@@ -55,12 +64,17 @@ public class AnswerServiceImpl implements AnswerService {
 
     @Override
     public Answer updateAnswer(Answer answer, Long id) {
+
+
+
         Answer answerDb = answerRepository.findById(id).get();
         answerDb.setDescription_answer(answer.getDescription_answer());
         answerDb.setImage_src(answer.getImage_src());
         answerDb.setStatus(answer.getStatus());
         answer.setDatetime(answer.getDatetime());
         answerDb.setApproved_by(answer.getApproved_by());
+
+
 
         return answerRepository.save(answerDb);
 

@@ -54,33 +54,34 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .cors().disable()
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/user/authenticate").permitAll()
-                .antMatchers("/user/addUser").permitAll()
-                .antMatchers("/user/getAllUsers").permitAll()
-                .antMatchers("/question/addQuestion").permitAll()
-                .antMatchers("/question/getAllQuestion").permitAll()
-
-                .antMatchers("/answer/addanswer").permitAll()
-                .antMatchers("/chat/addMsg").permitAll()
-                .antMatchers("/chat/getallmsg").permitAll()
-                .antMatchers("/chat/getallmsgbetweenusers").permitAll()
-                .antMatchers("/question/getQuestionById/**").permitAll()
-                .antMatchers("/question/getQuestionByTitle/**").permitAll()
-                .antMatchers("/question/getAllQuestionFalse").permitAll()
-                .antMatchers("/question/updateQuestion/**").permitAll()
-                .antMatchers("/question/deleteQuestionById/**").permitAll()
-                .antMatchers("/answer/addAnswer").permitAll()
-                .antMatchers("/answer/**/**/**").permitAll()
-                .antMatchers("/answer/question/**").permitAll()
-                .antMatchers("/answer/getAnswerById/**").permitAll()
-                .antMatchers("/answer/updateAnswer/**").permitAll()
-                .antMatchers("/question/deleteAnswerById/**").permitAll()
-
-                .anyRequest().authenticated().and()
+                .anyRequest().permitAll().and()
                 .exceptionHandling().and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
         http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
     }
 }
+
+
+
+//   .antMatchers("/user/authenticate").permitAll()
+//           .antMatchers("/user/addUser").permitAll()
+//           .antMatchers("/user/getAllUsers").permitAll()
+//           .antMatchers("/question/addQuestion").permitAll()
+//           .antMatchers("/question/getAllQuestion").permitAll()
+//           .antMatchers("/answer/addanswer").permitAll()
+//           .antMatchers("/chat/addMsg").permitAll()
+//           .antMatchers("/chat/getallmsg").permitAll()
+//           .antMatchers("/chat/getallmsgbetweenusers").permitAll()
+//           .antMatchers("/question/getQuestionById/**").permitAll()
+//           .antMatchers("/question/getQuestionByTitle/**").permitAll()
+//           .antMatchers("/question/getAllQuestionFalse").permitAll()
+//           .antMatchers("/question/updateQuestion/**").permitAll()
+//           .antMatchers("/question/deleteQuestionById/**").permitAll()
+//           .antMatchers("/answer/addAnswer").permitAll()
+//           .antMatchers("/answer/**/**/**").permitAll()
+//           .antMatchers("/answer/question/**").permitAll()
+//           .antMatchers("/answer/getAnswerById/**").permitAll()
+//           .antMatchers("/answer/updateAnswer/**").permitAll()
+//           .antMatchers("/question/deleteAnswerById/**").permitAll()
 

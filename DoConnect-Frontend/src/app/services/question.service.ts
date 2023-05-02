@@ -39,7 +39,7 @@ export class QuestionService {
   }
 
   getQuestionTopic(topic: string): Observable<Question[]> {
-    return this.http.get<Question[]>(`${this.base_url}/question?topic=${topic}`)
+    return this.http.get<Question[]>(`${this.base_url}/question/getQuestionByTopic?topic=${topic}`)
   }
 
   getQuestionById(id: any): Observable<Question> {
