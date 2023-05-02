@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { QuestionService } from '../services/question.service';
 import { Question } from '../models/question.model';
 import { Router } from '@angular/router';
+import { topicArr } from 'src/assets/topics';
 
 @Component({
   selector: 'app-search',
@@ -12,6 +13,10 @@ export class SearchComponent implements OnInit {
 
   questionList: Question[] = [];
   searchInput:string="";
+  topics:string[]=[];
+  selected:string ='';
+  
+   
 
   // question:Question = {
   //   id:0,
@@ -21,9 +26,12 @@ export class SearchComponent implements OnInit {
   // }
   
   constructor(private questionService: QuestionService,
-    private router:Router){}
+    private router:Router){
+    }
 
   ngOnInit(): void {
+      
+    this.topics = topicArr;
     this.getQuestion();
   }
 
@@ -52,6 +60,22 @@ export class SearchComponent implements OnInit {
     // this.userService.updateUser(id, user).subscribe({
     //   next:(res)=>console.log(res)
     // })
+  }
+
+  onOptionsSelected(event:any){
+    const value = event.target.value;
+    this.selected = value;
+    this.getQuestionByTopic(this.selected);
+
+  }
+
+  getQuestionByTopic(topic: string){
+    this.questionService.getQuestionTopic(topic).subscribe({
+      next: (res) =>{
+        this.questionList = res;
+        console.log(this.questionList);
+      }
+    })
   }
 
 
