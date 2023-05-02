@@ -3,6 +3,7 @@ package cogent.university.com.DoConnectBackend.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,6 +41,7 @@ public class QuestionController {
 	
 
 	@DeleteMapping("/deleteQuestionById/{id}")
+//	@PreAuthorize("hasRole('ADMIN')")
 	 public void deleteQuestionById(@PathVariable long id) {
 		qs.deleteQuestionById(id);
 

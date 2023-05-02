@@ -63,7 +63,9 @@ public class AnswerController {
         return asi.updateAnswer(answer, id);
     }
 
+    
     @DeleteMapping("/deleteAnswerById/{id}")
+//    @PreAuthorize("hasRole('ROLE_admin')")
     public void deleteAnswerById(@PathVariable long id) {
 
          asi.deleteAnswerById(id);

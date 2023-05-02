@@ -74,14 +74,14 @@ export class DashboardComponent {
       username: this.registerForm.value.username,
       password: this.registerForm.value.password,
       email: this.registerForm.value.email,
-      usertype: "admin"
+      usertype: "ADMIN"
     }
 
 
     this.userService.createUser(data).subscribe({
       next: (res) => {
         this.router.navigateByUrl('/home');
-  
+
       }
 
     });

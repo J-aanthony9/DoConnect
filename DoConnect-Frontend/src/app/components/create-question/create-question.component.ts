@@ -5,7 +5,9 @@ import { AuthService } from 'src/app/services/auth.service';
 import { QuestionService } from 'src/app/services/question.service';
 import { Question } from '../../models/question.model'
 import { StorageService } from 'src/app/services/storage.service';
+import { DatePipe } from '@angular/common';
 import { topicArr } from 'src/assets/topics';
+
 
 @Component({
   selector: 'app-create-question',
@@ -23,7 +25,7 @@ export class CreateQuestionComponent {
     fileSource: new FormControl('')
   });
 
-  topics:string[]=[];
+  topics: string[] = [];
 
   created = false;
 
@@ -31,7 +33,7 @@ export class CreateQuestionComponent {
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private storageService: StorageService) {
+    private storageService: StorageService, private datepipe: DatePipe) {
   }
 
   ngOnInit(): void {
@@ -91,7 +93,7 @@ export class CreateQuestionComponent {
     const data = {
       description_question: this.questionForm.value.description,
       image_src: this.questionForm.value.fileSource,
-      datetime: new Date().toLocaleString().split(',')[0],
+      datetime: this.datepipe.transform((new Date), 'MM/dd/yyyy h:mm:ss'),
       status: false,
       topic: this.questionForm.value.topic,
       title: this.questionForm.value.title,
