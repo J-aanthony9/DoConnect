@@ -41,7 +41,7 @@ public class QuestionController {
 	
 
 	@DeleteMapping("/deleteQuestionById/{id}")
-	@PreAuthorize("hasRole('ADMIN')")
+//	@PreAuthorize("hasRole('ADMIN')")
 	 public void deleteQuestionById(@PathVariable long id) {
 		qs.deleteQuestionById(id);
 
