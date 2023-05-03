@@ -74,7 +74,7 @@ export class DashboardComponent {
       username: this.registerForm.value.username,
       password: this.registerForm.value.password,
       email: this.registerForm.value.email,
-      usertype: "admin"
+      role: ["admin"]
     }
 
 

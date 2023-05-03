@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 const USER_KEY = 'auth-user'
 
@@ -8,7 +9,7 @@ const USER_KEY = 'auth-user'
 export class StorageService {
 
 
-  constructor() { }
+  constructor(private route:Router) { }
 
   clean(): void {
     window.sessionStorage.clear();
@@ -39,7 +40,8 @@ export class StorageService {
 
   public logout() {
     window.sessionStorage.removeItem("auth-user");
-    window.sessionStorage.removeItem("token");
+    this.route.navigateByUrl('/home');
+    // window.sessionStorage.removeItem("token");
   }
 
 

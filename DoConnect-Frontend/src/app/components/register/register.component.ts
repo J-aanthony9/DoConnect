@@ -22,6 +22,10 @@ export class RegisterComponent implements OnInit {
   });
   submitted = false;
 
+  isSignUpFailed = false;
+  errorMessage = '';
+
+
   constructor(private userService: UserService, private fb: FormBuilder, private authService: AuthService, private router: Router) {
   }
   ngOnInit(): void {
@@ -74,7 +78,7 @@ export class RegisterComponent implements OnInit {
       username: this.registerForm.value.username,
       password: this.registerForm.value.password,
       email: this.registerForm.value.email,
-      usertype: "user"
+      roles: ["user"]
     }
 
 
@@ -91,7 +95,12 @@ export class RegisterComponent implements OnInit {
 
     this.userService.createUser(data).subscribe({
       next: (res) => {
+        this.isSignUpFailed = false;
         this.router.navigateByUrl('/home');
+      },
+      error: err =>{
+        this.isSignUpFailed = true;
+        this.errorMessage = err.error.message;
       }
 
     });

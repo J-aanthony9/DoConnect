@@ -23,8 +23,13 @@ export class LoginComponent implements OnInit {
   isLoggedIn = false;
   isLoginFailed = false;
   submitted = false;
+  errMessage = 'Invalid Username or Password';
 
-  constructor(private userService: UserService, private fb: FormBuilder, private authService: AuthService, private router: Router, private storageService: StorageService) {
+  constructor(private userService: UserService,
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router,
+    private storageService: StorageService) {
   }
 
   ngOnInit(): void {
@@ -65,6 +70,7 @@ export class LoginComponent implements OnInit {
         },
         error: err => {
           this.isLoginFailed = true;
+          console.log(this.errMessage);
         }
       }
 
@@ -76,7 +82,6 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): void {
     this.submitted = true;
-
     if (this.loginForm.invalid) {
       return;
     } else {

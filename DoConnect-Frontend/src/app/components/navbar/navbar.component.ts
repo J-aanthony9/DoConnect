@@ -11,11 +11,7 @@ import { StorageService } from 'src/app/services/storage.service';
 })
 export class NavbarComponent implements OnInit {
   token: string | null = '';
-  // data:User = {
-  //   id:0,
-  //   username:'',
-  //   usertype:''
-  // }
+
 
 
   constructor(
@@ -25,16 +21,24 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.storageService.getUser().token);
 
 
   }
 
   isAdmin(): boolean {
-    return this.storageService.getUser().usertype == 'admin' ? true : false;
+    if (this.storageService.isLoggedIn()) {
+      return this.storageService.getUser().roles[0] == 'ROLE_ADMIN' ? true : false;
+    } else {
+      return false;
+    }
+
   }
 
   isUser(): boolean {
-    return this.storageService.getUser().usertype == 'user' ? true : false;
+    if(this.storageService.isLoggedIn()){
+    return this.storageService.getUser().roles[0] == 'ROLE_USER' ? true : false;
+    } else { return false;}
   }
 
   logOut() {

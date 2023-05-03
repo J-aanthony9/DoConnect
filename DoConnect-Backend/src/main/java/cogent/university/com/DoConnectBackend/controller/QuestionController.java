@@ -28,7 +28,6 @@ public class QuestionController {
 	
 
 	@PostMapping("/addQuestion")
-	@PreAuthorize("hasRole('USER')")
 	public Question addQuestion(@RequestBody Question question) {
 		
 		return qs.addQuestion(question);

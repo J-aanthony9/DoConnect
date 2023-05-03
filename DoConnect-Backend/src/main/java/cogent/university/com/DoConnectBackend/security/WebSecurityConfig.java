@@ -9,7 +9,6 @@ import org.springframework.security.authentication.dao.DaoAuthenticationProvider
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -59,11 +58,27 @@ public class WebSecurityConfig  {
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeRequests()
-                .antMatchers("/user/addUser/**").permitAll()
-                .antMatchers("/user/authenticate/**").permitAll()
-                .antMatchers("/question/addQuestion").hasAnyRole("USER")
-                .antMatchers("/question/getAllQuestion").hasAnyRole("USER")
-                .antMatchers("/question/deleteQuestionById/**").hasAnyRole("ADMIN")
+
+                .antMatchers("/user/authenticate").permitAll()
+                .antMatchers("/user/addUser").permitAll()
+                .antMatchers("/user/getAllUsers").permitAll()
+                .antMatchers("/question/addQuestion").hasRole("USER")
+                .antMatchers("/question/getAllQuestion").hasRole("USER")
+                .antMatchers("/answer/addanswer").hasRole("USER")
+                .antMatchers("/chat/addMsg").hasRole("USER")
+                .antMatchers("/chat/getallmsg").hasRole("USER")
+                .antMatchers("/chat/getallmsgbetweenusers").hasRole("USER")
+                .antMatchers("/question/getQuestionById/**").permitAll()
+                .antMatchers("/question/getQuestionByTitle/**").hasRole("USER")
+                .antMatchers("/question/getAllQuestionFalse").hasRole("ADMIN")
+                .antMatchers("/question/updateQuestion/**").hasRole("ADMIN")
+                .antMatchers("/question/deleteQuestionById/**").hasRole("ADMIN")
+                .antMatchers("/answer/addAnswer").hasRole("USER")
+//                .antMatchers("/answer/**/**/**").permitAll()
+                .antMatchers("/answer/question/**").hasRole("USER")
+                .antMatchers("/answer/getAnswerById/**").permitAll()
+                .antMatchers("/answer/updateAnswer/**").hasRole("ADMIN")
+                .antMatchers("/question/deleteAnswerById/**").hasRole("ADMIN")
                 .anyRequest().authenticated();
 
         http.authenticationProvider(authenticationProvider());
@@ -76,8 +91,34 @@ public class WebSecurityConfig  {
 
 
 }
+//
+//     .antMatchers("/user/addUser/**").permitAll()
+//             .antMatchers("/user/authenticate/**").permitAll()
+//             .antMatchers("/question/addQuestion").hasAnyRole("USER")
+//             .antMatchers("/question/getAllQuestion").hasAnyRole("USER")
+//             .antMatchers("/question/deleteQuestionById/**").hasAnyRole("ADMIN")
 
 
 
+//   .antMatchers("/user/authenticate").permitAll()
+//           .antMatchers("/user/addUser").permitAll()
+//           .antMatchers("/user/getAllUsers").permitAll()
+//           .antMatchers("/question/addQuestion").permitAll()
+//           .antMatchers("/question/getAllQuestion").permitAll()
+//           .antMatchers("/answer/addanswer").permitAll()
+//           .antMatchers("/chat/addMsg").permitAll()
+//           .antMatchers("/chat/getallmsg").permitAll()
+//           .antMatchers("/chat/getallmsgbetweenusers").permitAll()
+//           .antMatchers("/question/getQuestionById/**").permitAll()
+//           .antMatchers("/question/getQuestionByTitle/**").permitAll()
+//           .antMatchers("/question/getAllQuestionFalse").permitAll()
+//           .antMatchers("/question/updateQuestion/**").permitAll()
+//           .antMatchers("/question/deleteQuestionById/**").permitAll()
+//           .antMatchers("/answer/addAnswer").permitAll()
+//           .antMatchers("/answer/**/**/**").permitAll()
+//           .antMatchers("/answer/question/**").permitAll()
+//           .antMatchers("/answer/getAnswerById/**").permitAll()
+//           .antMatchers("/answer/updateAnswer/**").permitAll()
+//           .antMatchers("/question/deleteAnswerById/**").permitAll()
 
 

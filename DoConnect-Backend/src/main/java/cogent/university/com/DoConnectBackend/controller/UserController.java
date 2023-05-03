@@ -19,7 +19,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -51,14 +50,6 @@ public class UserController {
     @Autowired
     private JwtUtils jwtUtil;
 
-//        @PostMapping("/authenticate")
-//    public ResponseEntity<?> generateToken(@RequestBody AuthRequest request) throws Exception{
-//
-//
-//        return ResponseEntity.ok(new JwtResponse(null)
-//    }
-
-
     @PostMapping("/authenticate")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
 
@@ -82,17 +73,17 @@ public class UserController {
 
     @PostMapping("/addUser")
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignUpRequest signUpRequest) {
-//        if (userRepository.existsByUsername(signUpRequest.getUsername())) {
-//            return ResponseEntity
-//                    .badRequest()
-//                    .body(new MessageResponse("Error: Username is already taken!"));
-//        }
-//
-//        if (userRepository.existsByEmail(signUpRequest.getEmail())) {
-//            return ResponseEntity
-//                    .badRequest()
-//                    .body(new MessageResponse("Error: Email is already in use!"));
-//        }
+        if (userRepository.existsByUsername(signUpRequest.getUsername())) {
+            return ResponseEntity
+                    .badRequest()
+                    .body(new MessageResponse("Error: Username is already taken!"));
+        }
+
+        if (userRepository.existsByEmail(signUpRequest.getEmail())) {
+            return ResponseEntity
+                    .badRequest()
+                    .body(new MessageResponse("Error: Email is already in use!"));
+        }
 
         // Create new user's account
         User user = new User(signUpRequest.getName(),
@@ -128,11 +119,6 @@ public class UserController {
     }
 
 
-    //Add user
-//    @PostMapping("/addUser")
-//    public User addNewUser(@RequestBody User user){
-//        return userService.addNewUser(user);
-//    }
 
     //Get All Users
     @GetMapping("/getAllUsers")
