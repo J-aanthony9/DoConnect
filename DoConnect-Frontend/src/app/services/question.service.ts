@@ -3,22 +3,33 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 import { Question } from '../models/question.model';
-
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
+import { StorageService } from './storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class QuestionService {
 
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      // 'Authorization': 'Bearer ' + storageService.getuser
+    })
+  };
+
   private base_url = environment.BASE_URL;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private storageService: StorageService) {
+    const token = this.storageService.getUser().token;
+    
+    this.httpOptions.headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      // 'Authorization': 'Bearer ' + token
+    })
+  }
 
   createQuestion(data: any): Observable<any> {
-    return this.http.post(`${this.base_url}/question/addQuestion`, data, httpOptions);
+    return this.http.post(`${this.base_url}/question/addQuestion`, data, this.httpOptions);
     // return this.http.post(`${this.base_url}/user/authenticate`, data, httpOptions);
   }
 

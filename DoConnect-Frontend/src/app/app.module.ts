@@ -26,6 +26,7 @@ import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
 import { UserChatComponent } from './components/user-chat/user-chat.component';
+import { httpInterceptorProviders } from './services';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,7 @@ import { UserChatComponent } from './components/user-chat/user-chat.component';
     MatButtonModule,
     MatIconModule
   ],
-  providers: [DatePipe],
+  providers: [DatePipe, httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
