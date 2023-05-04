@@ -13,7 +13,7 @@ export class QuestionService {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      // 'Authorization': 'Bearer ' + storageService.getuser
+      // 'Authorization': 'Bearer ' + storageService.getuser().token
     })
   };
 
