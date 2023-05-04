@@ -41,8 +41,6 @@ export class CreateQuestionComponent {
       title: ['', Validators.required],
       topic: ['', Validators.required],
       description: ['', Validators.required],
-      image: ['', Validators.required],
-      fileSource: ['', Validators.required]
     });
 
     this.topics = topicArr;
@@ -56,12 +54,12 @@ export class CreateQuestionComponent {
 
   onSubmit(): void {
     this.created = true;
-    // if (this.questionForm.invalid) {
-    //   console.log("invalid");
-    //   return;
-    // } else {
+    if (this.questionForm.invalid) {
+      console.log("invalid");
+      return;
+    } else {
     this.createQuestion()
-    // }
+    }
   }
 
   // onFileChange(event: any) {
