@@ -1,45 +1,46 @@
 <div class="container">
-    <form class="d-flex">
-        <label id="selectTopicLabel" class="form-label">Search the question:</label>
-        <select id="selectTopic" class="form-control form-control-md" (change) = "onOptionsSelected($event)" name="topic">
-        
-          <option *ngFor="let topic of topics" >{{topic}}</option>
-         
-        </select>
-        <input id="searchbar" [(ngModel)]="searchInput" name="searchInput" class="form-control form-control-md" type="search" placeholder="Search Question...">
-        <button id="searchbutton" (click) = "searchBar(searchInput)" class="btn btn-outline-info buttonBGcolor" type="send">Search</button>
-    </form>
+  <form class="d-flex">
+    <label id="selectTopicLabel" class="form-label">Search the question:</label>
+    <select id="selectTopic" class="form-control form-control-md" (change)="onOptionsSelected($event)" name="topic">
+
+      <option *ngFor="let topic of topics">{{topic}}</option>
+
+    </select>
+    <input id="searchbar" [(ngModel)]="searchInput" name="searchInput" class="form-control form-control-md" type="search" placeholder="Search Question...">
+    <button id="searchbutton" (click)="searchBar(searchInput)" class="btn btn-outline-info buttonBGcolor" type="send">Search</button>
+  </form>
 </div>
 
 <div class="container tablecontainer">
-    <div class="row">
-      <div class="col-12">
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th scope="col">id</th>
-              <th scope="col">Topic</th>
-              <th scope="col">Title</th>
-              <th scope="col">Description</th>
-              <th scope="col">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let question of questionList" >
-              <ng-container *ngIf="question.status === 'true' ">
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Topic</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let question of questionList">
+            <ng-container *ngIf="question.status === 'true' ">
               <td class="tdPadding">{{question.id}}</td>
               <td class="tdPadding">{{question.topic}}</td>
               <td class="tdPadding">{{question.title}}</td>
               <td class="tdPadding">{{question.description_question}}</td>
               <td>
-                <button type="button" (click)="showDetails(question.id)" class="btn btn-primary buttonBGcolor">Show Detail</button>
+                <button type="button" (click)="showDetails(question.id)" class="btn btn-primary buttonBGcolor spacingButton">Answer Question</button>
+                <button type="button" (click)="answerDetails(question.id)" class="btn btn-primary buttonBGcolor spacingButton">Approved Answers</button>
               </td>
 
-              </ng-container>
-           
-            </tr>
-          </tbody>
-        </table>
-      </div>
+            </ng-container>
+
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
+</div>

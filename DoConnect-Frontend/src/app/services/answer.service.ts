@@ -26,7 +26,7 @@ export class AnswerService {
     return this.http.post(`${this.base_url}/answer/addAnswer`, data);
   }
 
-  assignAnswerToQuestion(questionId:any, data:any):Observable<any>{
+  assignAnswerToQuestion(questionId: any, data: any): Observable<any> {
     return this.http.put(`${this.base_url}/answer/question/${questionId}`, data);
   }
 
@@ -42,8 +42,8 @@ export class AnswerService {
     return this.http.put(`${this.base_url}/answer/updateAnswer/${id}`, data);
   }
 
-  getAnswerbyQuestionID(id: any): Observable<Answer> {
-    return this.http.get(`${this.base_url}/question/{id}`);
+  getAnswerbyQuestionID(id: any): Observable<Answer[]> {
+    return this.http.get<Answer[]>(`${this.base_url}/answer/question/${id}`);
   }
 
 

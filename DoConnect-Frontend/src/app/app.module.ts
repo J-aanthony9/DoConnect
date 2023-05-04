@@ -27,6 +27,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
 import { UserChatComponent } from './components/user-chat/user-chat.component';
 import { httpInterceptorProviders } from './services';
+import { AnswerListComponent } from './components/answer-list/answer-list.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { httpInterceptorProviders } from './services';
     HomeComponent,
     DashboardComponent,
     NoPageFoundComponent,
-    UserChatComponent
+    UserChatComponent,
+    AnswerListComponent
   ],
   imports: [
     BrowserModule,

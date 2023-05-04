@@ -1,0 +1,90 @@
+<div class="container">
+  <div class="card" id="createdQuestion">
+
+    <div class="card-header">Created Question</div>
+    <div class="card-body">
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <th scope="col">id</th>
+            <td class="tdPadding">{{question.id}}</td>
+          </tr>
+          <tr>
+            <th scope="col">Title</th>
+            <td class="tdPadding">{{question.title}}</td>
+          </tr>
+          <tr>
+            <th scope="col">Topic</th>
+            <td class="tdPadding">{{question.topic}}</td>
+          </tr>
+
+          <tr>
+            <th scope="col">Description</th>
+            <td class="tdPadding">{{question.description_question}}</td>
+          </tr>
+          <tr>
+            <th class="spacing" scope="col"></th>
+            <td class="tdPadding spacing"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <ng-container *ngIf="question.image_src">
+      <img [src]="question.image_src" alt="" height="300px" width="300px">
+      <div class="text-center mt-3">
+        <button id="downloadButton" type="submit" class="btn btn-lg btn-primary buttonBGcolor">Click to download</button>
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="container" *ngFor="let answer of answerList">
+    <ng-container *ngIf="answer.status === 'true' ">
+      <div class="card" id="answerContainer">
+
+        <div class="card-header">Approved Answer</div>
+        <div class="card-body">
+
+          <p> Description: {{answer.description_answer}} </p>
+          <p> Creator: {{answer.created_by}} </p>
+          <p> Image If Any: </p>
+          <div *ngIf="answer.image_src">
+            <img [src]="answer.image_src" alt="" height="300px" width="300px">
+            <div class="text-center mt-3">
+              <button id="downloadButton" type="submit" class="btn btn-lg btn-primary buttonBGcolor">Click to download</button>
+            </div>
+          </div>
+          <!-- <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">Description</th>
+                <th scope="col">Creator</th>
+                <th scope="col">Image If Any</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+
+                <td class="tdPadding">{{answer.id}}</td>
+                <td class="tdPadding">{{answer.description_answer}}</td>
+                <td class="tdPadding">{{answer.created_by}}</td>
+                <td class="tdPadding">{{answer.img_src}}</td>
+
+
+
+
+
+              </tr>
+            </tbody>
+          </table> -->
+        </div>
+        <!-- <ng-container *ngIf="question.image_src">
+          <img [src]="question.image_src" alt="" height="300px" width="300px">
+          <div class="text-center mt-3">
+            <button id="downloadButton" type="submit" class="btn btn-lg btn-primary buttonBGcolor">Click to download</button>
+          </div>
+        </ng-container> -->
+      </div>
+    </ng-container>
+  </div>
