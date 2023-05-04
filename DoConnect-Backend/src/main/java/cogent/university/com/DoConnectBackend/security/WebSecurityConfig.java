@@ -66,9 +66,9 @@ public class WebSecurityConfig  {
                 .antMatchers("/question/addQuestion").hasRole("USER")
                 .antMatchers("/question/getAllQuestion").hasRole("USER")
                 .antMatchers("/answer/addanswer").hasRole("USER")
-                .antMatchers("/chat/addMsg").hasRole("USER")
-                .antMatchers("/chat/getallmsg").hasRole("USER")
-                .antMatchers("/chat/getallmsgbetweenusers").hasRole("USER")
+                .antMatchers("/chat/addMsg").hasAnyRole("USER","ADMIN")
+                .antMatchers("/chat/getallmsg").hasAnyRole("USER","ADMIN")
+                .antMatchers("/chat/getallmsgbetweenusers").hasAnyRole("USER","ADMIN")
                 .antMatchers("/question/getQuestionById/**").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/question/getQuestionByTitle/**").hasRole("USER")
                 .antMatchers("/question/getAllQuestionFalse").hasRole("ADMIN")
@@ -78,7 +78,7 @@ public class WebSecurityConfig  {
                 .antMatchers("/answer/question/**").hasRole("USER")
                 .antMatchers("/answer/getAnswerById/**").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/answer/updateAnswer/**").hasRole("ADMIN")
-                .antMatchers("/question/deleteAnswerById/**").hasRole("ADMIN")
+                .antMatchers("/answer/deleteAnswerById/**").hasRole("ADMIN")
                 .anyRequest().authenticated();
 
         http.authenticationProvider(authenticationProvider());
