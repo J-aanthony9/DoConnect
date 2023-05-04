@@ -81,18 +81,6 @@ export class RegisterComponent implements OnInit {
       roles: ["user"]
     }
 
-
-
-
-    // if (val.email && val.password) {
-    //   this.authService.login(val.email, val.password)
-    //     .subscribe(
-    //       () => {
-    //         console.log("User is logged in");
-    //         this.router.navigateByUrl('/');
-    //       }
-    //     );
-
     this.userService.createUser(data).subscribe({
       next: (res) => {
         this.isSignUpFailed = false;

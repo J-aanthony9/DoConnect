@@ -62,7 +62,7 @@ public class WebSecurityConfig  {
                 .authorizeRequests()
                 .antMatchers("/user/authenticate").permitAll()
                 .antMatchers("/user/addUser").permitAll()
-                .antMatchers("/user/getAllUsers").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/user/getAllUsers").permitAll()
                 .antMatchers("/question/addQuestion").hasRole("USER")
                 .antMatchers("/question/getAllQuestion").hasRole("USER")
                 .antMatchers("/answer/addanswer").hasRole("USER")

@@ -59,7 +59,6 @@ export class LoginComponent implements OnInit {
   login() {
     const val = this.loginForm.value;
 
-
     this.authService.login(val)
       .subscribe({
         next: data => {
@@ -70,12 +69,8 @@ export class LoginComponent implements OnInit {
         },
         error: err => {
           this.isLoginFailed = true;
-          console.log(this.errMessage);
         }
-      }
-
-      );
-
+      });
   }
 
 
@@ -87,8 +82,6 @@ export class LoginComponent implements OnInit {
     } else {
       this.login()
     }
-
     // console.log(JSON.stringify(this.loginForm.value, null, 2));
-
   }
 }
