@@ -15,7 +15,7 @@
 
   <button *ngIf="isUser()" mat-raised-button id="signup" (click)="logOut()" color="success">Sign Out</button>
   <a *ngIf="isUser()" mat-raised-button routerLink="/login" id="login" color="success">{{storageService.getUser().username}}</a>
-  <a mat-button *ngIf="!storageService.isLoggedIn()">
+  <a mat-button routerLink="/home" *ngIf="!storageService.isLoggedIn()">
     <mat-icon>home
     </mat-icon>
     Home

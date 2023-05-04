@@ -64,7 +64,7 @@ export class DashboardComponent {
       this.signUpUser()
     }
 
-    console.log(JSON.stringify(this.registerForm.value, null, 2));
+    // console.log(JSON.stringify(this.registerForm.value, null, 2));
   }
 
 

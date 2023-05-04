@@ -21,14 +21,11 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.storageService.getUser().token);
-
-
   }
 
   isAdmin(): boolean {
     if (this.storageService.isLoggedIn()) {
-      return this.storageService.getUser().roles[0] == 'ROLE_ADMIN' ? true : false;
+      return this.storageService.getUser().roles.includes('ROLE_ADMIN') ? true : false;
     } else {
       return false;
     }
@@ -37,12 +34,11 @@ export class NavbarComponent implements OnInit {
 
   isUser(): boolean {
     if(this.storageService.isLoggedIn()){
-    return this.storageService.getUser().roles[0] == 'ROLE_USER' ? true : false;
+    return this.storageService.getUser().roles.includes('ROLE_USER') ? true : false;
     } else { return false;}
   }
 
   logOut() {
-    this.router.navigateByUrl('/home');
     return this.storageService.logout();
   }
 
