@@ -17,8 +17,8 @@ import { AnswerListComponent } from './components/answer-list/answer-list.compon
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'auth/register', component: RegisterComponent },
+  { path: 'auth/login', component: LoginComponent },
   { path: 'create_question', component: CreateQuestionComponent },
   { path: 'search', component: SearchComponent },
   { path: 'pending_question', component: PendingQuestionComponent },

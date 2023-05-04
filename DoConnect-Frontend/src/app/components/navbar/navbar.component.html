@@ -20,8 +20,8 @@
     </mat-icon>
     Home
   </a>
-  <a *ngIf="!storageService.isLoggedIn()" mat-raised-button routerLink="/register" id="signup" color="success">Sign-Up</a>
-  <a *ngIf="!storageService.isLoggedIn()" mat-raised-button routerLink="/login" id="login" color="success">Login</a>
+  <a *ngIf="!storageService.isLoggedIn()" mat-raised-button routerLink="/auth/register" id="signup" color="success">Sign-Up</a>
+  <a *ngIf="!storageService.isLoggedIn()" mat-raised-button routerLink="/auth/login" id="login" color="success">Login</a>
 
 
 

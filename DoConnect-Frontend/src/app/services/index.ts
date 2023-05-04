@@ -9,5 +9,4 @@ export const httpInterceptorProviders = [
   {
     provide: HTTP_INTERCEPTORS, useClass: AccessIntercepterService, multi:true
   }
-
 ]
