@@ -42,11 +42,12 @@ public class AnswerServiceImpl implements AnswerService {
     @Override
     public Answer addAnswer(Answer answer) {
 
-        try{
-            emailService.sendEmail("dksfja@gmail.com", "Need Approval for answer", "Please approve or deny this new answer");
-        } catch (Exception e ){
-            System.out.println(e);
-        }
+//
+//        try{
+//            emailService.sendEmail("dksfja@gmail.com", "Need Approval for answer", "Please approve or deny this new answer");
+//        } catch (Exception e ){
+//            System.out.println(e);
+//        }
 
         return answerRepository.save(answer);
 

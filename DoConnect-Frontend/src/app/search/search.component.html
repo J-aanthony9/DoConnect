@@ -6,12 +6,19 @@
       <option *ngFor="let topic of topics">{{topic}}</option>
 
     </select>
-    <input id="searchbar" [(ngModel)]="searchInput" name="searchInput" class="form-control form-control-md" type="search" placeholder="Search Question...">
-    <button id="searchbutton" (click)="searchBar(searchInput)" class="btn btn-outline-info buttonBGcolor" type="send">Search</button>
+    <input id="searchbar" [(ngModel)]="searchInput" name="searchInput" class="form-control form-control-md"
+      type="search" placeholder="Search Question...">
+    <button id="searchbutton" (click)="searchBar(searchInput)" class="btn btn-outline-info buttonBGcolor"
+      type="send">Search</button>
   </form>
 </div>
 
-<div class="container tablecontainer">
+<div class="p-5 text-center" *ngIf="isQuestionEmpty()">
+  <h1 class="mb-3">No question(s) to display, please add a question</h1>
+  <a class="btn btn-primary buttonBGcolor" routerLink="/create_question" role="button">Add a question here!</a>
+</div>
+
+<div class="container tablecontainer" *ngIf="!isQuestionEmpty() ">
   <div class="row">
     <div class="col-12">
       <table class="table table-bordered">
@@ -32,8 +39,10 @@
               <td class="tdPadding">{{question.title}}</td>
               <td class="tdPadding">{{question.description_question}}</td>
               <td>
-                <button type="button" (click)="showDetails(question.id)" class="btn btn-primary buttonBGcolor spacingButton">Answer Question</button>
-                <button type="button" (click)="answerDetails(question.id)" class="btn btn-primary buttonBGcolor spacingButton">Approved Answers</button>
+                <button type="button" (click)="showDetails(question.id)"
+                  class="btn btn-primary buttonBGcolor spacingButton">Answer Question</button>
+                <button type="button" (click)="answerDetails(question.id)"
+                  class="btn btn-primary buttonBGcolor spacingButton">Approved Answers</button>
               </td>
 
             </ng-container>

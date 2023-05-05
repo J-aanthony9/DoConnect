@@ -57,8 +57,8 @@ export class QuestionService {
     return this.http.get<Question>(`${this.base_url}/question/getQuestionById/${id}`);
   }
 
-  getQuestionByTitle(title:any): Observable<Question[]>{
-    return this.http.get<Question[]>(`${this.base_url}/question/getQuestionByTitle?title=${title}`);
+  getQuestionByTitle(title:any, topic:any): Observable<Question[]>{
+    return this.http.get<Question[]>(`${this.base_url}/question/getQuestionByTitle?title=${title}&topic=${topic}`);
   }
 
 
