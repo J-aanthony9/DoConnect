@@ -43,8 +43,13 @@ export class CreateQuestionComponent {
       description: ['', Validators.required],
     });
 
+    this.isUserAndLoggedIn();
     this.topics = topicArr;
-
+  }
+  isUserAndLoggedIn(){
+    if(!(this.storageService.isLoggedIn() && this.storageService.getUser().roles.includes('ROLE_USER')) ){
+      this.router.navigateByUrl('/home');
+    }
   }
 
 

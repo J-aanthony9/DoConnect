@@ -40,8 +40,6 @@ export class StorageService {
 
   public logout() {
     window.sessionStorage.removeItem("auth-user");
-    this.route.navigateByUrl('/home');
-    // window.sessionStorage.removeItem("token");
   }
 
 

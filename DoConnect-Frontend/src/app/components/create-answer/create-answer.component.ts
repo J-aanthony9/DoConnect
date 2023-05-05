@@ -59,6 +59,12 @@ export class CreateAnswerComponent {
         this.question = data;
       }
     })
+    this.isUserAndLoggedIn();
+  }
+  isUserAndLoggedIn(){
+    if(!(this.storageService.isLoggedIn() && this.storageService.getUser().roles.includes('ROLE_USER')) ){
+      this.router.navigateByUrl('/home');
+    }
   }
 
   get f(): { [key: string]: AbstractControl } {

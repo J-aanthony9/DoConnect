@@ -4,6 +4,7 @@ import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -22,7 +23,11 @@ export class DashboardComponent {
   });
   submitted = false;
 
-  constructor(private userService: UserService, private fb: FormBuilder, private authService: AuthService, private router: Router) {
+  constructor(private userService: UserService, 
+    private fb: FormBuilder,
+     private authService: AuthService,
+      private router: Router,
+      private storageService:StorageService) {
   }
   ngOnInit(): void {
     this.registerForm = this.fb.group({
@@ -49,6 +54,13 @@ export class DashboardComponent {
       ]
     });
 
+    this.isAdminAndLoggedIn();
+  }
+
+  isAdminAndLoggedIn(){
+    if(!(this.storageService.isLoggedIn() && this.storageService.getUser().roles.includes('ROLE_ADMIN')) ){
+      this.router.navigateByUrl('/home');
+    }
   }
 
   get f(): { [key: string]: AbstractControl } {
