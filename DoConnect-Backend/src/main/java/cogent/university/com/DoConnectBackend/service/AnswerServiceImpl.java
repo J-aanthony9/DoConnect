@@ -66,6 +66,13 @@ public class AnswerServiceImpl implements AnswerService {
     @Override
     public Answer updateAnswer(Answer answer, Long id) {
 
+//
+//        try{
+//            emailService.sendEmail("dksfja@gmail.com", "Your answer has been approved", "Congrats your answer has been approved.");
+//        } catch (Exception e ){
+//            System.out.println(e);
+//        }
+
 
 
         Answer answerDb = answerRepository.findById(id).get();
@@ -92,6 +99,15 @@ public class AnswerServiceImpl implements AnswerService {
 //    }
     @Override
     public void deleteAnswerById(long id) {
+
+
+//        try{
+//            emailService.sendEmail("dksfja@gmail.com", "Your answer has been denied", "Please submit a valid answer");
+//        } catch (Exception e ){
+//            System.out.println(e);
+//        }
+
+
         Answer answer = answerRepository.findById(id).orElse(null);
         answerRepository.delete(answer);
     }
