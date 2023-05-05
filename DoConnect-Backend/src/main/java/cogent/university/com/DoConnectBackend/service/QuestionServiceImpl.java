@@ -107,8 +107,8 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
-    public List<Question> searchQuestions(String title) {
-      return (List<Question>) questionRepository.searchQuestion(title);
+    public List<Question> searchQuestions(String title, String topic) {
+      return questionRepository.searchQuestion(title, topic);
     }
 
 

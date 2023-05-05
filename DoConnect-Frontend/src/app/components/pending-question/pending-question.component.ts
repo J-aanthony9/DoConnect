@@ -27,6 +27,11 @@ export class PendingQuestionComponent implements OnInit {
 
   }
 
+  
+  isQuestionEmpty():Boolean {
+    return this.questions.length==0 ? true : false;
+  }
+
   isAdminAndLoggedIn(){
     if(!(this.storageService.isLoggedIn() && this.storageService.getUser().roles.includes('ROLE_ADMIN')) ){
       this.route.navigateByUrl('/home');

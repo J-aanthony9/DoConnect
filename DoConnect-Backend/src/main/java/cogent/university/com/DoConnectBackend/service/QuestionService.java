@@ -20,7 +20,7 @@ public interface QuestionService {
 
     public Question getQuestionById(long id);
 
-    public List<Question> searchQuestions(String title);
+    public List<Question> searchQuestions(String title, String topic);
 
 
 

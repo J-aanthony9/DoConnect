@@ -16,6 +16,6 @@ public interface QuestionRepository extends JpaRepository<Question, Long> {
 
 
 	@Query("SELECT q FROM Question q WHERE " +
-			"q.title LIKE CONCAT('%',:title, '%')")
-	List<Question> searchQuestion(String title);
+			"q.title LIKE CONCAT('%',:title, '%') AND q.topic=:topic")
+	List<Question> searchQuestion(String title, String topic);
 }

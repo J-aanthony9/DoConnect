@@ -12,31 +12,34 @@ import { topicArr } from 'src/assets/topics';
 export class SearchComponent implements OnInit {
 
   questionList: Question[] = [];
+  searchQuestionList: Question[] = [];
   searchInput: string = "";
   topics: string[] = [];
   selected: string = '';
 
-
-
-  // question:Question = {
-  //   id:0,
-  //   topic:"",
-  //   title:"",
-  //   description_question:""
-  // }
 
   constructor(private questionService: QuestionService,
     private router: Router) {
   }
 
   ngOnInit(): void {
+    console.log(this.questionList);
 
     this.topics = topicArr;
     this.getQuestion();
   }
 
+  isQuestionEmpty(): Boolean {
+    return this.questionList.length == 0 ? true : false;
+  }
+
+  isSearchQuestionListEmpty(){
+    return this.searchQuestionList.length == 0 ? true : false;
+  }
+
+
   searchBar(title: any) {
-    this.questionService.getQuestionByTitle(title).subscribe({
+    this.questionService.getQuestionByTitle(title, this.selected).subscribe({
       next: (res) => {
         this.questionList = res;
       }

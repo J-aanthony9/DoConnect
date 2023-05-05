@@ -1,4 +1,8 @@
-<div class="tablecontainer">
+<div class="p-5 text-center" *ngIf="isAnswersEmpty()">
+  <h1 class="mb-3">No Pending Answer(s) at this time</h1>
+  <!-- <a class="btn btn-primary buttonBGcolor" routerLink="/create_question" role="button">Add a question here!</a> -->
+</div>
+<div class="tablecontainer" *ngIf="!isAnswersEmpty()">
   <div class="row">
     <div class="col-12">
       <table class="table table-bordered">

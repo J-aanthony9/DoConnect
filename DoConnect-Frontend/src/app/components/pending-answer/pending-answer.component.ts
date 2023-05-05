@@ -7,14 +7,14 @@ import { StorageService } from 'src/app/services/storage.service';
 @Component({
   selector: 'app-pending-answer',
   templateUrl: './pending-answer.component.html',
-  styleUrls: ['./pending-answer.component.css','../pending-question/pending-question.component.css']
+  styleUrls: ['./pending-answer.component.css', '../pending-question/pending-question.component.css']
 })
 export class PendingAnswerComponent implements OnInit {
-  answers:Answer[]=[];
-  answer:Answer={};
-  constructor(private answerService:AnswerService,
-    private route:Router,
-    private storageService:StorageService){}
+  answers: Answer[] = [];
+  answer: Answer = {};
+  constructor(private answerService: AnswerService,
+    private route: Router,
+    private storageService: StorageService) { }
 
   ngOnInit(): void {
     this.getAllAnswer();
@@ -23,38 +23,44 @@ export class PendingAnswerComponent implements OnInit {
 
   }
 
-  isAdminAndLoggedIn(){
-    if(!(this.storageService.isLoggedIn() && this.storageService.getUser().roles.includes('ROLE_ADMIN')) ){
+  isAnswersEmpty(): Boolean {
+    return this.answers.length == 0 ? true : false;
+
+  }
+
+
+  isAdminAndLoggedIn() {
+    if (!(this.storageService.isLoggedIn() && this.storageService.getUser().roles.includes('ROLE_ADMIN'))) {
       this.route.navigateByUrl('/home');
     }
   }
 
 
-  getAllAnswer(){
+  getAllAnswer() {
     this.answerService.getAllAnswerFalse().subscribe({
-      next: (res) =>{
-        this.answers = res;  
+      next: (res) => {
+        this.answers = res;
       }
     });
   }
 
-  approveAnswer(data:any, id:any){
+  approveAnswer(data: any, id: any) {
     this.answer = data;
     this.answer.status = "true";
     this.answer.approved_by = ""
     this.answer.approved_by = this.storageService.getUser().username;
     this.answerService.updateAnswer(id, data).subscribe({
-      next: (res)=>{
+      next: (res) => {
         this.getAllAnswer();
         this.route.navigateByUrl('/pending_answer');
       }
     });
   }
 
-  removeAnswer(id:any){
+  removeAnswer(id: any) {
     this.answerService.deleteAnswer(id).subscribe({
-      next:(res)=>{
-        this.getAllAnswer(); 
+      next: (res) => {
+        this.getAllAnswer();
         this.route.navigateByUrl('/pending_answer');
       }
     })

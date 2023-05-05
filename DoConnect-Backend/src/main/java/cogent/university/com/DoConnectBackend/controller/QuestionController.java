@@ -70,7 +70,8 @@ public class QuestionController {
 		return qs.getQuestionById(id);
 	}
 	@GetMapping("/getQuestionByTitle")
-	public List<Question> getQuestionByTitle(@RequestParam("title") String title){
-		return  qs.searchQuestions(title);
+	public List<Question> getQuestionByTitle(@RequestParam("title") String title,
+											 @RequestParam("topic") String topic){
+		return  qs.searchQuestions(title, topic);
 	}
 }

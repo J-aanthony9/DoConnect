@@ -1,7 +1,12 @@
-<div class="tablecontainer">
+<div class="p-5 text-center" *ngIf="isQuestionEmpty()">
+  <h1 class="mb-3">No Pending Question(s) at this time</h1>
+  <!-- <a class="btn btn-primary buttonBGcolor" routerLink="/create_question" role="button">Add a question here!</a> -->
+</div>
+<div class="tablecontainer" *ngIf="!isQuestionEmpty()">
   <div class="row">
     <div class="col-12">
-      <table class="table table-bordered">
+      <!-- <p class="h1" >No Pending Question</p> -->
+      <table class="table table-bordered" >
         <thead>
           <tr>
             <th scope="col">id</th>
@@ -16,7 +21,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let question of questions">
-          <!-- <ng-container *ngIf="question.status === 'false'"> -->
+            <!-- <ng-container *ngIf="question.status === 'false'"> -->
             <td class="tdPadding">{{question.id}}</td>
             <td class="tdPadding">
               <img [src]="question.image_src" alt="No Image" height="100px" width="200px">
@@ -27,8 +32,10 @@
             <td class="tdPadding">{{question.qcreated_by}}</td>
             <td class="tdPadding">{{question.datetime}}</td>
             <td>
-              <button type="button" (click)="approveQuestion(question, question.id)"class="btn btn-success pendingButton">Approve</button>
-              <button type="button" (click)="removeQuestion(question.id)" class="btn btn-danger pendingButton">Remove</button>
+              <button type="button" (click)="approveQuestion(question, question.id)"
+                class="btn btn-success pendingButton">Approve</button>
+              <button type="button" (click)="removeQuestion(question.id)"
+                class="btn btn-danger pendingButton">Remove</button>
             </td>
             <!-- </ng-container> -->
           </tr>
