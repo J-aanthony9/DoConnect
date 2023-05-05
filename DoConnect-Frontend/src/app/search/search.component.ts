@@ -13,28 +13,34 @@ export class SearchComponent implements OnInit {
 
   questionList: Question[] = [];
   searchQuestionList: Question[] = [];
+  filteredQuestions: Question[] = [];
   searchInput: string = "";
   topics: string[] = [];
   selected: string = '';
-
+  flag:Boolean = false;
 
   constructor(private questionService: QuestionService,
     private router: Router) {
   }
 
   ngOnInit(): void {
-    console.log(this.questionList);
 
     this.topics = topicArr;
     this.getQuestion();
+
+
   }
 
   isQuestionEmpty(): Boolean {
-    return this.questionList.length == 0 ? true : false;
-  }
+    // for(let q of this.questionList){
+    //   if(q.status == 'false'){
+    //     return false;
+    //   }
+    // }
+    const filteredQuestions = this.questionList.filter(q => q.status === 'true');
 
-  isSearchQuestionListEmpty(){
-    return this.searchQuestionList.length == 0 ? true : false;
+
+   return filteredQuestions.length == 0 ? true : false;
   }
 
 
@@ -50,7 +56,6 @@ export class SearchComponent implements OnInit {
   getQuestion() {
     this.questionService.getAllQuestion().subscribe({
       next: (res) => {
-        console.log(res);
         this.questionList = res;
       }
     });
@@ -85,7 +90,6 @@ export class SearchComponent implements OnInit {
     this.questionService.getQuestionTopic(topic).subscribe({
       next: (res) => {
         this.questionList = res;
-        console.log(this.questionList);
       }
     })
   }
