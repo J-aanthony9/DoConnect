@@ -13,11 +13,12 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { UserChatComponent } from './components/user-chat/user-chat.component';
+import { AnswerListComponent } from './components/answer-list/answer-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'auth/register', component: RegisterComponent },
+  { path: 'auth/login', component: LoginComponent },
   { path: 'create_question', component: CreateQuestionComponent },
   { path: 'search', component: SearchComponent },
   { path: 'pending_question', component: PendingQuestionComponent },
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'chat', component: ChatComponent },
   { path: 'chat/:username', component: ChatComponent },
   { path: 'userchat', component: UserChatComponent },
+  { path: 'answers/:id', component: AnswerListComponent },
   { path: '**', component: NoPageFoundComponent }
 
 ];

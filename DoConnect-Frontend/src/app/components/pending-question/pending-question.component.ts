@@ -22,6 +22,15 @@ export class PendingQuestionComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllQuestions();
+    this.isAdminAndLoggedIn();
+
+
+  }
+
+  isAdminAndLoggedIn(){
+    if(!(this.storageService.isLoggedIn() && this.storageService.getUser().roles.includes('ROLE_ADMIN')) ){
+      this.route.navigateByUrl('/home');
+    }
   }
 
 

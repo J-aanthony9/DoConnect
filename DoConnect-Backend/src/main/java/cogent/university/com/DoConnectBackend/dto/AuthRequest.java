@@ -1,4 +1,4 @@
-package cogent.university.com.DoConnectBackend.entity;
+package cogent.university.com.DoConnectBackend.dto;
 
 
 public class AuthRequest {

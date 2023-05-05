@@ -1,4 +1,11 @@
+INSERT INTO roles(name) VALUES('ROLE_USER');
+INSERT INTO roles(name) VALUES('ROLE_ADMIN');
 
-INSERT INTO user_tbl (name, username, password, email, usertype) VALUES ("admin", "admin", "adminn", "dksfja@gmail.com", "admin");
+
+
+
+
+
+
 
 

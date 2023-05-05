@@ -20,11 +20,7 @@ export class AuthService {
   constructor(private http: HttpClient) {
   }
 
-  user:User = {
-    id:undefined,
-    username:undefined,
-    usertype:undefined  
-  }
+  
   
 
   login(Data: any): Observable<User> {

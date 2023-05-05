@@ -15,8 +15,8 @@ public class QuestionServiceImpl implements QuestionService {
     @Autowired
     private QuestionRepository questionRepository;
 
-    @Autowired
-    EmailService emailService;
+//    @Autowired
+//    EmailService emailService;
 
     @Autowired
     UserServiceImpl userService;
@@ -25,11 +25,11 @@ public class QuestionServiceImpl implements QuestionService {
     @Override
     public Question addQuestion(Question question) {
 
-        try{
-            emailService.sendEmail("dksfja@gmail.com", "New Question For Review", "Please approve or deny this new question");
-        } catch (Exception e ){
-            System.out.println(e);
-        }
+//        try{
+//            emailService.sendEmail("dksfja@gmail.com", "New Question For Review", "Please approve or deny this new question");
+//        } catch (Exception e ){
+//            System.out.println(e);
+//        }
 
 
 

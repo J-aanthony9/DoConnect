@@ -18,7 +18,8 @@
                   <!-- Name -->
                   <div class="mb-3 form-group">
                     <label class="form-label">Name</label>
-                    <input class="form-control form-control-lg" formControlName='name' type="text" placeholder="Enter your name" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" />
+                    <input class="form-control form-control-lg" formControlName='name' type="text"
+                      placeholder="Enter your name" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" />
                     <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
                       <div *ngIf="f['name'].errors['required']">Name is required</div>
                     </div>
@@ -27,7 +28,9 @@
                   <!-- Username -->
                   <div class="mb-3 form-group">
                     <label class="form-label">Username</label>
-                    <input class="form-control form-control-lg" type="text" formControlName="username" placeholder="Enter your username" [ngClass]="{ 'is-invalid': submitted && f['username'].errors }" />
+                    <input class="form-control form-control-lg" type="text" formControlName="username"
+                      placeholder="Enter your username"
+                      [ngClass]="{ 'is-invalid': submitted && f['username'].errors }" />
                     <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
                       <div *ngIf="f['username'].errors['required']">Username is required</div>
                       <div *ngIf="f['username'].errors['minlength']">
@@ -41,7 +44,9 @@
                   <!-- Password -->
                   <div class="mb-3 form-group">
                     <label class="form-label">Password</label>
-                    <input class="form-control form-control-lg" type="password" formControlName="password" placeholder="Enter your password" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" />
+                    <input class="form-control form-control-lg" type="password" formControlName="password"
+                      placeholder="Enter your password"
+                      [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" />
                     <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
                       <div *ngIf="f['password'].errors['required']">Password is required</div>
                       <div *ngIf="f['password'].errors['minlength']">
@@ -55,7 +60,8 @@
                   <!-- Email -->
                   <div class="mb-3 form-group">
                     <label class="form-label">Email</label>
-                    <input class="form-control form-control-lg" type="text" formControlName="email" placeholder="Enter your email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
+                    <input class="form-control form-control-lg" type="text" formControlName="email"
+                      placeholder="Enter your email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
                     <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
                       <div *ngIf="f['email'].errors['required']">Email is required</div>
                       <div *ngIf="f['email'].errors['email']">Email is invalid</div>
@@ -70,10 +76,14 @@
                       Up</button>
                   </div>
 
+                  <div class="alert alert-warning" *ngIf="submitted && isSignUpFailed">
+                    Signup failed!<br />{{ errorMessage }}
+                  </div>
+
 
                 </form>
                 <div>
-                  <p id="loginuser"> Already on DoConnect? <a routerLink="/login">Log In</a></p>
+                  <p id="loginuser"> Already on DoConnect? <a routerLink="/auth/login">Log In</a></p>
                 </div>
               </div>
             </div>

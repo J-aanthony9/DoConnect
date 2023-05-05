@@ -29,9 +29,9 @@ export class UserService {
     return this.http.get<User>(`${this.base_url}/user/${name}`);
   }
 
-  getAllUserByType(usertype: string): Observable<User[]> {
-    return this.http.get<User[]>(`${this.base_url}/user/getAllByUserType/${usertype}`);
-  }
+  // getAllUserByType(usertype: string): Observable<User[]> {
+  //   return this.http.get<User[]>(`${this.base_url}/user/getAllByUserType/${usertype}`);
+  // }
 
   updateUser(data: any, id: any): Observable<any> {
     return this.http.put(`${this.base_url}/user/updateuser/${id}`, data);

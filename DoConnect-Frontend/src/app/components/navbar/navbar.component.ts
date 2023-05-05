@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { StorageService } from 'src/app/services/storage.service';
 
@@ -11,11 +10,7 @@ import { StorageService } from 'src/app/services/storage.service';
 })
 export class NavbarComponent implements OnInit {
   token: string | null = '';
-  // data:User = {
-  //   id:0,
-  //   username:'',
-  //   usertype:''
-  // }
+
 
 
   constructor(
@@ -25,24 +20,28 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-
   }
 
+
   isAdmin(): boolean {
-    return this.storageService.getUser().usertype == 'admin' ? true : false;
+    if (this.storageService.isLoggedIn()) {
+      return this.storageService.getUser().roles.includes('ROLE_ADMIN') ? true : false;
+    } else {
+      return false;
+    }
   }
 
   isUser(): boolean {
-    return this.storageService.getUser().usertype == 'user' ? true : false;
+    if (this.storageService.isLoggedIn()) {
+      return this.storageService.getUser().roles.includes('ROLE_USER') ? true : false;
+    } else {
+      return false;
+    }
   }
 
   logOut() {
-    this.router.navigateByUrl('/home');
-    return this.storageService.logout();
+    this.storageService.logout();
+    return this.router.navigateByUrl('/home');
   }
-
-
-
 
 }

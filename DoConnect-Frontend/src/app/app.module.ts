@@ -26,6 +26,8 @@ import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
 import { UserChatComponent } from './components/user-chat/user-chat.component';
+import { httpInterceptorProviders } from './services';
+import { AnswerListComponent } from './components/answer-list/answer-list.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,8 @@ import { UserChatComponent } from './components/user-chat/user-chat.component';
     HomeComponent,
     DashboardComponent,
     NoPageFoundComponent,
-    UserChatComponent
+    UserChatComponent,
+    AnswerListComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,7 @@ import { UserChatComponent } from './components/user-chat/user-chat.component';
     MatButtonModule,
     MatIconModule
   ],
-  providers: [DatePipe],
+  providers: [DatePipe, httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

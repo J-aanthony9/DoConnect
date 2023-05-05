@@ -12,11 +12,11 @@ import { topicArr } from 'src/assets/topics';
 export class SearchComponent implements OnInit {
 
   questionList: Question[] = [];
-  searchInput:string="";
-  topics:string[]=[];
-  selected:string ='';
-  
-   
+  searchInput: string = "";
+  topics: string[] = [];
+  selected: string = '';
+
+
 
   // question:Question = {
   //   id:0,
@@ -24,18 +24,18 @@ export class SearchComponent implements OnInit {
   //   title:"",
   //   description_question:""
   // }
-  
+
   constructor(private questionService: QuestionService,
-    private router:Router){
-    }
+    private router: Router) {
+  }
 
   ngOnInit(): void {
-      
+
     this.topics = topicArr;
     this.getQuestion();
   }
 
-  searchBar(title:any){
+  searchBar(title: any) {
     this.questionService.getQuestionByTitle(title).subscribe({
       next: (res) => {
         this.questionList = res;
@@ -54,7 +54,7 @@ export class SearchComponent implements OnInit {
   }
 
 
-  showDetails(id:any){ 
+  showDetails(id: any) {
     // this.router.navigate(["/add-user"], {state: {data:this.user}})
     this.router.navigate(["/create_answer/" + id]);
     // this.userService.updateUser(id, user).subscribe({
@@ -62,16 +62,25 @@ export class SearchComponent implements OnInit {
     // })
   }
 
-  onOptionsSelected(event:any){
+  answerDetails(id: any) {
+    // this.router.navigate(["/add-user"], {state: {data:this.user}})
+    this.router.navigate(["/answers/" + id]);
+    // this.userService.updateUser(id, user).subscribe({
+    //   next:(res)=>console.log(res)
+    // })
+  }
+
+
+  onOptionsSelected(event: any) {
     const value = event.target.value;
     this.selected = value;
     this.getQuestionByTopic(this.selected);
 
   }
 
-  getQuestionByTopic(topic: string){
+  getQuestionByTopic(topic: string) {
     this.questionService.getQuestionTopic(topic).subscribe({
-      next: (res) =>{
+      next: (res) => {
         this.questionList = res;
         console.log(this.questionList);
       }

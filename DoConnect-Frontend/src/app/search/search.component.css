@@ -1,36 +1,48 @@
-#searchbar, #searchbutton,#selectTopic, #selectTopicLabel {
-    margin-top:20px;
+#searchbar,
+#searchbutton,
+#selectTopic,
+#selectTopicLabel {
+  margin-top: 20px;
 }
 
 #searchbutton {
-    padding: 0px 30px;
+  padding: 0px 30px;
 
 }
 
-#selectTopic{
-    width: 20%; 
+#selectTopic {
+  width: 20%;
 }
 
-#selectTopicLabel{
-    width: 20%;
-    padding-top:5.5px;
-    padding-left:20px;
+#selectTopicLabel {
+  width: 20%;
+  padding-top: 5.5px;
+  padding-left: 20px;
 }
 
-.tablecontainer{
-    margin-top:50px;
+.tablecontainer {
+  margin-top: 50px;
 }
 
-th{
-    background-color: black;
-    color:white;
+th {
+  background-color: black;
+  color: white;
 }
 
-.tdPadding{
-    padding-top:15px;
+.tdPadding {
+  padding-top: 15px;
+  padding-right: 50px;
+
 }
 
-table, th, td{
-    border: 1px solid black;
+table,
+th,
+td {
+  border: 1px solid black;
 }
 
+.spacingButton {
+
+  margin-left: 150px;
+
+}

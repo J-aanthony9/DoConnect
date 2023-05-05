@@ -35,9 +35,12 @@
                   <div class="text-center mt-3">
                     <button type="submit" id="signinbutton" class="btn btn-lg btn-primary">Sign in</button>
                   </div>
+                  <div *ngIf="submitted && isLoginFailed" class="alert alert-danger" role="alert">
+                    Login failed: {{ errMessage }}
+                  </div>
                 </form>
                 <div>
-                  <p id="newuser"> New to DoConnect? <a routerLink="/register">Join Now</a></p>
+                  <p id="newuser"> New to DoConnect? <a routerLink="/auth/register">Join Now</a></p>
                 </div>
               </div>
             </div>

@@ -41,12 +41,15 @@ export class CreateQuestionComponent {
       title: ['', Validators.required],
       topic: ['', Validators.required],
       description: ['', Validators.required],
-      image: ['', Validators.required],
-      fileSource: ['', Validators.required]
     });
 
+    this.isUserAndLoggedIn();
     this.topics = topicArr;
-
+  }
+  isUserAndLoggedIn(){
+    if(!(this.storageService.isLoggedIn() && this.storageService.getUser().roles.includes('ROLE_USER')) ){
+      this.router.navigateByUrl('/home');
+    }
   }
 
 
@@ -56,12 +59,12 @@ export class CreateQuestionComponent {
 
   onSubmit(): void {
     this.created = true;
-    // if (this.questionForm.invalid) {
-    //   console.log("invalid");
-    //   return;
-    // } else {
+    if (this.questionForm.invalid) {
+      console.log("invalid");
+      return;
+    } else {
     this.createQuestion()
-    // }
+    }
   }
 
   // onFileChange(event: any) {
