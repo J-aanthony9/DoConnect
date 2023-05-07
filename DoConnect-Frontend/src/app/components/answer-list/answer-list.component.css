@@ -9,3 +9,30 @@
   background-color: white;
   text-align: center;
 }
+
+.centered-box {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  background-color: #552583;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.centered-box p {
+  text-align: center;
+}
+
+.my-button{
+  color: black;
+  background-color: #FDB927;
+  border-radius: 5px;
+}
+
+.centerImage{
+  margin-bottom: 20px;
+  display: block;
+  margin-left: auto !important;
+  margin-right: auto;
+  width: 50%;
+}

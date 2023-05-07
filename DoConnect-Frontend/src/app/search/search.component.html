@@ -2,9 +2,8 @@
   <form class="d-flex">
     <label id="selectTopicLabel" class="form-label">Search the question:</label>
     <select id="selectTopic" class="form-control form-control-md" (change)="onOptionsSelected($event)" name="topic">
-
+      <option value="" disabled selected>All Topics</option>
       <option *ngFor="let topic of topics">{{topic}}</option>
-
     </select>
     <input id="searchbar" [(ngModel)]="searchInput" name="searchInput" class="form-control form-control-md"
       type="search" placeholder="Search Question...">
@@ -12,6 +11,7 @@
       type="send">Search</button>
   </form>
 </div>
+
 
 <div class="p-5 text-center" *ngIf="isQuestionEmpty()">
   <h1 class="mb-3">No question(s) to display, please add a question</h1>
