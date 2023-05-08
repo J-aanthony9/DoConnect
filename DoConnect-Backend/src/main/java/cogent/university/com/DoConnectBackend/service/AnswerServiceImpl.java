@@ -42,12 +42,12 @@ public class AnswerServiceImpl implements AnswerService {
     @Override
     public Answer addAnswer(Answer answer) {
 
-//
-//        try{
-//            emailService.sendEmail("dksfja@gmail.com", "Need Approval for answer", "Please approve or deny this new answer");
-//        } catch (Exception e ){
-//            System.out.println(e);
-//        }
+
+        try{
+            emailService.sendEmail("zomgitzjohn@gmail.com", "Need Approval for answer", "Please approve or deny this new answer");
+        } catch (Exception e ){
+            System.out.println(e);
+        }
 
         return answerRepository.save(answer);
 
@@ -66,12 +66,12 @@ public class AnswerServiceImpl implements AnswerService {
     @Override
     public Answer updateAnswer(Answer answer, Long id) {
 
-//
-//        try{
-//            emailService.sendEmail("dksfja@gmail.com", "Your answer has been approved", "Congrats your answer has been approved.");
-//        } catch (Exception e ){
-//            System.out.println(e);
-//        }
+
+        try{
+            emailService.sendEmail("dksfja@gmail.com", "Your answer has been approved", "Congrats your answer has been approved.");
+        } catch (Exception e ){
+            System.out.println(e);
+        }
 
 
 
@@ -101,11 +101,11 @@ public class AnswerServiceImpl implements AnswerService {
     public void deleteAnswerById(long id) {
 
 
-//        try{
-//            emailService.sendEmail("dksfja@gmail.com", "Your answer has been denied", "Please submit a valid answer");
-//        } catch (Exception e ){
-//            System.out.println(e);
-//        }
+        try{
+            emailService.sendEmail("dksfja@gmail.com", "Your answer has been denied", "Please submit a valid answer");
+        } catch (Exception e ){
+            System.out.println(e);
+        }
 
 
         Answer answer = answerRepository.findById(id).orElse(null);

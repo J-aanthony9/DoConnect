@@ -24,14 +24,12 @@ public class QuestionServiceImpl implements QuestionService {
     // add question to repository
     @Override
     public Question addQuestion(Question question) {
-//
-//        try{
-//            emailService.sendEmail("dksfja@gmail.com", "New Question For Review", "Please approve or deny this new question");
-//        } catch (Exception e ){
-//            System.out.println(e);
-//        }
 
-
+        try{
+            emailService.sendEmail("zomgitzjohn@gmail.com", "New Question For Review", "Please approve or deny this new question");
+        } catch (Exception e ){
+            System.out.println(e);
+        }
 
         return questionRepository.save(question);
 
@@ -41,12 +39,12 @@ public class QuestionServiceImpl implements QuestionService {
     // update question to repository
     @Override
     public Question updateQuestion(Question q, long id) {
-//
-//        try{
-//            emailService.sendEmail("dksfja@gmail.com", "Your question has been approved", "Congrats your question has been approved");
-//        } catch (Exception e ){
-//            System.out.println(e);
-//        }
+
+        try{
+            emailService.sendEmail("dksfja@gmail.com", "Your question has been approved", "Congrats your question has been approved");
+        } catch (Exception e ){
+            System.out.println(e);
+        }
     	
 //    	if(!questionRepository.findById(id).isEmpty()) {
     		
@@ -77,12 +75,12 @@ public class QuestionServiceImpl implements QuestionService {
     // delete question by id
     @Override
     public void deleteQuestionById(long id) {
-//
-//        try{
-//            emailService.sendEmail("dksfja@gmail.com", "Your question has been denied", "Please submit a valid question");
-//        } catch (Exception e ){
-//            System.out.println(e);
-//        }
+
+        try{
+            emailService.sendEmail("dksfja@gmail.com", "Your question has been denied", "Please submit a valid question");
+        } catch (Exception e ){
+            System.out.println(e);
+        }
 
 
         Question q = questionRepository.findById(id);
