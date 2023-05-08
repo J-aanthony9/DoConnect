@@ -4,6 +4,7 @@ import { QuestionService } from 'src/app/services/question.service';
 import { ActivatedRoute } from '@angular/router';
 import { Answer } from 'src/app/models/answer.model';
 import { AnswerService } from 'src/app/services/answer.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-answer-list',
@@ -11,7 +12,6 @@ import { AnswerService } from 'src/app/services/answer.service';
   styleUrls: ['./answer-list.component.css']
 })
 export class AnswerListComponent {
-
   answerList: Answer[] = [];
 
   question: Question = {
@@ -20,22 +20,21 @@ export class AnswerListComponent {
     topic: "",
     image_src: "",
     description_question: ""
-  }
+  };
 
   constructor(
     private questionService: QuestionService,
     private answerService: AnswerService,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+    private router: Router) {
   }
 
   ngOnInit(): void {
-
-
     this.questionService.getQuestionById(this.route.snapshot.paramMap.get('id')).subscribe({
       next: (data) => {
         this.question = data;
       }
-    })
+    });
 
     this.getAnswer(this.route.snapshot.paramMap.get('id'));
   }
@@ -48,7 +47,6 @@ export class AnswerListComponent {
     });
   }
 
-
   getAnswer(id: any) {
     this.answerService.getAnswerbyQuestionID(id).subscribe({
       next: (res) => {
@@ -58,4 +56,8 @@ export class AnswerListComponent {
     });
   }
 
+  createAnswer(questionId: number) {
+    this.router.navigateByUrl(`/create_answer/${questionId}`);
+  }
+  
 }
